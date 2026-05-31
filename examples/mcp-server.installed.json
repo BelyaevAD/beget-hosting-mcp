@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "beget-hosting": {
+      "command": "beget-hosting-mcp",
+      "args": [],
+      "env": {
+        "BEGET_LOGIN": "your-login",
+        "BEGET_API_PASSWORD": "your-api-password"
+      }
+    }
+  }
+}

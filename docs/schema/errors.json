@@ -1,0 +1,51 @@
+{
+  "top_level_envelope": {
+    "status": "success|error",
+    "answer": "Method execution envelope when top-level status is success",
+    "error_text": "Human-readable error message when status is error",
+    "error_code": "Numeric error code when status is error"
+  },
+  "method_envelope": {
+    "status": "success|error",
+    "result": "Method-specific payload when method status is success",
+    "errors": "List of method-level errors when method status is error"
+  },
+  "request_error_codes": [
+    {
+      "code": "AUTH_ERROR",
+      "meaning": "Authentication failed or required login/passwd parameters are invalid.",
+      "source": "docs/source-pages/obshhij-princzip-raboty-s-api.md"
+    },
+    {
+      "code": "INCORRECT_REQUEST",
+      "meaning": "The API request is malformed or uses invalid top-level request parameters.",
+      "source": "docs/source-pages/obshhij-princzip-raboty-s-api.md"
+    },
+    {
+      "code": "NO_SUCH_METHOD",
+      "meaning": "The requested API method does not exist.",
+      "source": "docs/source-pages/obshhij-princzip-raboty-s-api.md"
+    }
+  ],
+  "method_error_codes": [
+    {
+      "code": "INVALID_DATA",
+      "meaning": "Validation failed for method input data.",
+      "source": "docs/source-pages/obshhij-princzip-raboty-s-api.md"
+    },
+    {
+      "code": "LIMIT_ERROR",
+      "meaning": "A limit was reached, including account limits or the documented API limit of no more than 60 requests per minute per user.",
+      "source": "docs/source-pages/obshhij-princzip-raboty-s-api.md"
+    },
+    {
+      "code": "METHOD_FAILED",
+      "meaning": "Internal error while executing the method.",
+      "source": "docs/source-pages/obshhij-princzip-raboty-s-api.md"
+    }
+  ],
+  "notes": [
+    "Wrapper code must check both the top-level response status and the nested method status in answer.",
+    "Wrapper exceptions should expose raw error_code/error_text for top-level failures and raw errors for method-level failures."
+  ]
+}

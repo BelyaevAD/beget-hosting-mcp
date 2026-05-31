@@ -1,0 +1,1418 @@
+[
+  {
+    "slug": "beget-api",
+    "section": "overview",
+    "title": "Beget.API Хостинга",
+    "source_url": "https://beget.com/ru/kb/api/beget-api",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/beget-api/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/beget-api.md",
+    "published_at": "2020-06-24T12:41:40+03:00",
+    "modified_at": "2025-09-02T10:54:12+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "API – что это такое"
+      },
+      {
+        "level": 2,
+        "text": "Что можно сделать, используя Beget.API"
+      }
+    ]
+  },
+  {
+    "slug": "obshhij-princzip-raboty-s-api",
+    "section": "principles",
+    "title": "Принципы работы с API",
+    "source_url": "https://beget.com/ru/kb/api/obshhij-princzip-raboty-s-api",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/obshhij-princzip-raboty-s-api/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/obshhij-princzip-raboty-s-api.md",
+    "published_at": "2020-07-01T14:31:55+03:00",
+    "modified_at": "2026-03-30T10:09:36+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "Способ взаимодействия"
+      },
+      {
+        "level": 2,
+        "text": "Передача параметров, обязательные параметры"
+      },
+      {
+        "level": 2,
+        "text": "Дополнительные параметры запроса"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова метода"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова метода"
+      },
+      {
+        "level": 2,
+        "text": "Обработка ответа"
+      },
+      {
+        "level": 3,
+        "text": "Общий результат выполнения запроса"
+      },
+      {
+        "level": 3,
+        "text": "Возможные коды ошибок"
+      },
+      {
+        "level": 3,
+        "text": "Результат выполнения метода"
+      },
+      {
+        "level": 3,
+        "text": "Используемые коды ошибок"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-upravleniya-akkauntom",
+    "section": "user",
+    "title": "Управление аккаунтом по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-akkauntom",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-akkauntom/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-upravleniya-akkauntom.md",
+    "published_at": "2020-07-09T12:59:15+03:00",
+    "modified_at": "2025-09-02T11:05:44+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getAccountInfo"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "toggleSsh"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-upravleniya-bekapami",
+    "section": "backup",
+    "title": "Управление бэкапами по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-bekapami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-upravleniya-bekapami.md",
+    "published_at": "2020-07-09T15:57:51+03:00",
+    "modified_at": "2025-09-02T11:31:55+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getFileBackupList"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getMysqlBackupList"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getFileList"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getMysqlList"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "restoreFile"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "restoreMysql"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "downloadFile"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "downloadMysql"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getLog"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-upravleniya-cron",
+    "section": "cron",
+    "title": "Управление Cron по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-cron/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-upravleniya-cron.md",
+    "published_at": "2020-07-09T17:39:02+03:00",
+    "modified_at": "2025-09-02T11:42:42+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getList"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "add"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример запуска php-скрипта test.php каждую минуту"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 3,
+        "text": "Пример запуска php-скрипта test.pl 13 января в 10 часов 1 минуту, если этот день вторник"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "edit"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "delete"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "changeHiddenState"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getEmail"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "setEmail"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-upravleniya-dns",
+    "section": "dns",
+    "title": "Управление DNS по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-dns",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-dns/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-upravleniya-dns.md",
+    "published_at": "2020-07-09T17:57:15+03:00",
+    "modified_at": "2025-09-02T12:00:34+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getData"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "changeRecords"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "1. A-, MX-, TXT-записи"
+      },
+      {
+        "level": 3,
+        "text": "2. NS-записи (для поддоменов)"
+      },
+      {
+        "level": 3,
+        "text": "3. CNAME-запись (для поддоменов)"
+      },
+      {
+        "level": 3,
+        "text": "4. DNS-записи (для доменов, находящихся на обслуживании BeGet)"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-upravleniya-ftp",
+    "section": "ftp",
+    "title": "Управление FTP по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-ftp",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-ftp/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-upravleniya-ftp.md",
+    "published_at": "2020-07-09T18:12:56+03:00",
+    "modified_at": "2025-09-02T12:01:55+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getList"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "add"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "changePassword"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "delete"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-upravleniya-mysql",
+    "section": "mysql",
+    "title": "Управление MySQL по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-mysql",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-mysql/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-upravleniya-mysql.md",
+    "published_at": "2020-07-09T18:57:32+03:00",
+    "modified_at": "2025-09-02T12:04:11+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getList"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "addDb"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "addAccess"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "dropDb"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "dropAccess"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "changeAccessPassword"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-upravleniya-sajtami",
+    "section": "site",
+    "title": "Управление сайтами по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-sajtami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-upravleniya-sajtami.md",
+    "published_at": "2020-07-09T19:18:08+03:00",
+    "modified_at": "2025-09-02T12:07:06+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getList"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "add"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "delete"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "linkDomain"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "unlinkDomain"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "freeze"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "unfreeze"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "isSiteFrozen"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-dlya-raboty-s-domenami",
+    "section": "domain",
+    "title": "Управление доменами по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "published_at": "2020-07-10T13:31:09+03:00",
+    "modified_at": "2025-09-02T12:10:47+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getList"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getZoneList"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "addVirtual"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "delete"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getSubdomainList"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "addSubdomainVirtual"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "deleteSubdomain"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "checkDomainToRegister"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 3,
+        "text": "Примечание"
+      },
+      {
+        "level": 2,
+        "text": "getPhpVersion"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "changePhpVersion"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getDirectives"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "addDirectives"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "removeDirectives"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-dlya-raboty-s-pochtoj",
+    "section": "mail",
+    "title": "Управление почтой по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "published_at": "2020-07-10T14:12:17+03:00",
+    "modified_at": "2025-09-02T12:14:14+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getMailboxList"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "changeMailboxPassword"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "createMailbox"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "dropMailbox"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "changeMailboxSettings"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "forwardListAddMailbox"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "forwardListDeleteMailbox"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "forwardListShow"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "setDomainMail"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "clearDomainMail"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  },
+  {
+    "slug": "funkczii-dlya-sbora-statistiki",
+    "section": "stat",
+    "title": "Сбор статистики по API",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "local_file": "docs/source-pages/funkczii-dlya-sbora-statistiki.md",
+    "published_at": "2020-07-10T16:11:54+03:00",
+    "modified_at": "2026-05-03T19:05:58+03:00",
+    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "headings": [
+      {
+        "level": 2,
+        "text": "getSiteListLoad"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getDbListLoad"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getSiteLoad"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      },
+      {
+        "level": 2,
+        "text": "getDbLoad"
+      },
+      {
+        "level": 3,
+        "text": "Описание"
+      },
+      {
+        "level": 3,
+        "text": "Дополнительные параметры"
+      },
+      {
+        "level": 3,
+        "text": "Пример вызова"
+      },
+      {
+        "level": 3,
+        "text": "Пример ответа"
+      }
+    ]
+  }
+]

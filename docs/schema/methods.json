@@ -1,0 +1,1295 @@
+[
+  {
+    "section": "user",
+    "method": "getAccountInfo",
+    "endpoint": "https://api.beget.com/api/user/getAccountInfo",
+    "endpoint_method": "getAccountInfo",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-akkauntom",
+    "source_page": "../source-pages/funkczii-upravleniya-akkauntom.md",
+    "anchor": "getaccountinfo",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/user/getAccountInfo?login=userlogin&passwd=password&output_format=json",
+      "\"plan_name\": \"Great\", // Имя тарифа\n \"user_sites\": 7, // Фактическое кол-во сайтов\n \"plan_site\": 25, // Максимальное кол-во сайтов\n \"user_domains\": 4, // Фактическое кол-во доменов\n \"plan_domain\": 2147483647, // Максимальное кол-во доменов\n \"user_mysqlsize\": 153, // Фактический объем БД MySQL\n \"plan_mysql\": 2147483647, // Максимальное кол-во БД MySQL\n \"user_quota\": 1283, // Размер использованной дисковой квоты\n \"plan_quota\": 10000, // Максимальный размер дисковой квоты\n \"user_ftp\": 6, // Фактическое кол-во FTP-аккаунтов\n \"plan_ftp\": 25, // Максимальное кол-во FTP-аккаунтов\n \"user_mail\": 18, // Фактическое кол-во почтовых ящиков\n \"plan_mail\": 2147483647, // Максимальное кол-во почтовых ящиков\n \"user_bash\": \"\\/bin\\/bash\", // Используемая командная оболочка\n \"plan_cp\": 400, // Максимальная допустимая нагрузка по аккаунту\n \"user_rate_current\": \"12.66\", // Текущая стоимость тарифного плана в сутки\n \"user_is_year_plan\": \"0\", // Используется ли годовая скидка\n \"user_rate_year\": 4620, // Текущая стоимость тарифа в год\n \"user_rate_month\": 385, // Текущая стоимость тарифа в месяц\n \"user_balance\": 1339.57, // Текущий баланс пользователя\n \"user_days_to_block\": 4865, // Количество дней до блокировки\n \"server_apache_version\": \" Apache\\/2.2.23 (Unix)\", // Версия Apache\n \"server_mysql_version\": \"5.1.68\", // Версия MySQL\n \"server_nginx_version\": \"nginx\\/1.1.0\", // Версия Nginx\n \"server_perl_version\": \"v5.10.1\", // Версия Perl\n \"server_php_version\": \"5.2.17\", // Версия PHP\n \"server_python_version\": \"Python 2.6.6\", // Версия Python\n \"server_name\": \"germes\", // Имя сервера\n \"server_cpu_name\": \"24 * Intel(R) Xeon(R) CPU X5660 @ 2.80GHz\", // Процессора\n \"server_memory\": \"96747\", // Кол-во оперативной памяти (Мб)\n \"server_memorycurrent\": 4944, // Кол-во используемой оперативной памяти\n \"server_loadaverage\": \"4.05\", // Текущая нагрузка Load Average\n \"server_uptime\": \"18\" // Аптайм"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/user/getAccountInfo?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает информацию о тарифном плане пользователя, о некоторых параметрах сервера, на котором пользователь размещается в данный момент, и используемых лимитах на нем.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/user/getAccountInfo?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n \"plan_name\": \"Great\", // Имя тарифа\n \"user_sites\": 7, // Фактическое кол-во сайтов\n \"plan_site\": 25, // Максимальное кол-во сайтов\n \"user_domains\": 4, // Фактическое кол-во доменов\n \"plan_domain\": 2147483647, // Максимальное кол-во доменов\n \"user_mysqlsize\": 153, // Фактический объем БД MySQL\n \"plan_mysql\": 2147483647, // Максимальное кол-во БД MySQL\n \"user_quota\": 1283, // Размер использованной дисковой квоты\n \"plan_quota\": 10000, // Максимальный размер дисковой квоты\n \"user_ftp\": 6, // Фактическое кол-во FTP-аккаунтов\n \"plan_ftp\": 25, // Максимальное кол-во FTP-аккаунтов\n \"user_mail\": 18, // Фактическое кол-во почтовых ящиков\n \"plan_mail\": 2147483647, // Максимальное кол-во почтовых ящиков\n \"user_bash\": \"\\/bin\\/bash\", // Используемая командная оболочка\n \"plan_cp\": 400, // Максимальная допустимая нагрузка по аккаунту\n \"user_rate_current\": \"12.66\", // Текущая стоимость тарифного плана в сутки\n \"user_is_year_plan\": \"0\", // Используется ли годовая скидка\n \"user_rate_year\": 4620, // Текущая стоимость тарифа в год\n \"user_rate_month\": 385, // Текущая стоимость тарифа в месяц\n \"user_balance\": 1339.57, // Текущий баланс пользователя\n \"user_days_to_block\": 4865, // Количество дней до блокировки\n \"server_apache_version\": \" Apache\\/2.2.23 (Unix)\", // Версия Apache\n \"server_mysql_version\": \"5.1.68\", // Версия MySQL\n \"server_nginx_version\": \"nginx\\/1.1.0\", // Версия Nginx\n \"server_perl_version\": \"v5.10.1\", // Версия Perl\n \"server_php_version\": \"5.2.17\", // Версия PHP\n \"server_python_version\": \"Python 2.6.6\", // Версия Python\n \"server_name\": \"germes\", // Имя сервера\n \"server_cpu_name\": \"24 * Intel(R) Xeon(R) CPU X5660 @ 2.80GHz\", // Процессора\n \"server_memory\": \"96747\", // Кол-во оперативной памяти (Мб)\n \"server_memorycurrent\": 4944, // Кол-во используемой оперативной памяти\n \"server_loadaverage\": \"4.05\", // Текущая нагрузка Load Average\n \"server_uptime\": \"18\" // Аптайм\n```\n\nВ некоторых полях (например, plan_domain) может стоять значение **2147483647** – это означает, что лимита на этот параметр не существует.\n"
+  },
+  {
+    "section": "user",
+    "method": "toggleSsh",
+    "endpoint": "https://api.beget.com/api/user/toggleSsh",
+    "endpoint_method": "toggleSsh",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-akkauntom",
+    "source_page": "../source-pages/funkczii-upravleniya-akkauntom.md",
+    "anchor": "togglessh",
+    "side_effectful": true,
+    "examples": [
+      "https://api.beget.com/api/user/toggleSsh?login=userlogin&passwd=password&status=0&output_format=json\n\nhttps://api.beget.com/api/user/toggleSsh?login=userlogin&passwd=password&status=1&ftplogin=ftploginname&output_format=json",
+      "\"status\": \"success\",\n\"answer\": {\n\t\t\"status\": \"success\",\n\t\t\"result\": [\n\t\t]\n\t}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/user/toggleSsh?login=userlogin&passwd=password&status=0&output_format=json",
+      "https://api.beget.com/api/user/toggleSsh?login=userlogin&passwd=password&status=1&ftplogin=ftploginname&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод включает или выключает SSH, если нет дополнительного параметра ftplogin - для основного аккаунта, с ftplogin - для указанного ftp аккаунта.\n\n### Дополнительные параметры\n\n- **status** 1 – включить, 0 - выключить;\n\n- **ftplogin** – login ftp аккаунта, если передан, включает\\отключает доступ к ftp аккаунту по SSH, если не передан, включает\\отключает доступ по SSH к основному аккаунту пользователя.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/user/toggleSsh?login=userlogin&passwd=password&status=0&output_format=json\n\nhttps://api.beget.com/api/user/toggleSsh?login=userlogin&passwd=password&status=1&ftplogin=ftploginname&output_format=json\n```\n\n### Пример ответа\n\n```text\n\"status\": \"success\",\n\"answer\": {\n\t\t\"status\": \"success\",\n\t\t\"result\": [\n\t\t]\n\t}\n```\n"
+  },
+  {
+    "section": "backup",
+    "method": "getFileBackupList",
+    "endpoint": "https://api.beget.com/api/backup/getFileBackupList",
+    "endpoint_method": "getFileBackupList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "getfilebackuplist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/backup/getFileBackupList?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"backup_id\": 14508595,\n \"date\": \"2014-11-05 01:05:09\"\n },\n {\n \"backup_id\": 14216570,\n \"date\": \"2014-10-31 03:13:49\"\n },\n {\n \"backup_id\": 14132477,\n \"date\": \"2014-10-30 00:56:25\"\n },\n {\n \"backup_id\": 14077266,\n \"date\": \"2014-10-28 01:33:42\"\n },\n {\n \"backup_id\": 14009305,\n \"date\": \"2014-10-26 01:38:26\"\n },\n {\n \"backup_id\": 13574406,\n \"date\": \"2014-10-16 06:13:29\"\n }\n ]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/getFileBackupList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "Метод возвращает доступный список резервных файловых копий.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/backup/getFileBackupList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"backup_id\": 14508595,\n \"date\": \"2014-11-05 01:05:09\"\n },\n {\n \"backup_id\": 14216570,\n \"date\": \"2014-10-31 03:13:49\"\n },\n {\n \"backup_id\": 14132477,\n \"date\": \"2014-10-30 00:56:25\"\n },\n {\n \"backup_id\": 14077266,\n \"date\": \"2014-10-28 01:33:42\"\n },\n {\n \"backup_id\": 14009305,\n \"date\": \"2014-10-26 01:38:26\"\n },\n {\n \"backup_id\": 13574406,\n \"date\": \"2014-10-16 06:13:29\"\n }\n ]\n```\n"
+  },
+  {
+    "section": "backup",
+    "method": "getMysqlBackupList",
+    "endpoint": "https://api.beget.com/api/backup/getMysqlBackupList",
+    "endpoint_method": "getMysqlBackupList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "getmysqlbackuplist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/backup/getMysqlBackupList?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"backup_id\": 14508571,\n \"date\": \"2014-11-05 01:04:16\"\n },\n {\n \"backup_id\": 14216543,\n \"date\": \"2014-10-31 03:12:44\"\n },\n {\n \"backup_id\": 14132466,\n \"date\": \"2014-10-30 00:55:43\"\n },\n {\n \"backup_id\": 14077252,\n \"date\": \"2014-10-28 01:31:53\"\n },\n {\n \"backup_id\": 14009290,\n \"date\": \"2014-10-26 01:28:59\"\n },\n {\n \"backup_id\": 13713103,\n \"date\": \"2014-10-19 05:11:13\"\n },\n {\n \"backup_id\": 13574391,\n \"date\": \"2014-10-16 05:59:31\"\n }\n ]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/getMysqlBackupList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "Метод возвращает доступный список резервных копий баз mysql.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/backup/getMysqlBackupList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"backup_id\": 14508571,\n \"date\": \"2014-11-05 01:04:16\"\n },\n {\n \"backup_id\": 14216543,\n \"date\": \"2014-10-31 03:12:44\"\n },\n {\n \"backup_id\": 14132466,\n \"date\": \"2014-10-30 00:55:43\"\n },\n {\n \"backup_id\": 14077252,\n \"date\": \"2014-10-28 01:31:53\"\n },\n {\n \"backup_id\": 14009290,\n \"date\": \"2014-10-26 01:28:59\"\n },\n {\n \"backup_id\": 13713103,\n \"date\": \"2014-10-19 05:11:13\"\n },\n {\n \"backup_id\": 13574391,\n \"date\": \"2014-10-16 05:59:31\"\n }\n ]\n```\n"
+  },
+  {
+    "section": "backup",
+    "method": "getFileList",
+    "endpoint": "https://api.beget.com/api/backup/getFileList",
+    "endpoint_method": "getFileList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "getfilelist",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/getFileList?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={\"path\":\"/site.ru/public_html\",\"backup_id\":14508595}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/getFileList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22path%22%3A%22%2Fsite.ru%2Fpublic_html%22%2C%22backup_id%22%3A14508595%7D",
+      "[\n {\n \"name\": \".cache\",\n \"is_dir\": 1,\n \"mtime\": \"2012-12-25 18:35:05\",\n \"size\": 4096\n },\n {\n \"name\": \".ssh\",\n \"is_dir\": 1,\n \"mtime\": \"2014-08-06 13:59:14\",\n \"size\": 4096\n },\n {\n \"name\": \"ftputil\",\n \"is_dir\": 1,\n \"mtime\": \"2014-08-07 13:06:09\",\n \"size\": 4096\n {\n \"name\": \"testlogo.png\",\n \"is_dir\": 0,\n \"mtime\": \"2013-02-13 11:02:13\",\n \"size\": 18623\n },\n {\n \"name\": \"textarea.js\",\n \"is_dir\": 0,\n \"mtime\": \"2013-04-05 18:14:18\",\n \"size\": 1321\n },\n {\n \"name\": \"tree-bottom.png\",\n \"is_dir\": 0,\n \"mtime\": \"2013-04-05 18:14:18\",\n \"size\": 976\n },\n {\n \"name\": \"update.php\",\n \"is_dir\": 0,\n \"mtime\": \"2014-01-16 15:56:36\",\n \"size\": 25457\n }\n ]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/getFileList?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={",
+      "https://api.beget.com/api/backup/getFileList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22path%22%3A%22%2Fsite.ru%2Fpublic_html%22%2C%22backup_id%22%3A14508595%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод возвращает список файлов и директорий из резервной копии по заданному пути и идентификатору.\n\n### Дополнительные параметры\n\n- **backup_id** – идентификатор резервной копии backup_id, если не задан – значит листинг идет по текущей копии;\n\n- **path** – путь от корня домашней директории (например \"/site.ru/public_html\").\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/getFileList?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={\"path\":\"/site.ru/public_html\",\"backup_id\":14508595}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/getFileList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22path%22%3A%22%2Fsite.ru%2Fpublic_html%22%2C%22backup_id%22%3A14508595%7D\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"name\": \".cache\",\n \"is_dir\": 1,\n \"mtime\": \"2012-12-25 18:35:05\",\n \"size\": 4096\n },\n {\n \"name\": \".ssh\",\n \"is_dir\": 1,\n \"mtime\": \"2014-08-06 13:59:14\",\n \"size\": 4096\n },\n {\n \"name\": \"ftputil\",\n \"is_dir\": 1,\n \"mtime\": \"2014-08-07 13:06:09\",\n \"size\": 4096\n {\n \"name\": \"testlogo.png\",\n \"is_dir\": 0,\n \"mtime\": \"2013-02-13 11:02:13\",\n \"size\": 18623\n },\n {\n \"name\": \"textarea.js\",\n \"is_dir\": 0,\n \"mtime\": \"2013-04-05 18:14:18\",\n \"size\": 1321\n },\n {\n \"name\": \"tree-bottom.png\",\n \"is_dir\": 0,\n \"mtime\": \"2013-04-05 18:14:18\",\n \"size\": 976\n },\n {\n \"name\": \"update.php\",\n \"is_dir\": 0,\n \"mtime\": \"2014-01-16 15:56:36\",\n \"size\": 25457\n }\n ]\n```\n\nВозвращается массив объектов, каждый объект состоит из следующих элементов:\n\n- **name** – имя файла или папки;\n\n- **is_dir** – признак файл это (0) или папка (1);\n\n- **mtime** – время создания файла в формате \"Y-m-d H:i:s\";\n\n- **size** – размер в байтах.\n"
+  },
+  {
+    "section": "backup",
+    "method": "getMysqlList",
+    "endpoint": "https://api.beget.com/api/backup/getMysqlList",
+    "endpoint_method": "getMysqlList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "getmysqllist",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/getMysqlList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":14216543}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/getMysqlList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14216543%7D",
+      "[\n \"db_test111\",\n \"db_test\",\n \"db_opca2\",\n \"db_btrx\"\n ]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/getMysqlList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/backup/getMysqlList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14216543%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод возвращает список баз данных из резервной копии по заданному идентификатору.\n\n### Дополнительные параметры\n\n- **backup_id** – идентификатор резервной копии backup_id, если не задан – значит листинг идет по текущей копии.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/getMysqlList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":14216543}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/getMysqlList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14216543%7D\n```\n\n### Пример ответа\n\n```text\n[\n \"db_test111\",\n \"db_test\",\n \"db_opca2\",\n \"db_btrx\"\n ]\n```\n\nВозвращается список имен баз данных.\n"
+  },
+  {
+    "section": "backup",
+    "method": "restoreFile",
+    "endpoint": "https://api.beget.com/api/backup/restoreFile",
+    "endpoint_method": "restoreFile",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "restorefile",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/restoreFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":14508595,\"paths\":[\"/site.ru/public_html/\",\"/site2.ru/public_html/\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/restoreFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14508595%2C%22paths%22%3A%5B%22%2Fsite.ru%2Fpublic_html%2F%22%2C%22%2Fsite2.ru%2Fpublic_html%2F%22%5D%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/restoreFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/backup/restoreFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14508595%2C%22paths%22%3A%5B%22%2Fsite.ru%2Fpublic_html%2F%22%2C%22%2Fsite2.ru%2Fpublic_html%2F%22%5D%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод создает заявку на восстановление данных из резервной копии по заданному пути и резервной копии.\n\n### Дополнительные параметры\n\n- **backup_id** – идентификатор резервной копии backup_id;\n\n- **paths** – массив (одно или несколько значений) путей для восстановления от корня домашней директории (например \"/site.ru/public_html\").\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/restoreFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":14508595,\"paths\":[\"/site.ru/public_html/\",\"/site2.ru/public_html/\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/restoreFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14508595%2C%22paths%22%3A%5B%22%2Fsite.ru%2Fpublic_html%2F%22%2C%22%2Fsite2.ru%2Fpublic_html%2F%22%5D%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nКак видим, этот метод управления бэкапами по API позволяет создать заявку на восстановление данных из резервной копии по нужному пути.\n"
+  },
+  {
+    "section": "backup",
+    "method": "restoreMysql",
+    "endpoint": "https://api.beget.com/api/backup/restoreMysql",
+    "endpoint_method": "restoreMysql",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "restoremysql",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/restoreMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":\"14132466\",\"bases\":[\"db_test\",\"db_test2\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/restoreMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A%2214132466%22%2C%22bases%22%3A%5B%22db_test%22%2C%22db_test2%22%5D%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/restoreMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/backup/restoreMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A%2214132466%22%2C%22bases%22%3A%5B%22db_test%22%2C%22db_test2%22%5D%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод создает заявку на восстановление БД из резервной копии по заданному имени БД и идентификатору резервной копии.\n\n### Дополнительные параметры\n\n- **backup_id** – идентификатор резервной копии backup_id;\n\n- **bases** – массив (одно или несколько значений) имен баз данных MySQL для восстановления.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/restoreMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":\"14132466\",\"bases\":[\"db_test\",\"db_test2\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/restoreMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A%2214132466%22%2C%22bases%22%3A%5B%22db_test%22%2C%22db_test2%22%5D%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "backup",
+    "method": "downloadFile",
+    "endpoint": "https://api.beget.com/api/backup/downloadFile",
+    "endpoint_method": "downloadFile",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "downloadfile",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/downloadFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":14508595,\"paths\":[\"/site.ru/public_html/\",\"/site2.ru/public_html/\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/downloadFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14508595%2C%22paths%22%3A%5B%22%2Fsite.ru%2Fpublic_html%2F%22%2C%22%2Fsite2.ru%2Fpublic_html%2F%22%5D%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/downloadFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/backup/downloadFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14508595%2C%22paths%22%3A%5B%22%2Fsite.ru%2Fpublic_html%2F%22%2C%22%2Fsite2.ru%2Fpublic_html%2F%22%5D%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод создает заявку на загрузку и выкладывание данных из резервной копии в корень аккаунта.\n\n### Дополнительные параметры\n\n- **backup_id** – идентификатор резервной копии backup_id (необязательный), если не указан то используется текущая копия;\n\n- **paths** – массив (одно или несколько значений) путей для восстановления от корня домашней директории (например \"/site.ru/public_html\").\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/downloadFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":14508595,\"paths\":[\"/site.ru/public_html/\",\"/site2.ru/public_html/\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/downloadFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14508595%2C%22paths%22%3A%5B%22%2Fsite.ru%2Fpublic_html%2F%22%2C%22%2Fsite2.ru%2Fpublic_html%2F%22%5D%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "backup",
+    "method": "downloadMysql",
+    "endpoint": "https://api.beget.com/api/backup/downloadMysql",
+    "endpoint_method": "downloadMysql",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "downloadmysql",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/downloadMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":14216543,\"bases\":[\"db_test\", \"db_test2\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/downloadMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14216543%2C%22bases%22%3A%5B%22db_test%22%2C+%22db_test2%22%5D%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/downloadMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/backup/downloadMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14216543%2C%22bases%22%3A%5B%22db_test%22%2C+%22db_test2%22%5D%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод создает заявку на загрузку и выкладывание данных из резервной копии в корень аккаунта.\n\n### Дополнительные параметры\n\n- **backup_id** – идентификатор резервной копии backup_id (необязательный), если не указан то используется текущая копия;\n\n- **bases** – массив (одно или несколько значений) имен баз данных MySQL для восстановления.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/backup/downloadMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"backup_id\":14216543,\"bases\":[\"db_test\", \"db_test2\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/backup/downloadMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14216543%2C%22bases%22%3A%5B%22db_test%22%2C+%22db_test2%22%5D%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "backup",
+    "method": "getLog",
+    "endpoint": "https://api.beget.com/api/backup/getLog",
+    "endpoint_method": "getLog",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
+    "source_page": "../source-pages/funkczii-upravleniya-bekapami.md",
+    "anchor": "getlog",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/backup/getLog?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"id\": 80240,\n \"operation\": \"download\",\n \"type\": \"download_mysql\",\n \"date_create\": \"2014-11-05 14:22:13\",\n \"target_list\": [\n \"db_opca2\"\n ],\n \"status\": \"success\"\n },\n {\n \"id\": 80239,\n \"operation\": \"download\",\n \"type\": \"download_file\",\n \"date_create\": \"2014-11-05 14:17:11\",\n \"target_list\": [\n \"/site.ru/public_html\",\n \"/site2.ru/public_html\"\n ],\n \"status\": \"success\"\n },\n {\n \"id\": 32904,\n \"operation\": \"restore\",\n \"type\": \"restore_mysql\",\n \"date_create\": \"2014-11-05 14:00:44\",\n \"target_list\": [\n \"db_test\",\n \"db_opca2\"\n ],\n \"status\": \"success\"\n },\n {\n \"id\": 32901,\n \"operation\": \"restore\",\n \"type\": \"restore_file\",\n \"date_create\": \"2014-11-05 13:55:20\",\n \"target_list\": [\n \"/site.ru/public_html\",\n \"/site2.ru/public_html\"\n ],\n \"status\": \"success\"\n },\n {\n \"id\": 13457,\n \"operation\": \"restore\",\n \"type\": \"restore_file\",\n \"date_create\": \"2014-06-23 17:18:21\",\n \"target_list\": [\n \"/site.ru/public_html\",\n \"/site2.ru/public_html\"\n ],\n \"status\": \"success\"\n }\n ]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/backup/getLog?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "Метод возвращает список и статусы заданий по восстановлению и загрузке.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/backup/getLog?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"id\": 80240,\n \"operation\": \"download\",\n \"type\": \"download_mysql\",\n \"date_create\": \"2014-11-05 14:22:13\",\n \"target_list\": [\n \"db_opca2\"\n ],\n \"status\": \"success\"\n },\n {\n \"id\": 80239,\n \"operation\": \"download\",\n \"type\": \"download_file\",\n \"date_create\": \"2014-11-05 14:17:11\",\n \"target_list\": [\n \"/site.ru/public_html\",\n \"/site2.ru/public_html\"\n ],\n \"status\": \"success\"\n },\n {\n \"id\": 32904,\n \"operation\": \"restore\",\n \"type\": \"restore_mysql\",\n \"date_create\": \"2014-11-05 14:00:44\",\n \"target_list\": [\n \"db_test\",\n \"db_opca2\"\n ],\n \"status\": \"success\"\n },\n {\n \"id\": 32901,\n \"operation\": \"restore\",\n \"type\": \"restore_file\",\n \"date_create\": \"2014-11-05 13:55:20\",\n \"target_list\": [\n \"/site.ru/public_html\",\n \"/site2.ru/public_html\"\n ],\n \"status\": \"success\"\n },\n {\n \"id\": 13457,\n \"operation\": \"restore\",\n \"type\": \"restore_file\",\n \"date_create\": \"2014-06-23 17:18:21\",\n \"target_list\": [\n \"/site.ru/public_html\",\n \"/site2.ru/public_html\"\n ],\n \"status\": \"success\"\n }\n ]\n```\n\nВозвращается массив объектов, каждый объект состоит из следующих элементов:\n\n- **id** – идентификатор заявки восстановления / скачивания;\n\n- **operation** – действие восстановление (restore), скачивание (download);\n\n- **type** – подробное действие и тип данных restore / download и file / mysql;\n\n- **date_create** – время создания заявки в формате \"Y-m-d H:i:s\";\n\n- **target_list** – массив элементов в заявке (файлов или баз данных);\n\n- **status** – статус выполнения.\n"
+  },
+  {
+    "section": "cron",
+    "method": "getList",
+    "endpoint": "https://api.beget.com/api/cron/getList",
+    "endpoint_method": "getList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
+    "source_page": "../source-pages/funkczii-upravleniya-cron.md",
+    "anchor": "getlist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/cron/getList?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"row_number\": \"1000\", // ID задания\n \"minutes\": \"*\", // Минуты\n \"hours\": \"*\", // Часы\n \"days\": \"*\", // Дни\n \"months\": \"10,11\", // Месяцы\n \"weekdays\": \"*\", // Дни недели\n \"command\": \"wget -O \\/dev\\/null http:\\/\\/wget vk.com\", // Команда\n \"is_hidden\": \"1\" // статус задания (активно/не активно)\n }\n ]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/cron/getList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает список всех задач CronTab.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/cron/getList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n [\n {\n \"row_number\": \"1000\", // ID задания\n \"minutes\": \"*\", // Минуты\n \"hours\": \"*\", // Часы\n \"days\": \"*\", // Дни\n \"months\": \"10,11\", // Месяцы\n \"weekdays\": \"*\", // Дни недели\n \"command\": \"wget -O \\/dev\\/null http:\\/\\/wget vk.com\", // Команда\n \"is_hidden\": \"1\" // статус задания (активно/не активно)\n }\n ]\n```\n\nВозвращается двумерный массив, каждая строка которого описывает задание Cron.\n"
+  },
+  {
+    "section": "cron",
+    "method": "add",
+    "endpoint": "https://api.beget.com/api/cron/add",
+    "endpoint_method": "add",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
+    "source_page": "../source-pages/funkczii-upravleniya-cron.md",
+    "anchor": "add",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"minutes\":\"*/1\",\"hours\":\"*\",\"days\":\"*\",\"months\":\"*\",\"weekdays\":\"*\",\"command\":\"/usr/bin/php ~/site.ru/public_html/test.php\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps%3A%2F%2Fapi.beget.com%2Fapi%2Fcron%2Fadd%3Flogin%3Duserlogin%26passwd%3Dpassword%26input_format%3Djson%26output_format%3Djson%26input_data%3D%7B%22minutes%22%3A%22*%2F1%22%2C%22hours%22%3A%22*%22%2C%22days%22%3A%22*%22%2C%22months%22%3A%22*%22%2C%22weekdays%22%3A%22*%22%2C%22command%22%3A%22%2Fusr%2Fbin%2Fphp%20~%2Fsite.ru%2Fpublic_html%2Ftest.php%22%7D",
+      "{\"status\":\"success\",\"answer\":{\"status\":\"success\",\"result\":{\"row_number\":941671}}}",
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"minutes\":\"1\",\"hours\":\"10\",\"days\":\"13\",\"months\":\"1\",\"weekdays\":\"2\",\"command\":\"/usr/bin/php%20~/site.ru/public_html/test.php\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps%3A%2F%2Fapi.beget.com%2Fapi%2Fcron%2Fadd%3Flogin%3Duserlogin%26passwd%3Dpassword%26input_format%3Djson%26output_format%3Djson%26input_data%3D%7B%22minutes%22%3A%221%22%2C%22hours%22%3A%2210%22%2C%22days%22%3A%2213%22%2C%22months%22%3A%221%22%2C%22weekdays%22%3A%222%22%2C%22command%22%3A%22%2Fusr%2Fbin%2Fphp%2520~%2Fsite.ru%2Fpublic_html%2Ftest.php%22%7D",
+      "{\"status\":\"success\",\"answer\":{\"status\":\"success\",\"result\":{\"row_number\":941471}}}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод добавит новое задание. После добавления задание будет активно.\n\n### Дополнительные параметры\n\n- **minutes** – минуты могут быть от 0 до 59;\n\n- **hours** – часы могут быть от 0 до 23;\n\n- **days** – день месяца может быть от 1 до 31;\n\n- **months** – месяц может быть от 1 до 12;\n\n- **weekdays** – день недели может быть от 0 до 7, где 0 и 7 – воскресенье;\n\n- **command** – команда.\n\nМожно конфигурировать CronTab для выполнения задач не только в определенное время, но и ежеминутно, ежечасно, ежедневно, еженедельно или ежемесячно, используя комбинацию */x\n\n- */5 * * * * – запускать команду каждые пять минут;\n\n- */3 * * * – запускать каждые три часа;\n\n- 0 12-16 * * * – запускать команду каждый час с 12 до 16 (в 12, 13, 14, 15 и 16);\n\n- 0 12,16,18 * * * – запускать команду каждый час в 12, 16 и 18 часов.\n\n### Пример запуска php-скрипта test.php каждую минуту\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"minutes\":\"*/1\",\"hours\":\"*\",\"days\":\"*\",\"months\":\"*\",\"weekdays\":\"*\",\"command\":\"/usr/bin/php ~/site.ru/public_html/test.php\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps%3A%2F%2Fapi.beget.com%2Fapi%2Fcron%2Fadd%3Flogin%3Duserlogin%26passwd%3Dpassword%26input_format%3Djson%26output_format%3Djson%26input_data%3D%7B%22minutes%22%3A%22*%2F1%22%2C%22hours%22%3A%22*%22%2C%22days%22%3A%22*%22%2C%22months%22%3A%22*%22%2C%22weekdays%22%3A%22*%22%2C%22command%22%3A%22%2Fusr%2Fbin%2Fphp%20~%2Fsite.ru%2Fpublic_html%2Ftest.php%22%7D\n```\n\n### Пример ответа\n\n```text\n{\"status\":\"success\",\"answer\":{\"status\":\"success\",\"result\":{\"row_number\":941671}}}\n```\n\n### Пример запуска php-скрипта test.pl 13 января в 10 часов 1 минуту, если этот день вторник\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"minutes\":\"1\",\"hours\":\"10\",\"days\":\"13\",\"months\":\"1\",\"weekdays\":\"2\",\"command\":\"/usr/bin/php%20~/site.ru/public_html/test.php\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps%3A%2F%2Fapi.beget.com%2Fapi%2Fcron%2Fadd%3Flogin%3Duserlogin%26passwd%3Dpassword%26input_format%3Djson%26output_format%3Djson%26input_data%3D%7B%22minutes%22%3A%221%22%2C%22hours%22%3A%2210%22%2C%22days%22%3A%2213%22%2C%22months%22%3A%221%22%2C%22weekdays%22%3A%222%22%2C%22command%22%3A%22%2Fusr%2Fbin%2Fphp%2520~%2Fsite.ru%2Fpublic_html%2Ftest.php%22%7D\n```\n\n### Пример ответа\n\n```text\n{\"status\":\"success\",\"answer\":{\"status\":\"success\",\"result\":{\"row_number\":941471}}}\n```\n"
+  },
+  {
+    "section": "cron",
+    "method": "edit",
+    "endpoint": "https://api.beget.com/api/cron/edit",
+    "endpoint_method": "edit",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
+    "source_page": "../source-pages/funkczii-upravleniya-cron.md",
+    "anchor": "edit",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/edit?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\":\"123456\",\"minutes\":\"*\",\"hours\":\"*\",\"days\":\"*\",\"months\":\"*\",\"weekdays\":\"*\",\"command\":\"wget -O \\/dev\\/null http:\\/\\/wget vk.com\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22minutes%22%3A%22*%22%2C%22hours%22%3A%22*%22%2C%22days%22%3A%22*%22%2C%22months%22%3A%22*%22%2C%22weekdays%22%3A%22*%22%2C%22command%22%3A%22wget%20-O%20%5C%2Fdev%5C%2Fnull%20http%3A%5C%2F%5C%2Fwget%20vk.com%22%7D",
+      "\"row_number\": 123456"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/cron/edit?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22minutes%22%3A%22*%22%2C%22hours%22%3A%22*%22%2C%22days%22%3A%22*%22%2C%22months%22%3A%22*%22%2C%22weekdays%22%3A%22*%22%2C%22command%22%3A%22wget%20-O%20%5C%2Fdev%5C%2Fnull%20http%3A%5C%2F%5C%2Fwget%20vk.com%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод изменит указанное задание.\n\n### Дополнительные параметры\n\n- **id** – идентификатор задания;\n\n- **minutes** – минуты;\n\n- **hours** – часы;\n\n- **days** – дни;\n\n- **months** – месяцы;\n\n- **weekdays** – дни недели;\n\n- **command** – команда.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/edit?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\":\"123456\",\"minutes\":\"*\",\"hours\":\"*\",\"days\":\"*\",\"months\":\"*\",\"weekdays\":\"*\",\"command\":\"wget -O \\/dev\\/null http:\\/\\/wget vk.com\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22minutes%22%3A%22*%22%2C%22hours%22%3A%22*%22%2C%22days%22%3A%22*%22%2C%22months%22%3A%22*%22%2C%22weekdays%22%3A%22*%22%2C%22command%22%3A%22wget%20-O%20%5C%2Fdev%5C%2Fnull%20http%3A%5C%2F%5C%2Fwget%20vk.com%22%7D\n```\n\n### Пример ответа\n\n```text\n\"row_number\": 123456\n```\n\nВозвращается ID задания (идентификатор задания уникален в рамках одного пользователя).\n"
+  },
+  {
+    "section": "cron",
+    "method": "delete",
+    "endpoint": "https://api.beget.com/api/cron/delete",
+    "endpoint_method": "delete",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
+    "source_page": "../source-pages/funkczii-upravleniya-cron.md",
+    "anchor": "delete",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"row_number\":1000}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/cron/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22row_number%22%3A1000%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/cron/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/cron/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22row_number%22%3A1000%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод удалит задание с указанным ID.\n\n### Дополнительные параметры\n\n- **row_number** – ID задания, тип int.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"row_number\":1000}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/cron/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22row_number%22%3A1000%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "cron",
+    "method": "changeHiddenState",
+    "endpoint": "https://api.beget.com/api/cron/changeHiddenState",
+    "endpoint_method": "changeHiddenState",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
+    "source_page": "../source-pages/funkczii-upravleniya-cron.md",
+    "anchor": "changehiddenstate",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"row_number\":1000,\"is_hidden\":0}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22row_number%22%3A1000%2C%22is_hidden%22%3A0%7D",
+      "\"row_number\": 4"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22row_number%22%3A1000%2C%22is_hidden%22%3A0%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод изменит статус задания.\n\n### Дополнительные параметры\n\n- **row_number** – ID задания, тип int;\n\n- **is_hidden** – статус задания (активное / не активное), тип boolean: 0 или 1.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"row_number\":1000,\"is_hidden\":0}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22row_number%22%3A1000%2C%22is_hidden%22%3A0%7D\n```\n\n### Пример ответа\n\n```text\n \"row_number\": 4\n```\n\nКак видим, этот метод управления Cron по API позволяет поменять статус задания.\n"
+  },
+  {
+    "section": "cron",
+    "method": "getEmail",
+    "endpoint": "https://api.beget.com/api/cron/getEmail",
+    "endpoint_method": "getEmail",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
+    "source_page": "../source-pages/funkczii-upravleniya-cron.md",
+    "anchor": "getemail",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/cron/getEmail?login=userlogin&passwd=password&output_format=json",
+      "admin@domain.ru"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/cron/getEmail?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает email, на который приходит вывод выполненных заданий.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/cron/getEmail?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n admin@domain.ru\n```\n\nЕсли email не задан, то возвращается NULL.\n"
+  },
+  {
+    "section": "cron",
+    "method": "setEmail",
+    "endpoint": "https://api.beget.com/api/cron/setEmail",
+    "endpoint_method": "setEmail",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
+    "source_page": "../source-pages/funkczii-upravleniya-cron.md",
+    "anchor": "setemail",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/setEmail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"email\":\"admin@domain.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/cron/setEmail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22email%22%3A%22admin%40domain.ru%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/cron/setEmail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/cron/setEmail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22email%22%3A%22admin%40domain.ru%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод устанавливает email, на который будет приходить вывод выполненных заданий.\n\n### Дополнительные параметры\n\n- **email** – Email или пустая строка.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/cron/setEmail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"email\":\"admin@domain.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/cron/setEmail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22email%22%3A%22admin%40domain.ru%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "dns",
+    "method": "getData",
+    "endpoint": "https://api.beget.com/api/dns/getData",
+    "endpoint_method": "getData",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-dns",
+    "source_page": "../source-pages/funkczii-upravleniya-dns.md",
+    "anchor": "getdata",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"fqdn\":\"beget.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22fqdn%22%3A%22beget.ru%22%7D+",
+      "[\n\"is_under_control\": 1, // домен на обслуживании BeGet (0 - нет / 1 - да)\n\"is_beget_dns\": 1, // домен на DNS-серверах BeGet (0 - нет / 1 - да)\n\"is_subdomain\": 0, // является ли домен поддоменом (0 - нет / 1 - да)\n\"fqdn\": \"beget.ru\", // переданное доменное имя\n\"records\": { // текущие используемые DNS-записи\n\t\"DNS\": [\n\t\t{\n\t\t\t\"value\": \"ns1.beget.ru\",\n\t\t\t\"priority\": 10\n\t\t},\n\t\t{\n\t\t\t\"value\": \"ns2.beget.ru\",\n\t\t\t\"priority\": 20\n\t\t}\n\t],\n\t\"DNS_IP\": [\n\t\t{\n\t\t\t\"value\": null,\n\t\t\t\"priority\": 10\n\t\t},\n\t\t{\n\t\t\t\"value\": null,\n\t\t\t\"priority\": 20\n\t\t}\n\t],\n\t\"A\": [\n\t\t{\n\t\t\t\"value\": \"91.106.201.65\",\n\t\t\t\"priority\": \"0\"\n\t\t}\n\t],\n\t\"MX\": [\n\t\t{\n\t\t\t\"value\": \"mx1.beget.ru\",\n\t\t\t\"priority\": \"10\"\n\t\t},\n\t\t{\n\t\t\t\"value\": \"mx2.beget.ru\",\n\t\t\t\"priority\": \"20\"\n\t\t}\n\t],\n\t\"TXT\": [\n\t\t{\n\t\t\t\"value\": \"\",\n\t\t\t\"priority\": 0\n\t\t}\n\t]\n},\n // тип текущих используемых настроек:\n // 1 - используются A, MX, TXT-записи;\n // 2 - используются NS-записи (для поддоменов);\n // 3 - используются CNAME-записи (для поддоменов).\n\"set_type\": 1\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22fqdn%22%3A%22beget.ru%22%7D+"
+    ],
+    "notes": [],
+    "documentation": "Метод возвращает информацию с DNS-сервера о домене.\n\n### Дополнительные параметры\n\n- **fqdn** - полное имя домена (домены на национальных языках следует передавать в punycode).\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"fqdn\":\"beget.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22fqdn%22%3A%22beget.ru%22%7D+\n```\n\n### Пример ответа\n\n```text\n[\n\"is_under_control\": 1, // домен на обслуживании BeGet (0 - нет / 1 - да)\n\"is_beget_dns\": 1, // домен на DNS-серверах BeGet (0 - нет / 1 - да)\n\"is_subdomain\": 0, // является ли домен поддоменом (0 - нет / 1 - да)\n\"fqdn\": \"beget.ru\", // переданное доменное имя\n\"records\": { // текущие используемые DNS-записи\n\t\"DNS\": [\n\t\t{\n\t\t\t\"value\": \"ns1.beget.ru\",\n\t\t\t\"priority\": 10\n\t\t},\n\t\t{\n\t\t\t\"value\": \"ns2.beget.ru\",\n\t\t\t\"priority\": 20\n\t\t}\n\t],\n\t\"DNS_IP\": [\n\t\t{\n\t\t\t\"value\": null,\n\t\t\t\"priority\": 10\n\t\t},\n\t\t{\n\t\t\t\"value\": null,\n\t\t\t\"priority\": 20\n\t\t}\n\t],\n\t\"A\": [\n\t\t{\n\t\t\t\"value\": \"91.106.201.65\",\n\t\t\t\"priority\": \"0\"\n\t\t}\n\t],\n\t\"MX\": [\n\t\t{\n\t\t\t\"value\": \"mx1.beget.ru\",\n\t\t\t\"priority\": \"10\"\n\t\t},\n\t\t{\n\t\t\t\"value\": \"mx2.beget.ru\",\n\t\t\t\"priority\": \"20\"\n\t\t}\n\t],\n\t\"TXT\": [\n\t\t{\n\t\t\t\"value\": \"\",\n\t\t\t\"priority\": 0\n\t\t}\n\t]\n},\n // тип текущих используемых настроек:\n // 1 - используются A, MX, TXT-записи;\n // 2 - используются NS-записи (для поддоменов);\n // 3 - используются CNAME-записи (для поддоменов).\n\"set_type\": 1\n]\n```\n"
+  },
+  {
+    "section": "dns",
+    "method": "changeRecords",
+    "endpoint": "https://api.beget.com/api/dns/changeRecords",
+    "endpoint_method": "changeRecords",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-dns",
+    "source_page": "../source-pages/funkczii-upravleniya-dns.md",
+    "anchor": "changerecords",
+    "side_effectful": true,
+    "examples": [
+      "{\n\t \"A\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"127.0.0.1\"\n\t }\n\t ],\n\t \"MX\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"mx1.beget.ru\"\n\t },\n\t {\n\t \"priority\":20,\n\t \"value\":\"mx2.beget.ru\"\n\t }\n\t ],\n\t \"TXT\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"TXT record\"\n\t }\n\t ]\n\t}",
+      "{\n\t \"NS\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"ns1.beget.ru\"\n\t },\n\t {\n\t \"priority\":20,\n\t \"value\":\"ns2.beget.ru\"\n\t }\n\t ]\n\t}",
+      "{\n\t \"CNAME\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"domain.ru\"\n\t }\n\t ]\n\t}",
+      "{\n\t \"DNS\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"ns1.domain.ru\"\n\t },\n\t {\n\t \"priority\":20,\n\t \"value\":\"ns2.domain.ru\"\n\t }\n\t ],\n\t \"DNS_IP\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"127.0.0.1\"\n\t },\n\t {\n\t \"priority\":20,\n\t \"value\":\"192.168.1.2\"\n\t }\n\t ]\n\t}",
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/dns/changeRecords?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"fqdn\":\"beget.ru\",\"records\":{\"A\":[{\"priority\":10,\"value\":\"127.0.0.1\"}],\"MX\":[{\"priority\":10,\"value\":\"mx1.beget.ru\"},{\"priority\":20,\"value\":\"mx2.beget.ru\"}],\"TXT\":[{\"priority\":10,\"value\":\"TXT record\"}]}}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/dns/changeRecords?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22fqdn%22%3A%22beget.ru%22%2C%22records%22%3A%7B%22A%22%3A%5B%7B%22priority%22%3A10%2C%22value%22%3A%22127.0.0.1%22%7D%5D%2C%22MX%22%3A%5B%7B%22priority%22%3A10%2Cvalue%22%3A%22mx1.beget.ru%22%7D%2C%7B%22priority%22%3A20%2C%22value%22%3A%22mx2.beget.ru%22%7D%5D%2C%22TXT%22%3A%5B%7B%22priority%22%3A10%2C%22value%22%3A%22TXT+record%22%7D%5D%7D%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/dns/changeRecords?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/dns/changeRecords?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22fqdn%22%3A%22beget.ru%22%2C%22records%22%3A%7B%22A%22%3A%5B%7B%22priority%22%3A10%2C%22value%22%3A%22127.0.0.1%22%7D%5D%2C%22MX%22%3A%5B%7B%22priority%22%3A10%2Cvalue%22%3A%22mx1.beget.ru%22%7D%2C%7B%22priority%22%3A20%2C%22value%22%3A%22mx2.beget.ru%22%7D%5D%2C%22TXT%22%3A%5B%7B%22priority%22%3A10%2C%22value%22%3A%22TXT+record%22%7D%5D%7D%7D"
+    ],
+    "notes": [],
+    "documentation": "Этот метод управления DNS по API производит изменение DNS-записей для заданного домена.\n\n### Дополнительные параметры\n\n- **fqdn** – полное имя домена (домены на национальных языках следует передавать в punycode);\n\n- **records** – массив, содержащий DNS записи.\n\nВ параметр **records** необходимо передать одну из групп параметров (в примере используется передача параметров с помощью JSON):\n\n### 1. A-**, MX**-**, TXT**-**записи**\n\n```text\n\t{\n\t \"A\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"127.0.0.1\"\n\t }\n\t ],\n\t \"MX\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"mx1.beget.ru\"\n\t },\n\t {\n\t \"priority\":20,\n\t \"value\":\"mx2.beget.ru\"\n\t }\n\t ],\n\t \"TXT\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"TXT record\"\n\t }\n\t ]\n\t}\n```\n\nМожно передавать до 10 записей каждого типа. Обязательно нужно верно указывать приоритет записей.\n\n### 2. NS-записи (для поддоменов)\n\n```text\n\t{\n\t \"NS\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"ns1.beget.ru\"\n\t },\n\t {\n\t \"priority\":20,\n\t \"value\":\"ns2.beget.ru\"\n\t }\n\t ]\n\t}\n```\n\nМожно передавать до 10 записей. Обязательно нужно верно указывать приоритет записей.\n\n### 3. CNAME-запись (для поддоменов)\n\n```text\n {\n\t \"CNAME\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"domain.ru\"\n\t }\n\t ]\n\t}\n```\n\nМожно передать только одну CNAME-запись.\n\n### 4. DNS-записи (для доменов, находящихся на обслуживании BeGet)\n\n```text\n {\n\t \"DNS\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"ns1.domain.ru\"\n\t },\n\t {\n\t \"priority\":20,\n\t \"value\":\"ns2.domain.ru\"\n\t }\n\t ],\n\t \"DNS_IP\":[\n\t {\n\t \"priority\":10,\n\t \"value\":\"127.0.0.1\"\n\t },\n\t {\n\t \"priority\":20,\n\t \"value\":\"192.168.1.2\"\n\t }\n\t ]\n\t}\n```\n\nМожно передать до 4 записей. Если DNS-серверы не являются собственными (т. е. не находятся на одном из поддоменов основного домена), то секцию DNS_IP можно опустить.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/dns/changeRecords?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"fqdn\":\"beget.ru\",\"records\":{\"A\":[{\"priority\":10,\"value\":\"127.0.0.1\"}],\"MX\":[{\"priority\":10,\"value\":\"mx1.beget.ru\"},{\"priority\":20,\"value\":\"mx2.beget.ru\"}],\"TXT\":[{\"priority\":10,\"value\":\"TXT record\"}]}}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/dns/changeRecords?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22fqdn%22%3A%22beget.ru%22%2C%22records%22%3A%7B%22A%22%3A%5B%7B%22priority%22%3A10%2C%22value%22%3A%22127.0.0.1%22%7D%5D%2C%22MX%22%3A%5B%7B%22priority%22%3A10%2Cvalue%22%3A%22mx1.beget.ru%22%7D%2C%7B%22priority%22%3A20%2C%22value%22%3A%22mx2.beget.ru%22%7D%5D%2C%22TXT%22%3A%5B%7B%22priority%22%3A10%2C%22value%22%3A%22TXT+record%22%7D%5D%7D%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "ftp",
+    "method": "getList",
+    "endpoint": "https://api.beget.com/api/ftp/getList",
+    "endpoint_method": "getList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-ftp",
+    "source_page": "../source-pages/funkczii-upravleniya-ftp.md",
+    "anchor": "getlist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/ftp/getList?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"login\":\"user_acc1\",\n \"homedir\":\"\\/public_html\"\n },\n {\n \"login\":\"user_siteru\",\n \"homedir\":\"\\/site.ru\\/public_html\"\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/ftp/getList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "Метод возвращает список дополнительных FTP-аккаунтов с их домашними директориями.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/ftp/getList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"login\":\"user_acc1\",\n \"homedir\":\"\\/public_html\"\n },\n {\n \"login\":\"user_siteru\",\n \"homedir\":\"\\/site.ru\\/public_html\"\n }\n]\n```\n"
+  },
+  {
+    "section": "ftp",
+    "method": "add",
+    "endpoint": "https://api.beget.com/api/ftp/add",
+    "endpoint_method": "add",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-ftp",
+    "source_page": "../source-pages/funkczii-upravleniya-ftp.md",
+    "anchor": "add",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/ftp/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"ftp1\",\"homedir\":\"/site.ru/public_html\",\"password\":\"password\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/ftp/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%2C%22homedir%22%3A%22%2Fsite.ru%2Fpublic_html%22%2C%22password%22%3A%22password%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/ftp/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/ftp/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%2C%22homedir%22%3A%22%2Fsite.ru%2Fpublic_html%22%2C%22password%22%3A%22password%22%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод добавляет новый FTP аккаунт.\n\n### Дополнительные параметры\n\n- **suffix** – суффиксная часть логина. При передаче этого параметра нужно учитывать, что итоговый логин вида \"login_suffix\" должен быть не длиннее 17 символов.;\n\n- **homedir** – путь до домашней директории создаваемого аккаунта. Он начинается со слеша. (например, /site.ru/public_html);\n\n- **password** – пароль для нового ftp-аккаунта.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/ftp/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"ftp1\",\"homedir\":\"/site.ru/public_html\",\"password\":\"password\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/ftp/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%2C%22homedir%22%3A%22%2Fsite.ru%2Fpublic_html%22%2C%22password%22%3A%22password%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "ftp",
+    "method": "changePassword",
+    "endpoint": "https://api.beget.com/api/ftp/changePassword",
+    "endpoint_method": "changePassword",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-ftp",
+    "source_page": "../source-pages/funkczii-upravleniya-ftp.md",
+    "anchor": "changepassword",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/ftp/changePassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"ftp1\",\"password\":\"newpassword\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/ftp/changePassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%2C%22password%22%3A%22newpassword%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/ftp/changePassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/ftp/changePassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%2C%22password%22%3A%22newpassword%22%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод производит смену пароля для дополнительного FTP-аккаунта.\n\n### Дополнительные параметры\n\n- **suffix** – суффиксная часть логина. При передаче этого параметра нужно учитывать, что итоговый логин вида \"login_suffix\" должен быть не длиннее 17 символов.;\n\n- **password** – новый пароль для ftp-аккаунта.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/ftp/changePassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"ftp1\",\"password\":\"newpassword\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/ftp/changePassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%2C%22password%22%3A%22newpassword%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "ftp",
+    "method": "delete",
+    "endpoint": "https://api.beget.com/api/ftp/delete",
+    "endpoint_method": "delete",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-ftp",
+    "source_page": "../source-pages/funkczii-upravleniya-ftp.md",
+    "anchor": "delete",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/ftp/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"ftp1\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/ftp/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/ftp/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/ftp/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%7D"
+    ],
+    "notes": [],
+    "documentation": "Метод удаляет дополнительный FTP-аккаунт с заданным суффиксом.\n\n### Дополнительные параметры\n\n- **suffix** – суффиксная часть логина. При передаче этого параметра нужно учитывать, что итоговый логин вида \"login_suffix\" должен быть не длиннее 17 символов.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/ftp/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"ftp1\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/ftp/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mysql",
+    "method": "getList",
+    "endpoint": "https://api.beget.com/api/mysql/getList",
+    "endpoint_method": "getList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-mysql",
+    "source_page": "../source-pages/funkczii-upravleniya-mysql.md",
+    "anchor": "getlist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/mysql/getList?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"name\":\"user_mydb\",\n \"size\":\"1\",\n \"accesses\":[\n {\n \"name\":\"localhost\"\n }\n ]\n },\n {\n \"name\":\"user_wp\",\n \"size\":\"44\",\n \"accesses\":[\n {\n \"name\":\"localhost\"\n },\n {\n \"name\":\"192.168.1.5\"\n }\n ]\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mysql/getList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает список баз данных MySQL с их доступами.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/mysql/getList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"name\":\"user_mydb\",\n \"size\":\"1\",\n \"accesses\":[\n {\n \"name\":\"localhost\"\n }\n ]\n },\n {\n \"name\":\"user_wp\",\n \"size\":\"44\",\n \"accesses\":[\n {\n \"name\":\"localhost\"\n },\n {\n \"name\":\"192.168.1.5\"\n }\n ]\n }\n]\n```\n"
+  },
+  {
+    "section": "mysql",
+    "method": "addDb",
+    "endpoint": "https://api.beget.com/api/mysql/addDb",
+    "endpoint_method": "addDb",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-mysql",
+    "source_page": "../source-pages/funkczii-upravleniya-mysql.md",
+    "anchor": "adddb",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/addDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\",\"password\":\"password\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/addDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22password%22%3A%22password%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mysql/addDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mysql/addDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22password%22%3A%22password%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод добавляет задание в очередь на создание новой базы данных MySql с заданным суффиксом и создает доступ для localhost с заданным паролем. Процесс создания базы данных может занимать несколько минут.\n\n### Дополнительные параметры\n\n- **suffix** – суффиксная часть имени базы данных. При передаче этого параметра нужно учитывать, что итоговый логин вида \"login_suffix\" должен быть не длиннее 16 символов;\n\n- **password** – пароль для новой базы данных. Должен содержать не менее 6 символов.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/addDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\",\"password\":\"password\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/addDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22password%22%3A%22password%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mysql",
+    "method": "addAccess",
+    "endpoint": "https://api.beget.com/api/mysql/addAccess",
+    "endpoint_method": "addAccess",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-mysql",
+    "source_page": "../source-pages/funkczii-upravleniya-mysql.md",
+    "anchor": "addaccess",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/addAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\",\"access\":\"192.168.100.100\",\"password\":\"newpassword\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/addAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22192.168.100.100%22%2C%22password%22%3A%22newpassword%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mysql/addAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mysql/addAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22192.168.100.100%22%2C%22password%22%3A%22newpassword%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод добавляет заданный доступ к заданной базе данных MySql.\n\n### Дополнительные параметры\n\n- **suffix** – суффиксная часть логина. При передаче этого параметра нужно учитывать, что итоговый логин вида \"login_suffix\" должен быть не длиннее 16 символов;\n\n- **access** – имя доступа - это может быть: _домен, IP, * или localhost_;\n\n- **password** – пароль для нового доступа к базе данных. Должен содержать не менее 6 символов.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/addAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\",\"access\":\"192.168.100.100\",\"password\":\"newpassword\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/addAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22192.168.100.100%22%2C%22password%22%3A%22newpassword%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mysql",
+    "method": "dropDb",
+    "endpoint": "https://api.beget.com/api/mysql/dropDb",
+    "endpoint_method": "dropDb",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-mysql",
+    "source_page": "../source-pages/funkczii-upravleniya-mysql.md",
+    "anchor": "dropdb",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/dropDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/dropDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mysql/dropDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mysql/dropDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nЭтот метод управления MySQL по API удаляет заданную базу данных и все доступы к ней.\n\n### Дополнительные параметры\n\n- **suffix** – суффиксная часть имени базы данных.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/dropDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/dropDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mysql",
+    "method": "dropAccess",
+    "endpoint": "https://api.beget.com/api/mysql/dropAccess",
+    "endpoint_method": "dropAccess",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-mysql",
+    "source_page": "../source-pages/funkczii-upravleniya-mysql.md",
+    "anchor": "dropaccess",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/dropAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\",\"access\":\"localhost\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/dropAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22localhost%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mysql/dropAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mysql/dropAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22localhost%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод удаляет заданный доступ у базы данных.\n\n### Дополнительные параметры\n\n- **suffix** – суффиксная часть имени базы данных;\n\n- **access** – имя доступа - это может быть: _домен, IP, * или localhost_.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/dropAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\",\"access\":\"localhost\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/dropAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22localhost%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mysql",
+    "method": "changeAccessPassword",
+    "endpoint": "https://api.beget.com/api/mysql/changeAccessPassword",
+    "endpoint_method": "changeAccessPassword",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-mysql",
+    "source_page": "../source-pages/funkczii-upravleniya-mysql.md",
+    "anchor": "changeaccesspassword",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/changeAccessPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\",\"access\":\"localhost\",\"password\":\"newpassword\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/changeAccessPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22localhost%22%2C%22password%22%3A%22newpassword%22%7D%0A",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mysql/changeAccessPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mysql/changeAccessPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22localhost%22%2C%22password%22%3A%22newpassword%22%7D%0A"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод изменяет пароль на указанном доступе.\n\n### Дополнительные параметры\n\n- **suffix** – суффиксная часть имени базы данных;\n\n- **access** – имя доступа - это может быть: _домен, IP, * или localhost_;\n\n- **password** – пароль для нового доступа к базе данных. Должен содержать не менее 6 символов.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mysql/changeAccessPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"suffix\":\"newdb\",\"access\":\"localhost\",\"password\":\"newpassword\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mysql/changeAccessPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22localhost%22%2C%22password%22%3A%22newpassword%22%7D%0A\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "site",
+    "method": "getList",
+    "endpoint": "https://api.beget.com/api/site/getList",
+    "endpoint_method": "getList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "source_page": "../source-pages/funkczii-upravleniya-sajtami.md",
+    "anchor": "getlist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/site/getList?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"id\":\"125\",\n \"path\":\"site.ru\\/public_html\",\n \"domains\":[\n {\n \"id\":\"12345\",\n \"fqdn\":\"site.ru\"\n \"php_version\":\"8.2\",\n \"http_version\":2,\n \"ssl\":true,\n \"ssl_status\":\"wle_set\",\n \"nginx_template\":\"default\",\n \"redis_session\":false\n\n }\n ]\n },\n {\n \"id\":\"124\",\n \"path\":\"vk.com\\/public_html\",\n \"domains\":[\n\n ]\n },\n {\n \"id\":\"123\",\n \"path\":\"mysite\\/public_html\",\n \"domains\":[\n\n ]\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/site/getList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает список сайтов. Если к сайту прилинкованы домены, то они также будут возвращены.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/site/getList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"id\":\"125\",\n \"path\":\"site.ru\\/public_html\",\n \"domains\":[\n {\n \"id\":\"12345\",\n \"fqdn\":\"site.ru\"\n \"php_version\":\"8.2\",\n \"http_version\":2,\n \"ssl\":true,\n \"ssl_status\":\"wle_set\",\n \"nginx_template\":\"default\",\n \"redis_session\":false\n\n }\n ]\n },\n {\n \"id\":\"124\",\n \"path\":\"vk.com\\/public_html\",\n \"domains\":[\n\n ]\n },\n {\n \"id\":\"123\",\n \"path\":\"mysite\\/public_html\",\n \"domains\":[\n\n ]\n }\n]\n```\n\nID сайта уникален в рамках одного пользователя.\n"
+  },
+  {
+    "section": "site",
+    "method": "add",
+    "endpoint": "https://api.beget.com/api/site/add",
+    "endpoint_method": "add",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "source_page": "../source-pages/funkczii-upravleniya-sajtami.md",
+    "anchor": "add",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"name\":\"site.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22name%22%3A%22site.ru%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/site/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/site/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22name%22%3A%22site.ru%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод создает новый сайт с заданным именем.\n\n### Дополнительные параметры\n\n- **name** – имя директории с сайтом (например, site.ru).\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"name\":\"site.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22name%22%3A%22site.ru%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения. В случае успешного ответа полный путь к директории с сайтом будет _name/public_html_.\n"
+  },
+  {
+    "section": "site",
+    "method": "delete",
+    "endpoint": "https://api.beget.com/api/site/delete",
+    "endpoint_method": "delete",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "source_page": "../source-pages/funkczii-upravleniya-sajtami.md",
+    "anchor": "delete",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\":10}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A10%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/site/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/site/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A10%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод удаляет сайт. Если к сайту были прилинкованы домены, то они будут отлинкованы от него.\n\n### Дополнительные параметры\n\n- **id** – id сайта, тип int.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\":10}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A10%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "site",
+    "method": "linkDomain",
+    "endpoint": "https://api.beget.com/api/site/linkDomain",
+    "endpoint_method": "linkDomain",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "source_page": "../source-pages/funkczii-upravleniya-sajtami.md",
+    "anchor": "linkdomain",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/linkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain_id\":100,\"site_id\":10}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/linkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain_id%22%3A100%2C%22site_id%22%3A10%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/site/linkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/site/linkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain_id%22%3A100%2C%22site_id%22%3A10%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод прилинковывает домен к сайту.\n\n### Дополнительные параметры\n\n- **domain_id** – id домена. Получить уникальный id домена можно функцией domain/getList;\n\n- **site_id** – id сайта.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/linkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain_id\":100,\"site_id\":10}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/linkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain_id%22%3A100%2C%22site_id%22%3A10%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения. После выполнения операции сайт начнет открываться по доменному имени в течение 5–10 минут.\n"
+  },
+  {
+    "section": "site",
+    "method": "unlinkDomain",
+    "endpoint": "https://api.beget.com/api/site/unlinkDomain",
+    "endpoint_method": "unlinkDomain",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "source_page": "../source-pages/funkczii-upravleniya-sajtami.md",
+    "anchor": "unlinkdomain",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/unlinkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain_id\":100}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/unlinkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain_id%22%3A100%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/site/unlinkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/site/unlinkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain_id%22%3A100%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод отлинковывает домен от сайта.\n\n### Дополнительные параметры\n\n- **domain_id** – id домена. Получить уникальный id домена можно функцией domain/getList.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/unlinkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain_id\":100}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/unlinkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain_id%22%3A100%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "site",
+    "method": "freeze",
+    "endpoint": "https://api.beget.com/api/site/freeze",
+    "endpoint_method": "freeze",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "source_page": "../source-pages/funkczii-upravleniya-sajtami.md",
+    "anchor": "freeze",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/freeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\": 100, \"excludedPaths\": [\"tmp\", \"cache\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/freeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A+100%2C+%22excludedPaths%22%3A+%5B%22tmp%22%2C+%22cache%22%5D%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/site/freeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/site/freeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A+100%2C+%22excludedPaths%22%3A+%5B%22tmp%22%2C+%22cache%22%5D%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод запрещает изменение файлов сайта.\n\n### Дополнительные параметры\n\n- **id** – id сайта. Получить уникальный id сайта можно функцией site/getList;\n\n- **excludedPaths** – список путей, в которых будет разрешено изменение файлов.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/freeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\": 100, \"excludedPaths\": [\"tmp\", \"cache\"]}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/freeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A+100%2C+%22excludedPaths%22%3A+%5B%22tmp%22%2C+%22cache%22%5D%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения. Задание помещается в очередь и выполняется в течение 5–10 минут в зависимости от размера сайта.\n"
+  },
+  {
+    "section": "site",
+    "method": "unfreeze",
+    "endpoint": "https://api.beget.com/api/site/unfreeze",
+    "endpoint_method": "unfreeze",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "source_page": "../source-pages/funkczii-upravleniya-sajtami.md",
+    "anchor": "unfreeze",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/unfreeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\": 100}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/unfreeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7b%22id%22%3a+100%7d",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/site/unfreeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/site/unfreeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7b%22id%22%3a+100%7d"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод разрешает изменение файлов сайта.\n\n### Дополнительные параметры\n\n- **id** – id сайта. Получить уникальный id сайта можно функцией site/getList.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/unfreeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\": 100}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/unfreeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7b%22id%22%3a+100%7d\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения. Задание помещается в очередь и выполняется в течение 5–10 минут в зависимости от размера сайта.\n"
+  },
+  {
+    "section": "site",
+    "method": "isSiteFrozen",
+    "endpoint": "https://api.beget.com/api/site/isSiteFrozen",
+    "endpoint_method": "isSiteFrozen",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
+    "source_page": "../source-pages/funkczii-upravleniya-sajtami.md",
+    "anchor": "issitefrozen",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/isSiteFrozen?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"site_id\": 100}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/isSiteFrozen?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22site_id%22%3A+100%7D",
+      "\"status\": \"success\",\n\"answer\": {\n\t\t\"status\": \"success\",\n\t\t\"result\": true\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/site/isSiteFrozen?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/site/isSiteFrozen?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22site_id%22%3A+100%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает текущий статус сайта – доступно ли редактирование файлов.\n\n### Дополнительные параметры\n\n- **site_id** – id сайта. Получить уникальный id сайта можно функцией site/getList.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/site/isSiteFrozen?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"site_id\": 100}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/site/isSiteFrozen?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22site_id%22%3A+100%7D\n```\n\n### Пример ответа\n\n```text\n\"status\": \"success\",\n\"answer\": {\n\t\t\"status\": \"success\",\n\t\t\"result\": true\n}\n```\n"
+  },
+  {
+    "section": "domain",
+    "method": "getList",
+    "endpoint": "https://api.beget.com/api/domain/getList",
+    "endpoint_method": "getList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "getlist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/domain/getList?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"id\":\"132456\", // идентификатор домена\n\n \"fqdn\":\"mylogin.bget.ru\", // полное имя домена (кириллические\n // домены передаются в кириллице)\n\n \"date_add\":\"2011-10-24 15:01:40\", // дата и время добавления домена\n\n \"auto_renew\":\"0\", // статус опции \"автоматическое\n // продление домена\"\n\n \"date_register\":\"2011-10-24\", // дата регистрации домена\n // (если на обслуживании в BeGet)\n\n \"date_expire\":0, // дата окончания срока делегирования\n // (если на обслуживании в BeGet)\n\n \"can_renew\":\"0\", // статус возможности продления\n\n \"registrar\":null, // регистратор доменного имени\n // (если на обслуживании в BeGet)\n\n \"registrar_status\":null, // статус домена у регистратора\n // (если на обслуживании в BeGet).\n // Может быть: delegated, not_active,\n // undelegated\n\n \"register_order_status\":null, // статус заявки на регистрацию домена\n // (если домен был добавлен в рамках\n // заявки на его регистрацию).\n // Может быть: new, registred, delete\n\n \"register_order_comment\":null, // комментарий, к заявке на регистрацию\n // (чаще всего это комментарий\n // о причине аннулирования заявки)\n\n \"renew_order_status\":\"0\", // статус заявки на продление домена.\n // Может быть: pending, delete,\n // canceled, error, success\n\n \"is_under_control\":0 // статус показывает, находится ли\n // домен на обслуживании в BeGet.\n // Определяет возможность выполнения\n // таких действий, как:\n // продление домена,\n // заказ доп. услуг у регистратора,\n // смена серверов DNS\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/getList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает список доменов на аккаунте пользователя.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/domain/getList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"id\":\"132456\", // идентификатор домена\n\n \"fqdn\":\"mylogin.bget.ru\", // полное имя домена (кириллические\n // домены передаются в кириллице)\n\n \"date_add\":\"2011-10-24 15:01:40\", // дата и время добавления домена\n\n \"auto_renew\":\"0\", // статус опции \"автоматическое\n // продление домена\"\n\n \"date_register\":\"2011-10-24\", // дата регистрации домена\n // (если на обслуживании в BeGet)\n\n \"date_expire\":0, // дата окончания срока делегирования\n // (если на обслуживании в BeGet)\n\n \"can_renew\":\"0\", // статус возможности продления\n\n \"registrar\":null, // регистратор доменного имени\n // (если на обслуживании в BeGet)\n\n \"registrar_status\":null, // статус домена у регистратора\n // (если на обслуживании в BeGet).\n // Может быть: delegated, not_active,\n // undelegated\n\n \"register_order_status\":null, // статус заявки на регистрацию домена\n // (если домен был добавлен в рамках\n // заявки на его регистрацию).\n // Может быть: new, registred, delete\n\n \"register_order_comment\":null, // комментарий, к заявке на регистрацию\n // (чаще всего это комментарий\n // о причине аннулирования заявки)\n\n \"renew_order_status\":\"0\", // статус заявки на продление домена.\n // Может быть: pending, delete,\n // canceled, error, success\n\n \"is_under_control\":0 // статус показывает, находится ли\n // домен на обслуживании в BeGet.\n // Определяет возможность выполнения\n // таких действий, как:\n // продление домена,\n // заказ доп. услуг у регистратора,\n // смена серверов DNS\n }\n]\n```\n"
+  },
+  {
+    "section": "domain",
+    "method": "getZoneList",
+    "endpoint": "https://api.beget.com/api/domain/getZoneList",
+    "endpoint_method": "getZoneList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "getzonelist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/domain/getZoneList?login=userlogin&passwd=password&output_format=json",
+      "{\n \"ru\":{\n \"id\":\"1\", // идентификатор зоны\n \"zone\":\"ru\", // наименование зоны\n \"price\":\"120\", // стоимость регистрации домена в зоне\n \"price_renew\":\"120\", // стоимость продления домена в зоне\n \"price_idn\":null, // стоимость регистрации IDN-домена в зоне\n \"price_idn_renew\":null, // стоимость продления IDN-домена в зоне\n \"is_idn\":\"false\", // поддерживает ли зона IDN-домены\n \"is_national\":\"true\", // является ли зона национальной\n \"min_period\":\"1\", // минимальный срок регистрации домена (в годах)\n \"max_period\":\"1\" // максимальный срок регистрации домена (в годах)\n },\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/getZoneList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает список зон.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/domain/getZoneList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n{\n \"ru\":{\n \"id\":\"1\", // идентификатор зоны\n \"zone\":\"ru\", // наименование зоны\n \"price\":\"120\", // стоимость регистрации домена в зоне\n \"price_renew\":\"120\", // стоимость продления домена в зоне\n \"price_idn\":null, // стоимость регистрации IDN-домена в зоне\n \"price_idn_renew\":null, // стоимость продления IDN-домена в зоне\n \"is_idn\":\"false\", // поддерживает ли зона IDN-домены\n \"is_national\":\"true\", // является ли зона национальной\n \"min_period\":\"1\", // минимальный срок регистрации домена (в годах)\n \"max_period\":\"1\" // максимальный срок регистрации домена (в годах)\n },\n}\n```\n"
+  },
+  {
+    "section": "domain",
+    "method": "addVirtual",
+    "endpoint": "https://api.beget.com/api/domain/addVirtual",
+    "endpoint_method": "addVirtual",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "addvirtual",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/addVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"hostname\":\"domain\",\"zone_id\": 1}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/addVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22hostname%22%3A%22domain%22%2C%22zone_id%22%3A+1%7D",
+      "12510"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/addVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/domain/addVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22hostname%22%3A%22domain%22%2C%22zone_id%22%3A+1%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод добавляет домен.\n\n### Дополнительные параметры\n\n- **hostname** – доменное имя, без зоны (например, domain);\n\n- **zone_id** – id зоны, тип int.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/addVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"hostname\":\"domain\",\"zone_id\": 1}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/addVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22hostname%22%3A%22domain%22%2C%22zone_id%22%3A+1%7D\n```\n\n### Пример ответа\n\n```text\n12510\n```\n\nВозвращается ID добавленного домена.\n"
+  },
+  {
+    "section": "domain",
+    "method": "delete",
+    "endpoint": "https://api.beget.com/api/domain/delete",
+    "endpoint_method": "delete",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "delete",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\":12510}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A12510%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/domain/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A12510%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод удаляет домен. Если домен был прилинкован к сайту, то он будет отлинкован от него. Также будут удалены все поддомены этого домена.\n\n### Дополнительные параметры\n\n- **id** – id домена.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\":12510}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A12510%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "domain",
+    "method": "getSubdomainList",
+    "endpoint": "https://api.beget.com/api/domain/getSubdomainList",
+    "endpoint_method": "getSubdomainList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "getsubdomainlist",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/domain/getSubdomainList?login=userlogin&passwd=password&output_format=json",
+      "[\n {\n \"id\":\"132456\", // id поддомена\n \"fqdn\":\"subodmain.domain.ru\", // полное имя поддомена\n \"domain_id\":\"12345\" // id родительского домена\n },\n {\n \"id\":\"123457\",\n \"fqdn\":\"user.forum.domain.com\",\n \"domain_id\":\"12347\"\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/getSubdomainList?login=userlogin&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает список поддоменов.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/domain/getSubdomainList?login=userlogin&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"id\":\"132456\", // id поддомена\n \"fqdn\":\"subodmain.domain.ru\", // полное имя поддомена\n \"domain_id\":\"12345\" // id родительского домена\n },\n {\n \"id\":\"123457\",\n \"fqdn\":\"user.forum.domain.com\",\n \"domain_id\":\"12347\"\n }\n]\n```\n"
+  },
+  {
+    "section": "domain",
+    "method": "addSubdomainVirtual",
+    "endpoint": "https://api.beget.com/api/domain/addSubdomainVirtual",
+    "endpoint_method": "addSubdomainVirtual",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "addsubdomainvirtual",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/addSubdomainVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"subdomain\": \"subdomain\",\"domain_id\": 1000}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/addSubdomainVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22subdomain%22%3A+%22subdomain%22%2C%22domain_id%22%3A+1000%7D",
+      "12345"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/addSubdomainVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/domain/addSubdomainVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22subdomain%22%3A+%22subdomain%22%2C%22domain_id%22%3A+1000%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод добавляет заданный поддомен.\n\n### Дополнительные параметры\n\n- **subdomain** – имя поддомена;\n\n- **domain_id** – id родительского домена.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/addSubdomainVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"subdomain\": \"subdomain\",\"domain_id\": 1000}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/addSubdomainVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22subdomain%22%3A+%22subdomain%22%2C%22domain_id%22%3A+1000%7D\n```\n\n### Пример ответа\n\n```text\n12345\n```\n\nВозвращается ID добавленного поддомена.\n"
+  },
+  {
+    "section": "domain",
+    "method": "deleteSubdomain",
+    "endpoint": "https://api.beget.com/api/domain/deleteSubdomain",
+    "endpoint_method": "deleteSubdomain",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "deletesubdomain",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/deleteSubdomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\": 1000}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/deleteSubdomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A+1000%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/deleteSubdomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/domain/deleteSubdomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A+1000%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод удаляет заданный поддомен.\n\n### Дополнительные параметры\n\n- **id** – id поддомена.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/deleteSubdomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"id\": 1000}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/deleteSubdomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A+1000%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "domain",
+    "method": "checkDomainToRegister",
+    "endpoint": "https://api.beget.com/api/domain/checkDomainToRegister",
+    "endpoint_method": "checkDomainToRegister",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "checkdomaintoregister",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/checkDomainToRegister?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"hostname\": \"domain\", \"zone_id\": 3, \"period\":1}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/checkDomainToRegister?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22hostname%22%3A+%22domain%22%2C+%22zone_id%22%3A+3%2C+%22period%22%3A1%7D",
+      "{\n \"may_be_registered\":true, // свободен ли домен для регистрации\n // (на основании сервиса WHOIS)\n\n \"bonus_domains\":0, // текущее количество бонусных доменов\n // на аккаунте в выбранной зоне\n\n \"balance\":289.46, // текущий баланс аккаунта\n\n \"pay_type\":false, // способ оплаты регистрации домена. Может быть:\n // null – оплатить домен невозможно;\n // money – оплата будет со счета аккаунта;\n // bonus_domain – оплата будет за счет бонуса.\n\n \"price\":350, // итоговая стоимость регистрации домена\n // (с учетом периода)\n\n \"in_system\":false // находится ли уже такой домен\n // на обслуживании BeGet\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/checkDomainToRegister?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/domain/checkDomainToRegister?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22hostname%22%3A+%22domain%22%2C+%22zone_id%22%3A+3%2C+%22period%22%3A1%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает информацию о возможности регистрации заданного доменного имени.\n\n### Дополнительные параметры\n\n- **hostname** – доменное имя, без зоны;\n\n- **zone_id** – id зоны. Получить список зон можно с помощью метода getZoneList;\n\n- **period** – период регистрации (в годах), тип int.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/domain/checkDomainToRegister?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"hostname\": \"domain\", \"zone_id\": 3, \"period\":1}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/domain/checkDomainToRegister?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22hostname%22%3A+%22domain%22%2C+%22zone_id%22%3A+3%2C+%22period%22%3A1%7D\n```\n\n### Пример ответа\n\n```text\n{\n \"may_be_registered\":true, // свободен ли домен для регистрации\n // (на основании сервиса WHOIS)\n\n \"bonus_domains\":0, // текущее количество бонусных доменов\n // на аккаунте в выбранной зоне\n\n \"balance\":289.46, // текущий баланс аккаунта\n\n \"pay_type\":false, // способ оплаты регистрации домена. Может быть:\n // null – оплатить домен невозможно;\n // money – оплата будет со счета аккаунта;\n // bonus_domain – оплата будет за счет бонуса.\n\n \"price\":350, // итоговая стоимость регистрации домена\n // (с учетом периода)\n\n \"in_system\":false // находится ли уже такой домен\n // на обслуживании BeGet\n}\n```\n\n### Примечание\n\nДля окончательного решения о возможности регистрации домена необходимо проанализировать три поля: _may_be_registered, pay_type и in_system_.\n\nИх значения должны быть:\n\n- may_be_registered – _true_\n\n- pay_type – _money_ или _bonus_domain_\n\n- in_system – _false_\n"
+  },
+  {
+    "section": "domain",
+    "method": "getPhpVersion",
+    "endpoint": "http://api.beget.com/api/domain/getPhpVersion",
+    "endpoint_method": "getPhpVersion",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "getphpversion",
+    "side_effectful": false,
+    "examples": [
+      "http://api.beget.com/api/domain/getPhpVersion?login=usrlogin&passwd=usrpasswd&full_fqdn=foobar.com&output_format=json\n\nhttps://api.beget.com/api/domain/getPhpVersion?login%3Dusrlogin%26passwd%3Dusrpasswd%26full_fqdn%3Dfoobar.com%26output_format%3Djson",
+      "\"status\": \"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\": {\n \"full_fqdn\": \"foobar.com\",\n \"php_version\": \"5.6\",\n \"cgi\": \"disabled\",\n \"allowed_versions\": [\n \"4.4\",\n \"5.2\",\n \"5.3\",\n \"5.4\",\n \"5.5\",\n \"5.6\"\n ]\n }\n}"
+    ],
+    "api_urls_found": [
+      "http://api.beget.com/api/domain/getPhpVersion?login=usrlogin&passwd=usrpasswd&full_fqdn=foobar.com&output_format=json",
+      "https://api.beget.com/api/domain/getPhpVersion?login%3Dusrlogin%26passwd%3Dusrpasswd%26full_fqdn%3Dfoobar.com%26output_format%3Djson"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает информацию о текущей версии php для домена, о доступных для установки версиях php, и включен ли php как cgi.\n\n### Дополнительные параметры\n\n- **full_fqdn** – полное имя домена, для которого необходимо получить информацию.\n\n### Пример вызова\n\n```text\nhttp://api.beget.com/api/domain/getPhpVersion?login=usrlogin&passwd=usrpasswd&full_fqdn=foobar.com&output_format=json\n\nhttps://api.beget.com/api/domain/getPhpVersion?login%3Dusrlogin%26passwd%3Dusrpasswd%26full_fqdn%3Dfoobar.com%26output_format%3Djson\n```\n\n### Пример ответа\n\n```text\n\"status\": \"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\": {\n \"full_fqdn\": \"foobar.com\",\n \"php_version\": \"5.6\",\n \"cgi\": \"disabled\",\n \"allowed_versions\": [\n \"4.4\",\n \"5.2\",\n \"5.3\",\n \"5.4\",\n \"5.5\",\n \"5.6\"\n ]\n }\n}\n```\n"
+  },
+  {
+    "section": "domain",
+    "method": "changePhpVersion",
+    "endpoint": "https://api.beget.com/api/domain/changePhpVersion",
+    "endpoint_method": "changePhpVersion",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "changephpversion",
+    "side_effectful": true,
+    "examples": [
+      "https://api.beget.com/api/domain/changePhpVersion?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={\"full_fqdn\": \"example.com\", \"php_version\": \"5.4\"}\n\nhttps://api.beget.com/api/domain/changePhpVersion?login=userlogin&passwd=password&full_fqdn=example.com&php_version=5.4&is_cgi=true&output_format=json",
+      "\"status\": \"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\": {\n \"full_fqdn\": \"example.com\", // домен, у которого были изменены версия php и режим cgi\n \"result\": \"changes will take effect in some time\", // изменения могут занять некоторое время\n \"php_version\": \"5.4\", // версия php после выполнения текущего запроса\n \"cgi\": \"enabled\" // включен ли режим cgi\n }\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/changePhpVersion?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={",
+      "https://api.beget.com/api/domain/changePhpVersion?login=userlogin&passwd=password&full_fqdn=example.com&php_version=5.4&is_cgi=true&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод изменяет версию php на переданную. Позволяет установить и снять режим cgi.\n\n### Дополнительные параметры\n\n- **full_fqdn** – полное имя домена, для которого необходимо изменить версию php;\n\n- **php_version** – версия php, на которую будет произведено изменение;\n\n- **is_cgi** – установить или снять режим cgi. По умолчанию имеет значение false.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/domain/changePhpVersion?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={\"full_fqdn\": \"example.com\", \"php_version\": \"5.4\"}\n\nhttps://api.beget.com/api/domain/changePhpVersion?login=userlogin&passwd=password&full_fqdn=example.com&php_version=5.4&is_cgi=true&output_format=json\n```\n\n### Пример ответа\n\n```text\n\"status\": \"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\": {\n \"full_fqdn\": \"example.com\", // домен, у которого были изменены версия php и режим cgi\n \"result\": \"changes will take effect in some time\", // изменения могут занять некоторое время\n \"php_version\": \"5.4\", // версия php после выполнения текущего запроса\n \"cgi\": \"enabled\" // включен ли режим cgi\n }\n}\n```\n"
+  },
+  {
+    "section": "domain",
+    "method": "getDirectives",
+    "endpoint": "https://api.beget.com/api/domain/getDirectives",
+    "endpoint_method": "getDirectives",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "getdirectives",
+    "side_effectful": false,
+    "examples": [
+      "https://api.beget.com/api/domain/getDirectives?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={\"full_fqdn\": \"example.com\"}\n\nhttps://api.beget.com/api/domain/getDirectives?login=userlogin&passwd=password&full_fqdn=example.com&output_format=json",
+      "\"status\": \"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\": [ // массив с директивами\n {\n \"name\": \"php_admin_value\", // имя директивы\n \"value\": \"session.save_handler redis\" // её значение\n }\n ]\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/getDirectives?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={",
+      "https://api.beget.com/api/domain/getDirectives?login=userlogin&passwd=password&full_fqdn=example.com&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает пользовательские директивы для указанного домена.\n\n### Дополнительные параметры\n\n- **full_fqdn** – полное имя домена.\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/domain/getDirectives?login=userlogin&passwd=password&output_format=json&input_format=json&input_data={\"full_fqdn\": \"example.com\"}\n\nhttps://api.beget.com/api/domain/getDirectives?login=userlogin&passwd=password&full_fqdn=example.com&output_format=json\n```\n\n### Пример ответа\n\n```text\n\"status\": \"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\": [ // массив с директивами\n {\n \"name\": \"php_admin_value\", // имя директивы\n \"value\": \"session.save_handler redis\" // её значение\n }\n ]\n}\n```\n"
+  },
+  {
+    "section": "domain",
+    "method": "addDirectives",
+    "endpoint": "https://api.beget.com/api/domain/addDirectives",
+    "endpoint_method": "addDirectives",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "adddirectives",
+    "side_effectful": true,
+    "examples": [
+      "[\n {\n name: \"name of directive\",\n value: \"value of directive\"\n }\n]",
+      "https://api.beget.com/api/domain/addDirectives?login=userlogin&passwd=password&output_format=json&full_fqdn=example.com&directives_list[0][name]=php_flag&directives_list[0][value]=log_errors on",
+      "\"status\":\"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\":true\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/addDirectives?login=userlogin&passwd=password&output_format=json&full_fqdn=example.com&directives_list[0][name]=php_flag&directives_list[0][value]=log_errors"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод добавляет пользовательские директивы для указанного домена.\n\n### Дополнительные параметры\n\n- **full_fqdn** – полное имя домена;\n\n- **directives_list** – массив директив в формате:\n\n```text\n[\n {\n name: \"name of directive\",\n value: \"value of directive\"\n }\n]\n```\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/domain/addDirectives?login=userlogin&passwd=password&output_format=json&full_fqdn=example.com&directives_list[0][name]=php_flag&directives_list[0][value]=log_errors on\n```\n\n### Пример ответа\n\n```text\n\"status\":\"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\":true\n}\n```\n"
+  },
+  {
+    "section": "domain",
+    "method": "removeDirectives",
+    "endpoint": "https://api.beget.com/api/domain/removeDirectives",
+    "endpoint_method": "removeDirectives",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-domenami.md",
+    "anchor": "removedirectives",
+    "side_effectful": true,
+    "examples": [
+      "[\n {\n name: \"name of directive\",\n value: \"value of directive\"\n }\n]",
+      "https://api.beget.com/api/domain/removeDirectives?login=userlogin&passwd=password&output_format=json&full_fqdn=example.com&directives_list[0][name]=php_flag&directives_list[0][value]=log_errors on",
+      "\"status\":\"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\":true\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/domain/removeDirectives?login=userlogin&passwd=password&output_format=json&full_fqdn=example.com&directives_list[0][name]=php_flag&directives_list[0][value]=log_errors"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод удаляет пользовательские директивы для указанного домена.\n\n### Дополнительные параметры\n\n- **full_fqdn** – полное имя домена;\n\n- **directives_list** – массив директив в формате:\n\n```text\n[\n {\n name: \"name of directive\",\n value: \"value of directive\"\n }\n]\n```\n\n### Пример вызова\n\n```text\nhttps://api.beget.com/api/domain/removeDirectives?login=userlogin&passwd=password&output_format=json&full_fqdn=example.com&directives_list[0][name]=php_flag&directives_list[0][value]=log_errors on\n```\n\n### Пример ответа\n\n```text\n\"status\":\"success\",\n\"answer\": {\n \"status\": \"success\",\n \"result\":true\n}\n```\n"
+  },
+  {
+    "section": "mail",
+    "method": "getMailboxList",
+    "endpoint": "https://api.beget.com/api/mail/getMailboxList",
+    "endpoint_method": "getMailboxList",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "getmailboxlist",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/getMailboxList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/getMailboxList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%7D",
+      "[\n {\n \"mailbox\":\"mailbox1\",\n \"domain\":\"site.ru\",\n \"spam_filter_status\":1,\n \"forward_mail_status\":\"no_forward\"\n },\n {\n \"mailbox\":\"test.mail\",\n \"domain\":\"site.ru\",\n \"spam_filter_status\": 0,\n \"forward_mail_status\": \"forward\"\n },\n {\n \"mailbox\":\"admin\",\n \"domain\":\"site.ru\",\n \"spam_filter_status\":1,\n \"forward_mail_status\":\"forward_and_delete\"\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/getMailboxList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/getMailboxList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает все почтовые ящики на заданном домене.\n\n### Дополнительные параметры\n\n- **domain** – домен, почтовые ящики которого будут отображены (например, site.ru).\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/getMailboxList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/getMailboxList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%7D\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"mailbox\":\"mailbox1\",\n \"domain\":\"site.ru\",\n \"spam_filter_status\":1,\n \"forward_mail_status\":\"no_forward\"\n },\n {\n \"mailbox\":\"test.mail\",\n \"domain\":\"site.ru\",\n \"spam_filter_status\": 0,\n \"forward_mail_status\": \"forward\"\n },\n {\n \"mailbox\":\"admin\",\n \"domain\":\"site.ru\",\n \"spam_filter_status\":1,\n \"forward_mail_status\":\"forward_and_delete\"\n }\n]\n```\n"
+  },
+  {
+    "section": "mail",
+    "method": "changeMailboxPassword",
+    "endpoint": "https://api.beget.com/api/mail/changeMailboxPassword",
+    "endpoint_method": "changeMailboxPassword",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "changemailboxpassword",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/changeMailboxPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"mailbox_password\":\"password\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/changeMailboxPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22mailbox_password%22%3A%22password%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/changeMailboxPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/changeMailboxPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22mailbox_password%22%3A%22password%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод изменяет пароль к заданному почтовому ящику.\n\n### Дополнительные параметры\n\n- **domain** – домен, на котором находится почтовый ящик (например, site.ru);\n\n- **mailbox** – имя почтового ящика (например, info);\n\n- **mailbox_password** – пароль для почтового ящика.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/changeMailboxPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"mailbox_password\":\"password\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/changeMailboxPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22mailbox_password%22%3A%22password%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mail",
+    "method": "createMailbox",
+    "endpoint": "https://api.beget.com/api/mail/createMailbox",
+    "endpoint_method": "createMailbox",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "createmailbox",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/createMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"mailbox_password\":\"password\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/createMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22mailbox_password%22%3A%22password%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/createMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/createMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22mailbox_password%22%3A%22password%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод создает почтовый ящик на заданном домене.\n\n### Дополнительные параметры\n\n- **domain** – домен, на котором будет создан почтовый ящик (например, site.ru);\n\n- **mailbox** – имя почтового ящика (например, info);\n\n- **mailbox_password** – пароль для почтового ящика.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/createMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"mailbox_password\":\"password\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/createMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22mailbox_password%22%3A%22password%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mail",
+    "method": "dropMailbox",
+    "endpoint": "https://api.beget.com/api/mail/dropMailbox",
+    "endpoint_method": "dropMailbox",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "dropmailbox",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/dropMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/dropMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/dropMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/dropMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод удаляет почтовый ящик на заданном домене.\n\n### Дополнительные параметры\n\n- **domain** – домен, на котором находится почтовый ящик (например, site.ru);\n\n- **mailbox** – имя почтового ящика (например, info).\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/dropMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/dropMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mail",
+    "method": "changeMailboxSettings",
+    "endpoint": "https://api.beget.com/api/mail/changeMailboxSettings",
+    "endpoint_method": "changeMailboxSettings",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "changemailboxsettings",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/changeMailboxSettings?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"spam_filter_status\":1,\"spam_filter\":50,\"forward_mail_status\":\"no_forward\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/changeMailboxSettings?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22spam_filter_status%22%3A1%2C%22spam_filter%22%3A50%2C%0A%22forward_mail_status%22%3A%22no_forward%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/changeMailboxSettings?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/changeMailboxSettings?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22spam_filter_status%22%3A1%2C%22spam_filter%22%3A50%2C%0A%22forward_mail_status%22%3A%22no_forward%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод устанавливает опции для почтового ящика.\n\n### Дополнительные параметры\n\n- **domain** – домен, на котором находится почтовый ящик (например, site.ru);\n\n- **mailbox** – имя почтового ящика (например, info);\n\n- **spam_filter_status** - статус работы спам-фильтра (0/1);\n\n- **spam_filter** – уровень фильтрации спама (20 – по умолчанию, в данный момент параметр не актуален, оставлен для совместимости API);\n\n- **forward_mail_status** – режим работы перенаправления для почтового ящика. Возможные значения:\n\n- _no_forward_ – письма не перенаправляются;\n\n- _forward_ – письма также перенаправляются на заданные почтовые ящики;\n\n- _forward_and_delete_ – письма перенаправляются и удаляются из почтового ящика.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/changeMailboxSettings?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"spam_filter_status\":1,\"spam_filter\":50,\"forward_mail_status\":\"no_forward\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/changeMailboxSettings?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22spam_filter_status%22%3A1%2C%22spam_filter%22%3A50%2C%0A%22forward_mail_status%22%3A%22no_forward%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mail",
+    "method": "forwardListAddMailbox",
+    "endpoint": "https://api.beget.com/api/mail/forwardListAddMailbox",
+    "endpoint_method": "forwardListAddMailbox",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "forwardlistaddmailbox",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/forwardListAddMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"forward_mailbox\":\"mail@yandex.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/forwardListAddMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22forward_mailbox%22%3A%22%22mail%40yandex.ru%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/forwardListAddMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/forwardListAddMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22forward_mailbox%22%3A%22%22mail%40yandex.ru%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод добавит почтовый ящик в список ящиков для пересылки.\n\n### Дополнительные параметры\n\n- **domain** – домен, на котором находится почтовый ящик (например, site.ru);\n\n- **mailbox** – имя почтового ящика (например, info);\n\n- **forward_mailbox** – почтовый ящик, на который будут перенаправляться письма.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/forwardListAddMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"forward_mailbox\":\"mail@yandex.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/forwardListAddMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22forward_mailbox%22%3A%22%22mail%40yandex.ru%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mail",
+    "method": "forwardListDeleteMailbox",
+    "endpoint": "https://api.beget.com/api/mail/forwardListDeleteMailbox",
+    "endpoint_method": "forwardListDeleteMailbox",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "forwardlistdeletemailbox",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/forwardListDeleteMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"forward_mailbox\":\"mail@yandex.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/forwardListDeleteMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22forward_mailbox%22%3A%22%22mail%40yandex.ru%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/forwardListDeleteMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/forwardListDeleteMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22forward_mailbox%22%3A%22%22mail%40yandex.ru%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод удаляет почтовый ящик из списка ящиков для пересылки.\n\n### Дополнительные параметры\n\n- **domain** – домен, на котором находится почтовый ящик (например, site.ru);\n\n- **mailbox** – имя почтового ящика (например, info);\n\n- **forward_mailbox** – почтовый ящик, который будет удален из списка пересылки.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/forwardListDeleteMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\",\"forward_mailbox\":\"mail@yandex.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/forwardListDeleteMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22forward_mailbox%22%3A%22%22mail%40yandex.ru%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mail",
+    "method": "forwardListShow",
+    "endpoint": "https://api.beget.com/api/mail/forwardListShow",
+    "endpoint_method": "forwardListShow",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "forwardlistshow",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/forwardListShow?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/forwardListShow?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%7D",
+      "[\n {\n \"forward_mailbox\":\"admin@domain.ru\"\n },\n {\n \"forward_mailbox\":\"webmaster@site.com\"\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/forwardListShow?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/forwardListShow?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает список пересылки для заданного почтового ящика.\n\n### Дополнительные параметры\n\n- **domain** – домен, на котором находится почтовый ящик (например, site.ru);\n\n- **mailbox** – имя почтового ящика (например, info).\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/forwardListShow?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"mailbox\":\"info\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/forwardListShow?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%7D\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"forward_mailbox\":\"admin@domain.ru\"\n },\n {\n \"forward_mailbox\":\"webmaster@site.com\"\n }\n]\n```\n"
+  },
+  {
+    "section": "mail",
+    "method": "setDomainMail",
+    "endpoint": "https://api.beget.com/api/mail/setDomainMail",
+    "endpoint_method": "setDomainMail",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "setdomainmail",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/setDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"domain_mailbox\":\"mail@site.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/setDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22domain_mailbox%22%3A%22mail%40site.ru%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/setDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/setDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22domain_mailbox%22%3A%22mail%40site.ru%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод устанавливает почту домена.\n\n### Дополнительные параметры\n\n- **domain** – домен, для которого будет установлена с помощью API почта домена (например, site.ru);\n\n- **domain_mailbox** – почтовый ящик, который будет установлен в качестве почты домена (например, mail@site.ru).\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/setDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\",\"domain_mailbox\":\"mail@site.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/setDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22domain_mailbox%22%3A%22mail%40site.ru%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "mail",
+    "method": "clearDomainMail",
+    "endpoint": "https://api.beget.com/api/mail/clearDomainMail",
+    "endpoint_method": "clearDomainMail",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
+    "source_page": "../source-pages/funkczii-dlya-raboty-s-pochtoj.md",
+    "anchor": "cleardomainmail",
+    "side_effectful": true,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/clearDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/clearDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%7D",
+      "true"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/mail/clearDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={",
+      "https://api.beget.com/api/mail/clearDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод сбрасывает почту домена.\n\n### Дополнительные параметры\n\n- **domain** – домен, для которого будет сброшена почта домена (например, site.ru).\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/mail/clearDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data={\"domain\":\"site.ru\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/mail/clearDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%7D\n```\n\n### Пример ответа\n\n```text\ntrue\n```\n\nВозвращается признак удачного или нет выполнения.\n"
+  },
+  {
+    "section": "stat",
+    "method": "getSiteListLoad",
+    "endpoint": "https://api.beget.com/api/stat/getSitesListLoad",
+    "endpoint_method": "getSitesListLoad",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki",
+    "source_page": "../source-pages/funkczii-dlya-sbora-statistiki.md",
+    "anchor": "getsitelistload",
+    "side_effectful": false,
+    "examples": [
+      "// корректный пример вызова\nhttps://api.beget.com/api/stat/getSitesListLoad?login=user&passwd=password&output_format=json",
+      "[\n {\n \"name\": \"sitename.ru\",\n \"id\": \"299163\",\n \"cp\": \"195.257188\"\n },\n {\n \"name\": \"sitename2.ru\",\n \"id\": \"299176\",\n \"cp\": \"97.168125\"\n },\n {\n \"name\": \"sitename3.ru\",\n \"id\": \"307286\",\n \"cp\": \"93.905937\"\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/stat/getSitesListLoad?login=user&passwd=password&output_format=json"
+    ],
+    "notes": [
+      "Documentation heading and example endpoint use different method names: heading `getSiteListLoad`, endpoint `getSitesListLoad`."
+    ],
+    "documentation": "### Описание\n\nМетод возвращает информацию о средней нагрузке на сайтах пользователя за последний месяц.\n\n### Пример вызова\n\n```text\n// корректный пример вызова\nhttps://api.beget.com/api/stat/getSitesListLoad?login=user&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"name\": \"sitename.ru\",\n \"id\": \"299163\",\n \"cp\": \"195.257188\"\n },\n {\n \"name\": \"sitename2.ru\",\n \"id\": \"299176\",\n \"cp\": \"97.168125\"\n },\n {\n \"name\": \"sitename3.ru\",\n \"id\": \"307286\",\n \"cp\": \"93.905937\"\n }\n]\n```\n\nВозвращается список сайтов и средняя нагрузка по ним (по убыванию).\nID сайта уникален в рамках одного пользователя.\n"
+  },
+  {
+    "section": "stat",
+    "method": "getDbListLoad",
+    "endpoint": "https://api.beget.com/api/stat/getDbListLoad",
+    "endpoint_method": "getDbListLoad",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki",
+    "source_page": "../source-pages/funkczii-dlya-sbora-statistiki.md",
+    "anchor": "getdblistload",
+    "side_effectful": false,
+    "examples": [
+      "// корректный пример вызова\nhttps://api.beget.com/api/stat/getDbListLoad?login=user&passwd=password&output_format=json",
+      "[\n {\n \"name\": \"base_name\",\n \"cp\": \"2895.257188\"\n },\n {\n \"name\": \"base_name2\",\n \"cp\": \"1500.168125\"\n },\n {\n \"name\": \"base_name3\",\n \"cp\": \"856.905937\"\n }\n]"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/stat/getDbListLoad?login=user&passwd=password&output_format=json"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает информацию о средней нагрузке на базах данных пользователя за последний месяц.\n\n### Пример вызова\n\n```text\n// корректный пример вызова\nhttps://api.beget.com/api/stat/getDbListLoad?login=user&passwd=password&output_format=json\n```\n\n### Пример ответа\n\n```text\n[\n {\n \"name\": \"base_name\",\n \"cp\": \"2895.257188\"\n },\n {\n \"name\": \"base_name2\",\n \"cp\": \"1500.168125\"\n },\n {\n \"name\": \"base_name3\",\n \"cp\": \"856.905937\"\n }\n]\n```\n\nВозвращается список имен баз данных и средняя нагрузка по ним (по убыванию).\nname – имя базы уникально в рамках одного пользователя.\n"
+  },
+  {
+    "section": "stat",
+    "method": "getSiteLoad",
+    "endpoint": "https://api.beget.com/api/stat/getSiteLoad",
+    "endpoint_method": "getSiteLoad",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki",
+    "source_page": "../source-pages/funkczii-dlya-sbora-statistiki.md",
+    "anchor": "getsiteload",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/stat/getSiteLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={\"site_id\":296164}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/stat/getSiteLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={%22site_id%22:296164}",
+      "{\n \"days\": [\n {\n \"value\": \"0.35\",\n \"date\": \"2014-05-04\"\n },\n {\n \"value\": \"0.47\",\n \"date\": \"2014-05-05\"\n },\n {\n \"value\": \"0.14\",\n \"date\": \"2014-05-06\"\n },\n {\n \"value\": \"0.09\",\n \"date\": \"2014-05-07\"\n }\n ...\n ],\n \"hours\": [\n {\n \"value\": \"0.02\",\n \"date\": \"2014-06-02 18:00:00\"\n },\n {\n \"value\": \"0.00\",\n \"date\": \"2014-06-02 19:00:00\"\n },\n {\n \"value\": \"0.00\",\n \"date\": \"2014-06-02 20:00:00\"\n },\n {\n \"value\": \"0.00\",\n \"date\": \"2014-06-02 21:00:00\"\n }\n ...\n ]\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/stat/getSiteLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={",
+      "https://api.beget.com/api/stat/getSiteLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={%22site_id%22:296164}"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает детальную информацию о нагрузке на указанном сайте (нагрузка по дням и часам).\n\n### Дополнительные параметры\n\n- **site_id** – идентификатор сайта.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/stat/getSiteLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={\"site_id\":296164}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/stat/getSiteLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={%22site_id%22:296164}\n```\n\n### Пример ответа\n\n```text\n{\n \"days\": [\n {\n \"value\": \"0.35\",\n \"date\": \"2014-05-04\"\n },\n {\n \"value\": \"0.47\",\n \"date\": \"2014-05-05\"\n },\n {\n \"value\": \"0.14\",\n \"date\": \"2014-05-06\"\n },\n {\n \"value\": \"0.09\",\n \"date\": \"2014-05-07\"\n }\n ...\n ],\n \"hours\": [\n {\n \"value\": \"0.02\",\n \"date\": \"2014-06-02 18:00:00\"\n },\n {\n \"value\": \"0.00\",\n \"date\": \"2014-06-02 19:00:00\"\n },\n {\n \"value\": \"0.00\",\n \"date\": \"2014-06-02 20:00:00\"\n },\n {\n \"value\": \"0.00\",\n \"date\": \"2014-06-02 21:00:00\"\n }\n ...\n ]\n}\n```\n\nВозвращается список с нагрузкой за последние 30 дней (по датам).\nА также доступна статистика API в виде списка (по часам).\n"
+  },
+  {
+    "section": "stat",
+    "method": "getDbLoad",
+    "endpoint": "https://api.beget.com/api/stat/getDbLoad",
+    "endpoint_method": "getDbLoad",
+    "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki",
+    "source_page": "../source-pages/funkczii-dlya-sbora-statistiki.md",
+    "anchor": "getdbload",
+    "side_effectful": false,
+    "examples": [
+      "// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/stat/getDbLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={\"db_name\":\"login_dbname\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/stat/getDbLoad?login=user&passwd=password&output_format=json&input_format=json&input_data=%7B%22db_name%22%3A%22login_dbname%22%7D",
+      "{\n \"hours\": [\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-02 20:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-02 21:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-02 22:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 15:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 16:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 17:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 18:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 19:00:00\"\n }\n ...\n ],\n \"days\": [\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-04\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-13\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-20\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-21\"\n },\n {\n \"cpu_time\": \"31\",\n \"date\": \"2014-05-22\"\n },\n {\n \"cpu_time\": \"1\",\n \"date\": \"2014-05-23\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-24\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-25\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03\"\n }\n ...\n ],\n \"size_days\": [\n {\n \"date\": \"2014-05-04\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-05\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-06\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-07\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-08\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-09\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-10\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-11\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-23\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-24\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-25\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-26\",\n \"size\": \"229512\"\n }\n ...\n ]\n}"
+    ],
+    "api_urls_found": [
+      "https://api.beget.com/api/stat/getDbLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={",
+      "https://api.beget.com/api/stat/getDbLoad?login=user&passwd=password&output_format=json&input_format=json&input_data=%7B%22db_name%22%3A%22login_dbname%22%7D"
+    ],
+    "notes": [],
+    "documentation": "### Описание\n\nМетод возвращает детальную информацию о нагрузке на указанной базе данных MySQL.\n\n### Дополнительные параметры\n\n- **db_name** – имя базы данных.\n\n### Пример вызова\n\n```text\n// input_data приведена в не закодированном виде для наглядности\nhttps://api.beget.com/api/stat/getDbLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={\"db_name\":\"login_dbname\"}\n\n// корректный пример вызова, input_data закодирован с помощью urlencode\nhttps://api.beget.com/api/stat/getDbLoad?login=user&passwd=password&output_format=json&input_format=json&input_data=%7B%22db_name%22%3A%22login_dbname%22%7D\n```\n\n### Пример ответа\n\n```text\n{\n \"hours\": [\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-02 20:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-02 21:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-02 22:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 15:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 16:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 17:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 18:00:00\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03 19:00:00\"\n }\n ...\n ],\n \"days\": [\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-04\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-13\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-20\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-21\"\n },\n {\n \"cpu_time\": \"31\",\n \"date\": \"2014-05-22\"\n },\n {\n \"cpu_time\": \"1\",\n \"date\": \"2014-05-23\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-24\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-05-25\"\n },\n {\n \"cpu_time\": \"0\",\n \"date\": \"2014-06-03\"\n }\n ...\n ],\n \"size_days\": [\n {\n \"date\": \"2014-05-04\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-05\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-06\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-07\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-08\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-09\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-10\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-11\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-23\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-24\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-25\",\n \"size\": \"229512\"\n },\n {\n \"date\": \"2014-05-26\",\n \"size\": \"229512\"\n }\n ...\n ]\n}\n```\n\nВозвращается список с нагрузкой за последние 30 дней (по датам).\nСписок с нагрузкой за последние сутки (по часам).\nСписок с размером базы (в байтах) за последние 30 дней (по датам).\n"
+  }
+]

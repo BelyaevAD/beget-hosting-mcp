@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include SECURITY.md
+recursive-include src/beget_mcp/data *.json
+recursive-include docs *.md *.json
+recursive-include examples *.json
+recursive-include scripts *.py
