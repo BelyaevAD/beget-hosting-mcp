@@ -43,6 +43,8 @@ BEGET_LOGIN=your-login
 BEGET_API_PASSWORD=your-api-password
 ```
 
+`BEGET_API_PASSWORD` must be a dedicated Beget API password, not the main control panel password. In the Beget control panel, open `https://cp.beget.com/settings/security/api`, set an API password, and explicitly allow API authentication before using this server.
+
 Do not commit credentials or paste them into chat clients.
 
 Write operations are disabled unless:

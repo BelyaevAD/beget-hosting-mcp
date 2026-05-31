@@ -20,7 +20,9 @@ This corpus covers the Beget hosting API documented under `https://beget.com/ru/
 Every API request must include:
 
 - `login`: hosting account login.
-- `passwd`: password/API password, URL-encoded before transmission.
+- `passwd`: dedicated API password, URL-encoded before transmission.
+
+API access is disabled by default in Beget accounts. Operators must open `https://cp.beget.com/settings/security/api`, set a separate API password, and explicitly allow API authentication before calls from this MCP server will work. The regular control panel password should not be used as `BEGET_API_PASSWORD`.
 
 Never log `passwd`, full request URLs containing credentials, or generated URLs with sensitive query parameters.
 

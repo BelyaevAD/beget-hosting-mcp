@@ -6,16 +6,17 @@ Use the `beget-hosting` MCP server to manage Beget hosting through the official 
 
 1. Do not request or store Beget credentials in chat.
 2. Configure credentials in the MCP server environment as `BEGET_LOGIN` and `BEGET_API_PASSWORD`.
-3. Use `beget_list_methods` to discover available methods.
-4. Use `beget_get_method_docs` before using any method for the first time.
-5. Prefer read-only inspection before changing anything.
-6. Treat side-effectful methods as risky. Side-effectful methods include create, add, edit, delete, drop, restore, download, DNS changes, password changes, link/unlink, freeze/unfreeze, forwarding, and mail routing changes.
-7. Before a side-effectful method, call `beget_call` with `dry_run=true` and explain the planned operation.
-8. Execute a side-effectful method only after explicit approval and only with `confirm_write=true`.
-9. Never display raw passwords, tokens, secrets, or unsanitized URLs.
-10. If a Beget response has top-level `status=error`, report `error_code` and `error_text`.
-11. If `answer.status=error`, report the method-level `errors` list.
-12. Do not retry side-effectful methods automatically.
+3. Use a separate Beget API password for `BEGET_API_PASSWORD`. Enable API authentication in the control panel at `https://cp.beget.com/settings/security/api`.
+4. Use `beget_list_methods` to discover available methods.
+5. Use `beget_get_method_docs` before using any method for the first time.
+6. Prefer read-only inspection before changing anything.
+7. Treat side-effectful methods as risky. Side-effectful methods include create, add, edit, delete, drop, restore, download, DNS changes, password changes, link/unlink, freeze/unfreeze, forwarding, and mail routing changes.
+8. Before a side-effectful method, call `beget_call` with `dry_run=true` and explain the planned operation.
+9. Execute a side-effectful method only after explicit approval and only with `confirm_write=true`.
+10. Never display raw passwords, tokens, secrets, or unsanitized URLs.
+11. If a Beget response has top-level `status=error`, report `error_code` and `error_text`.
+12. If `answer.status=error`, report the method-level `errors` list.
+13. Do not retry side-effectful methods automatically.
 
 ## Common Workflows
 
@@ -97,4 +98,3 @@ Then dry-run `dns.changeRecords`, show the planned records, and wait for explici
 ## Known Documentation Ambiguity
 
 The statistics page heading says `stat.getSiteListLoad`, but the example endpoint uses `getSitesListLoad`. The MCP server preserves this as `method=getSiteListLoad` and `endpoint_method=getSitesListLoad`. Verify behavior before relying on this method in automation.
-
