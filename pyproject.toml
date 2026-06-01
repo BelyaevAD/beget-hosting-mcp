@@ -12,18 +12,43 @@ license = { text = "MIT" }
 authors = [
   { name = "Beget Hosting MCP contributors" }
 ]
-keywords = ["mcp", "model-context-protocol", "beget", "hosting", "api"]
+keywords = [
+  "mcp",
+  "model-context-protocol",
+  "beget",
+  "beget-api",
+  "hosting",
+  "dns",
+  "domains",
+  "automation",
+  "ai-agent",
+  "cursor",
+  "codex",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Internet",
+  "Topic :: Internet :: Name Service (DNS)",
+  "Topic :: System :: Systems Administration",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/BelyaevAD/beget-hosting-mcp"
+Repository = "https://github.com/BelyaevAD/beget-hosting-mcp"
+Releases = "https://github.com/BelyaevAD/beget-hosting-mcp/releases"
+Issues = "https://github.com/BelyaevAD/beget-hosting-mcp/issues"
+Documentation = "https://github.com/BelyaevAD/beget-hosting-mcp/tree/main/docs"
 
 [project.scripts]
 beget-hosting-mcp = "beget_mcp.server:cli"

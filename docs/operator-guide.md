@@ -17,6 +17,7 @@ Use the `beget-hosting` MCP server to manage Beget hosting through the official 
 11. If a Beget response has top-level `status=error`, report `error_code` and `error_text`.
 12. If `answer.status=error`, report the method-level `errors` list.
 13. Do not retry side-effectful methods automatically.
+14. After changes that depend on DNS, background jobs, scheduler timing, web server reloads, mail routing, or registrar state, wait before deciding that the operation failed.
 
 ## Common Workflows
 
@@ -94,6 +95,34 @@ Inspect current DNS first:
 ```
 
 Then dry-run `dns.changeRecords`, show the planned records, and wait for explicit approval before `confirm_write=true`.
+
+DNS changes are not instant. `dns.getData` may show the new records on Beget before recursive resolvers, browsers, mail providers, or external verification tools see them. After `dns.changeRecords`, wait at least a few minutes before checking Beget nameservers directly and allow up to the previous DNS TTL, sometimes longer, before treating public propagation as failed. For real-domain checks, query both authoritative nameservers and public resolvers before reporting the final state.
+
+## Verification Delays
+
+Some Beget API methods return `true` when a request was accepted, not when every downstream system has already observed the result.
+
+- DNS records and nameserver changes: wait for authoritative Beget DNS to reload, then for recursive DNS caches to expire. Public checks can lag behind panel/API state.
+- Domain add, delete, register, renew, and delegation changes: re-check `domain.getList` for order/status fields and expect registrar or delegation state to lag.
+- Site add/delete and domain link/unlink: re-check `site.getList` and `domain.getList`, then allow time for web server virtual host routing to reload before testing the real hostname.
+- PHP version and directive changes: verify with `domain.getPhpVersion` or `domain.getDirectives`, then allow time for runtime/web server reload before testing application behavior.
+- Backup restore and download requests: these create background jobs. Poll `backup.getLog` until the job status is final before checking restored files, databases, or download availability.
+- MySQL create/drop/access/password changes: re-check `mysql.getList`, then allow a short delay before testing a live application connection.
+- Mailbox, forward, and domain mail changes: re-check mail API state first. Delivery tests can be delayed by MX/DNS cache, remote mail provider queues, and spam filtering.
+- Cron add/edit/enable changes: `cron.getList` verifies configuration, but execution cannot be proven until the next matching schedule window.
+
+When checking after a delayed operation, report the verification source: Beget API state, authoritative DNS, public resolver, HTTP response, mail delivery, cron output, backup log, or application-level test.
+
+## Cursor Tool List
+
+This MCP server exposes its functions through the standard `tools/list` MCP method. Expected tools:
+
+- `beget_list_methods`
+- `beget_get_method_docs`
+- `beget_call`
+- `beget_get_account_info`
+
+If Cursor connects but does not show the tool list, first verify the server outside Cursor with `beget-hosting-mcp --list-tools`. Then restart the MCP server entry in Cursor or restart Cursor. A connected client should call `initialize`, then `tools/list`; the initialize response advertises tool capability with `listChanged=false`.
 
 ## Known Documentation Ambiguity
 

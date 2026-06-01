@@ -1,10 +1,24 @@
 # Beget Hosting MCP
 
-MCP server for the official Beget hosting API.
+[![CI](https://github.com/BelyaevAD/beget-hosting-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/BelyaevAD/beget-hosting-mcp/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](pyproject.toml)
+[![MCP](https://img.shields.io/badge/MCP-2025--06--18-purple.svg)](https://modelcontextprotocol.io/)
+
+MCP server for the official Beget hosting API. It exposes Beget account, domain, DNS, site, FTP, MySQL, mail, cron, backup, and statistics operations to MCP-compatible clients and automation agents.
 
 This project gives MCP clients and agents a controlled tool interface for Beget hosting management: account info, sites, domains, DNS, FTP, MySQL, mail, cron, backups, and statistics.
 
 The API documentation corpus is preserved in `docs/`; the MCP server uses the machine-readable method metadata from that corpus.
+
+## Links
+
+- Repository: https://github.com/BelyaevAD/beget-hosting-mcp
+- Releases: https://github.com/BelyaevAD/beget-hosting-mcp/releases
+- Documentation corpus: [docs/README.md](docs/README.md)
+- Operator guide: [docs/operator-guide.md](docs/operator-guide.md)
+- Beget API settings: https://cp.beget.com/settings/security/api
+- Official Beget API docs: https://beget.com/ru/kb/api/beget-api
 
 ## Status
 
@@ -97,6 +111,8 @@ Prefer a separate MCP profile for write access.
 - `beget_call`: call any documented Beget hosting API method.
 - `beget_get_account_info`: shortcut for `user.getAccountInfo`.
 
+MCP clients should discover these through the standard `tools/list` request. The server also supports `beget-hosting-mcp --list-tools` for checking the exposed tool metadata outside a client such as Cursor.
+
 ## Safety Model
 
 - Credentials only come from environment variables.
@@ -106,6 +122,10 @@ Prefer a separate MCP profile for write access.
 - Side-effectful calls also require `confirm_write=true`.
 - Operators should dry-run write operations before execution.
 - The server checks both top-level Beget errors and nested method-level errors.
+
+## Verification Delays
+
+Some successful Beget calls mean that the request was accepted, while downstream systems still need time to observe it. DNS changes can appear in Beget before recursive resolvers and browsers see them; wait for authoritative DNS reload and normal TTL propagation before treating a public check as failed. Backup restore/download calls create background jobs, so poll `backup.getLog` before checking restored data. Site, domain link, PHP, mail, MySQL, and Cron changes may also need a short delay or the next scheduled run before a real-world test proves the final state.
 
 ## Smoke Tests
 

@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a problem with the Beget Hosting MCP server
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, MCP client, and package version.
+      placeholder: Windows 11, Python 3.13, Cursor, beget-hosting-mcp 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction Steps
+      description: Include the MCP tool call and sanitized parameters when possible.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Paste sanitized logs only. Remove passwords, tokens, account names, and real domains if needed.
+      render: text

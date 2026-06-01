@@ -77,6 +77,17 @@ The official documentation states a limit of no more than 60 API requests per mi
 
 Methods whose names start with `add`, `change`, `clear`, `create`, `delete`, `download`, `drop`, `edit`, `freeze`, `link`, `remove`, `restore`, `set`, `toggle`, `unlink`, or `unfreeze` are marked as side-effectful in `docs/schema/methods.json`. Wrapper code should make these explicit and avoid hidden retries.
 
+## Eventual Consistency
+
+Several operations are accepted by the API before every dependent system has applied the result. Wrapper and agent logic should separate "API accepted the request" from "the real-world effect is observable".
+
+- DNS updates can be visible in Beget before recursive resolvers, browsers, mail providers, and external checkers see them. Verify authoritative nameservers first, then public resolvers after TTL/cache delay.
+- Domain registration, renewal, deletion, and delegation fields can lag behind an accepted operation because registrar state is external.
+- Site creation, deletion, and domain link/unlink operations can require web server routing reload time before HTTP checks are reliable.
+- PHP version and directive changes can require runtime/web server reload time after API state changes.
+- Backup restore/download methods create jobs. Use `backup.getLog` and wait for a final status before validating files, databases, or download availability.
+- MySQL, mail, and Cron changes should be verified through their read methods first; application connections, message delivery, or scheduled execution can lag behind configuration state.
+
 ## Documentation Ambiguities
 
 - The statistics page uses heading `getSiteListLoad`, while the documented example URL uses `getSitesListLoad`. This mismatch is preserved in `docs/schema/methods.json` via `method`, `endpoint_method`, and `notes`; wrapper implementation should decide whether to expose an alias after live API verification.

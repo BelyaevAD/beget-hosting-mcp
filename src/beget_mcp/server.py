@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import os
 import sys
@@ -15,7 +16,8 @@ from typing import Any
 
 
 API_BASE = "https://api.beget.com/api"
-PROTOCOL_VERSION = "2024-11-05"
+PROTOCOL_VERSION = "2025-06-18"
+SUPPORTED_PROTOCOL_VERSIONS = {"2025-06-18", "2024-11-05"}
 WRITE_ENV = "BEGET_ALLOW_WRITE"
 
 
@@ -75,6 +77,22 @@ def load_methods(path: str | None = None) -> dict[tuple[str, str], MethodMeta]:
 
 
 METHODS = load_methods(os.getenv("BEGET_METHODS_JSON"))
+
+
+def trace(event: str, **fields: Any) -> None:
+    path = os.getenv("BEGET_MCP_TRACE_LOG")
+    if not path:
+        return
+    record = {
+        "ts": dt.datetime.now(dt.UTC).isoformat(),
+        "event": event,
+        **fields,
+    }
+    try:
+        with Path(path).open("a", encoding="utf-8") as file:
+            file.write(json.dumps(redact(record), ensure_ascii=False, separators=(",", ":")) + "\n")
+    except Exception:
+        pass
 
 
 def redact(value: Any) -> Any:
@@ -278,7 +296,9 @@ def get_method_docs(section: str, method: str) -> dict[str, Any]:
 TOOLS: list[dict[str, Any]] = [
     {
         "name": "beget_list_methods",
+        "title": "List Beget API Methods",
         "description": "List documented Beget hosting API methods, optionally filtered by section.",
+        "annotations": {"readOnlyHint": True, "destructiveHint": False, "idempotentHint": True, "openWorldHint": False},
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -290,7 +310,9 @@ TOOLS: list[dict[str, Any]] = [
     },
     {
         "name": "beget_get_method_docs",
+        "title": "Get Beget Method Documentation",
         "description": "Return preserved documentation for one Beget API method.",
+        "annotations": {"readOnlyHint": True, "destructiveHint": False, "idempotentHint": True, "openWorldHint": False},
         "inputSchema": {
             "type": "object",
             "required": ["section", "method"],
@@ -300,7 +322,9 @@ TOOLS: list[dict[str, Any]] = [
     },
     {
         "name": "beget_call",
+        "title": "Call Beget API",
         "description": "Call any documented Beget hosting API method. Side-effectful methods require BEGET_ALLOW_WRITE=true and confirm_write=true.",
+        "annotations": {"readOnlyHint": False, "destructiveHint": True, "idempotentHint": False, "openWorldHint": True},
         "inputSchema": {
             "type": "object",
             "required": ["section", "method"],
@@ -318,7 +342,9 @@ TOOLS: list[dict[str, Any]] = [
     },
     {
         "name": "beget_get_account_info",
+        "title": "Get Beget Account Info",
         "description": "Shortcut for user.getAccountInfo.",
+        "annotations": {"readOnlyHint": True, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
         "inputSchema": {
             "type": "object",
             "properties": {"return_raw": {"type": "boolean", "default": False}},
@@ -394,16 +420,24 @@ def handle_request(message: dict[str, Any]) -> dict[str, Any] | None:
     message_id = message.get("id")
     params = message.get("params") or {}
 
+    trace("request", id=message_id, method=method)
     if message_id is None and method and method.startswith("notifications/"):
         return None
     if method == "initialize":
+        requested_protocol = str(params.get("protocolVersion") or "")
+        protocol_version = requested_protocol if requested_protocol in SUPPORTED_PROTOCOL_VERSIONS else PROTOCOL_VERSION
         return {
             "jsonrpc": "2.0",
             "id": message_id,
             "result": {
-                "protocolVersion": PROTOCOL_VERSION,
-                "capabilities": {"tools": {}},
+                "protocolVersion": protocol_version,
+                "capabilities": {"tools": {"listChanged": False}},
                 "serverInfo": {"name": "beget-hosting-api", "version": "0.1.0"},
+                "instructions": (
+                    "Use tools/list to discover Beget MCP tools. Start with beget_list_methods, "
+                    "then beget_get_method_docs, and call Beget methods through beget_call. "
+                    "Write operations require BEGET_ALLOW_WRITE=true and confirm_write=true."
+                ),
             },
         }
     if method == "ping":
@@ -413,19 +447,31 @@ def handle_request(message: dict[str, Any]) -> dict[str, Any] | None:
     if method == "tools/call":
         result = call_tool(str(params.get("name")), params.get("arguments") or {})
         return {"jsonrpc": "2.0", "id": message_id, "result": response_text(result)}
+    if method == "resources/list":
+        return {"jsonrpc": "2.0", "id": message_id, "result": {"resources": []}}
+    if method == "resources/templates/list":
+        return {"jsonrpc": "2.0", "id": message_id, "result": {"resourceTemplates": []}}
+    if method == "prompts/list":
+        return {"jsonrpc": "2.0", "id": message_id, "result": {"prompts": []}}
+    if method in {"completion/complete", "logging/setLevel"}:
+        return {"jsonrpc": "2.0", "id": message_id, "result": {}}
     raise BegetMcpError(f"Unsupported MCP method: {method}", code="UNSUPPORTED_MCP_METHOD")
 
 
 def serve_stdio() -> int:
+    trace("serve_stdio_start", protocol=PROTOCOL_VERSION, methods=len(METHODS), tools=len(TOOLS), argv=sys.argv)
     while True:
         message = read_message()
         if message is None:
+            trace("serve_stdio_eof")
             return 0
         try:
             response = handle_request(message)
         except Exception as exc:
+            trace("error", id=message.get("id"), method=message.get("method"), error=str(exc))
             response = make_error_response(message.get("id"), exc)
         if response is not None:
+            trace("response", id=response.get("id"), has_error="error" in response)
             write_message(response)
 
 
