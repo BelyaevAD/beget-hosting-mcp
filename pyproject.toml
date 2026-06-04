@@ -44,7 +44,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/BelyaevAD/beget-hosting-mcp"
+Homepage = "https://belyaevad.github.io/beget-hosting-mcp/"
 Repository = "https://github.com/BelyaevAD/beget-hosting-mcp"
 Releases = "https://github.com/BelyaevAD/beget-hosting-mcp/releases"
 Issues = "https://github.com/BelyaevAD/beget-hosting-mcp/issues"

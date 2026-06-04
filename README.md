@@ -13,6 +13,7 @@ The API documentation corpus is preserved in `docs/`; the MCP server uses the ma
 
 ## Links
 
+- Landing page: https://belyaevad.github.io/beget-hosting-mcp/
 - Repository: https://github.com/BelyaevAD/beget-hosting-mcp
 - Releases: https://github.com/BelyaevAD/beget-hosting-mcp/releases
 - Documentation corpus: [docs/README.md](docs/README.md)
