@@ -122,7 +122,9 @@ This MCP server exposes its functions through the standard `tools/list` MCP meth
 - `beget_call`
 - `beget_get_account_info`
 
-If Cursor connects but does not show the tool list, first verify the server outside Cursor with `beget-hosting-mcp --list-tools`. Then restart the MCP server entry in Cursor or restart Cursor. A connected client should call `initialize`, then `tools/list`; the initialize response advertises tool capability with `listChanged=false`.
+If Cursor connects but does not show the tool list, first verify the server outside Cursor with `beget-hosting-mcp --list-tools`, then check that version 0.1.1 or newer is installed. Cursor uses newline-delimited JSON-RPC for stdio. Versions before 0.1.1 expected `Content-Length` framing and therefore waited indefinitely for a header terminator while Cursor waited for the initialize response.
+
+A healthy trace contains an `initialize` request and response, followed by `tools/list`. Repeated `serve_stdio_start` and `serve_stdio_eof` events with no request between them indicate a transport or stale-installation problem before Beget authentication. On Windows, prefer a direct absolute `python.exe` command with `args: ["-u", "-m", "beget_mcp.server"]` over a shell wrapper, and make sure that interpreter contains the current package. The initialize response advertises tool capability with `listChanged=false`.
 
 ## Known Documentation Ambiguity
 

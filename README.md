@@ -78,6 +78,7 @@ Installed command:
 {
   "mcpServers": {
     "beget-hosting": {
+      "type": "stdio",
       "command": "beget-hosting-mcp",
       "args": [],
       "env": {
@@ -105,6 +106,42 @@ For a write-enabled profile, add:
 
 Prefer a separate MCP profile for write access.
 
+### Cursor on Windows
+
+Cursor reads global MCP servers from `%USERPROFILE%\\.cursor\\mcp.json`. GUI applications do not always inherit the same `PATH` as an interactive terminal, so the most reliable Windows configuration uses the absolute path to the Python interpreter that has this package installed:
+
+```powershell
+py -0p
+python -m pip install --upgrade .
+```
+
+```json
+{
+  "mcpServers": {
+    "beget_hosting": {
+      "type": "stdio",
+      "command": "C:\\Path\\To\\python.exe",
+      "args": ["-u", "-m", "beget_mcp.server"],
+      "env": {
+        "BEGET_LOGIN": "your-login",
+        "BEGET_API_PASSWORD": "your-api-password"
+      }
+    }
+  }
+}
+```
+
+Replace `command` with the interpreter reported by `py -0p` and used for installation. The `-u` flag keeps stdio unbuffered. A `cmd.exe` or `run.cmd` wrapper is not required; Cursor passes the `env` values directly to the process, including passwords that contain shell metacharacters.
+
+Version 0.1.1 fixes Cursor tool discovery by using the MCP-required newline-delimited JSON-RPC framing on stdio. If Cursor remains on `Loading tools`, verify the installed version and run the protocol tests:
+
+```powershell
+python -m pip show beget-hosting-mcp
+python -m unittest discover -s tests -v
+```
+
+The server trace should show `initialize` followed by `tools/list`. Repeated `serve_stdio_start` and `serve_stdio_eof` events with no request between them usually mean that an older pre-0.1.1 package is still installed.
+
 ## Tools
 
 - `beget_list_methods`: list documented methods.
@@ -113,6 +150,8 @@ Prefer a separate MCP profile for write access.
 - `beget_get_account_info`: shortcut for `user.getAccountInfo`.
 
 MCP clients should discover these through the standard `tools/list` request. The server also supports `beget-hosting-mcp --list-tools` for checking the exposed tool metadata outside a client such as Cursor.
+
+The stdio transport writes exactly one compact JSON-RPC message per line, as required by MCP. For compatibility with older custom clients, incoming `Content-Length` framing is also accepted and answered in the same format.
 
 ## Safety Model
 
@@ -133,6 +172,7 @@ Some successful Beget calls mean that the request was accepted, while downstream
 ```powershell
 beget-hosting-mcp --check-docs
 beget-hosting-mcp --list-tools
+python -m unittest discover -s tests -v
 ```
 
 Dry-run a request without calling Beget:

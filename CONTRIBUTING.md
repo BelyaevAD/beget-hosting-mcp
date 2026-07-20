@@ -7,6 +7,7 @@ Contributions are welcome through issues and pull requests.
 ```powershell
 python -m pip install -e .
 python -m compileall src scripts
+python -m unittest discover -s tests -v
 beget-hosting-mcp --check-docs
 beget-hosting-mcp --list-tools
 ```

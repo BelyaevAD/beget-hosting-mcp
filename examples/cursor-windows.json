@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "beget_hosting": {
+      "type": "stdio",
+      "command": "C:\\Path\\To\\python.exe",
+      "args": ["-u", "-m", "beget_mcp.server"],
+      "env": {
+        "BEGET_LOGIN": "your-login",
+        "BEGET_API_PASSWORD": "your-api-password"
+      }
+    }
+  }
+}

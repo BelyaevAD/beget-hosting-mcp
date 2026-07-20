@@ -5,20 +5,24 @@ import datetime as dt
 import json
 import os
 import sys
-import traceback
 import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from importlib import resources
 from pathlib import Path
-from typing import Any
+from typing import Any, BinaryIO
+
+from . import __version__
 
 
 API_BASE = "https://api.beget.com/api"
 PROTOCOL_VERSION = "2025-06-18"
 SUPPORTED_PROTOCOL_VERSIONS = {"2025-06-18", "2024-11-05"}
 WRITE_ENV = "BEGET_ALLOW_WRITE"
+STDIO_NDJSON = "ndjson"
+STDIO_CONTENT_LENGTH = "content-length"
+MAX_MCP_MESSAGE_BYTES = 2 * 1024 * 1024
 
 
 class BegetMcpError(Exception):
@@ -47,6 +51,12 @@ class MethodMeta:
     @property
     def key(self) -> tuple[str, str]:
         return (self.section, self.method)
+
+
+@dataclass(frozen=True)
+class StdioMessage:
+    payload: dict[str, Any]
+    framing: str
 
 
 def bundled_methods_text() -> str:
@@ -99,7 +109,11 @@ def redact(value: Any) -> Any:
     if isinstance(value, dict):
         redacted: dict[str, Any] = {}
         for key, item in value.items():
-            if key.lower() in {"passwd", "password", "token", "secret", "api_key"}:
+            normalized_key = key.lower().replace("-", "_")
+            if any(
+                marker in normalized_key
+                for marker in ("passwd", "password", "token", "secret", "api_key", "authorization", "cookie")
+            ):
                 redacted[key] = "***REDACTED***"
             else:
                 redacted[key] = redact(item)
@@ -237,7 +251,7 @@ def call_beget_api(
         headers={
             "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
             "Accept": "application/json",
-            "User-Agent": "beget-hosting-mcp/0.1.0",
+            "User-Agent": f"beget-hosting-mcp/{__version__}",
         },
         method="POST",
     )
@@ -378,41 +392,84 @@ def response_text(value: Any) -> dict[str, Any]:
     return {"content": [{"type": "text", "text": json.dumps(value, ensure_ascii=False, indent=2)}]}
 
 
-def read_message() -> dict[str, Any] | None:
+def parse_stdio_json(raw: bytes) -> dict[str, Any]:
+    try:
+        message = json.loads(raw.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise BegetMcpError("Invalid JSON-RPC message on stdin.", code="INVALID_MCP_MESSAGE") from exc
+    if not isinstance(message, dict):
+        raise BegetMcpError("MCP stdio messages must be JSON objects.", code="INVALID_MCP_MESSAGE")
+    return message
+
+
+def read_content_length_message(input_stream: BinaryIO, first_line: bytes) -> StdioMessage:
     headers: dict[str, str] = {}
+    line = first_line
     while True:
-        line = sys.stdin.buffer.readline()
         if not line:
-            return None
+            raise BegetMcpError("Unexpected EOF in MCP headers.", code="INVALID_MCP_MESSAGE")
         line_text = line.decode("ascii", errors="replace").strip()
         if not line_text:
             break
         if ":" in line_text:
             key, value = line_text.split(":", 1)
             headers[key.lower()] = value.strip()
-    length = int(headers.get("content-length", "0"))
-    if length <= 0:
-        return None
-    return json.loads(sys.stdin.buffer.read(length).decode("utf-8"))
+        line = input_stream.readline()
+
+    try:
+        length = int(headers.get("content-length", "0"))
+    except ValueError as exc:
+        raise BegetMcpError("Invalid MCP Content-Length header.", code="INVALID_MCP_MESSAGE") from exc
+    if length <= 0 or length > MAX_MCP_MESSAGE_BYTES:
+        raise BegetMcpError("MCP Content-Length is outside the allowed range.", code="INVALID_MCP_MESSAGE")
+
+    raw = input_stream.read(length)
+    if len(raw) != length:
+        raise BegetMcpError("Unexpected EOF in MCP message body.", code="INVALID_MCP_MESSAGE")
+    return StdioMessage(parse_stdio_json(raw), STDIO_CONTENT_LENGTH)
 
 
-def write_message(message: dict[str, Any]) -> None:
+def read_message(input_stream: BinaryIO | None = None) -> StdioMessage | None:
+    stream = input_stream or sys.stdin.buffer
+    while True:
+        line = stream.readline(MAX_MCP_MESSAGE_BYTES + 1)
+        if not line:
+            return None
+        if len(line) > MAX_MCP_MESSAGE_BYTES:
+            raise BegetMcpError("MCP stdio message exceeds the size limit.", code="INVALID_MCP_MESSAGE")
+        if not line.strip():
+            continue
+        if line.lower().startswith(b"content-length:"):
+            return read_content_length_message(stream, line)
+        return StdioMessage(parse_stdio_json(line.rstrip(b"\r\n")), STDIO_NDJSON)
+
+
+def write_message(
+    message: dict[str, Any],
+    framing: str = STDIO_NDJSON,
+    output_stream: BinaryIO | None = None,
+) -> None:
+    stream = output_stream or sys.stdout.buffer
     data = json.dumps(message, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-    sys.stdout.buffer.write(f"Content-Length: {len(data)}\r\n\r\n".encode("ascii"))
-    sys.stdout.buffer.write(data)
-    sys.stdout.buffer.flush()
+    if framing == STDIO_CONTENT_LENGTH:
+        stream.write(f"Content-Length: {len(data)}\r\n\r\n".encode("ascii"))
+        stream.write(data)
+    else:
+        stream.write(data + b"\n")
+    stream.flush()
 
 
 def make_error_response(message_id: Any, exc: Exception) -> dict[str, Any]:
     data: dict[str, Any] = {}
     if isinstance(exc, BegetMcpError):
         data["code"] = exc.code
+        public_message = str(exc)
         if exc.data is not None:
             data["data"] = redact(exc.data)
     else:
         data["code"] = "INTERNAL_ERROR"
-        data["traceback"] = traceback.format_exc(limit=3)
-    return {"jsonrpc": "2.0", "id": message_id, "error": {"code": -32000, "message": str(exc), "data": data}}
+        public_message = "Internal server error."
+    return {"jsonrpc": "2.0", "id": message_id, "error": {"code": -32000, "message": public_message, "data": data}}
 
 
 def handle_request(message: dict[str, Any]) -> dict[str, Any] | None:
@@ -432,7 +489,7 @@ def handle_request(message: dict[str, Any]) -> dict[str, Any] | None:
             "result": {
                 "protocolVersion": protocol_version,
                 "capabilities": {"tools": {"listChanged": False}},
-                "serverInfo": {"name": "beget-hosting-api", "version": "0.1.0"},
+                "serverInfo": {"name": "beget-hosting-api", "version": __version__},
                 "instructions": (
                     "Use tools/list to discover Beget MCP tools. Start with beget_list_methods, "
                     "then beget_get_method_docs, and call Beget methods through beget_call. "
@@ -461,18 +518,25 @@ def handle_request(message: dict[str, Any]) -> dict[str, Any] | None:
 def serve_stdio() -> int:
     trace("serve_stdio_start", protocol=PROTOCOL_VERSION, methods=len(METHODS), tools=len(TOOLS), argv=sys.argv)
     while True:
-        message = read_message()
-        if message is None:
+        incoming = read_message()
+        if incoming is None:
             trace("serve_stdio_eof")
             return 0
+        message = incoming.payload
         try:
             response = handle_request(message)
         except Exception as exc:
-            trace("error", id=message.get("id"), method=message.get("method"), error=str(exc))
+            trace(
+                "error",
+                id=message.get("id"),
+                method=message.get("method"),
+                error=str(exc),
+                error_type=type(exc).__name__,
+            )
             response = make_error_response(message.get("id"), exc)
         if response is not None:
             trace("response", id=response.get("id"), has_error="error" in response)
-            write_message(response)
+            write_message(response, framing=incoming.framing)
 
 
 def cli() -> int:

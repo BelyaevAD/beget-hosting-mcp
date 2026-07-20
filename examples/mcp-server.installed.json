@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "beget-hosting": {
+      "type": "stdio",
       "command": "beget-hosting-mcp",
       "args": [],
       "env": {
