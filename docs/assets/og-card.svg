@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#102621"/>
+  <rect x="72" y="72" width="88" height="88" rx="14" fill="#0b7665"/>
+  <path d="M94 116h44M116 94v44" fill="none" stroke="#d9fff5" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="94" cy="116" r="8" fill="#ff7657"/>
+  <circle cx="116" cy="94" r="7" fill="#ffffff"/>
+  <circle cx="116" cy="138" r="7" fill="#ffd166"/>
+  <circle cx="138" cy="116" r="8" fill="#ffffff"/>
+  <text x="72" y="270" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="76" font-weight="700">Beget Hosting MCP</text>
+  <text x="72" y="340" fill="#b5c9c2" font-family="Segoe UI, Arial, sans-serif" font-size="34">MCP server for Beget hosting automation</text>
+  <line x1="72" y1="430" x2="1128" y2="430" stroke="#315047"/>
+  <text x="72" y="500" fill="#8ee5cf" font-family="Cascadia Mono, Consolas, monospace" font-size="28">domains · DNS · sites · mail · MySQL · backups</text>
+  <circle cx="1090" cy="116" r="12" fill="#50d890"/>
+  <text x="856" y="125" fill="#b5c9c2" font-family="Cascadia Mono, Consolas, monospace" font-size="24">4 tools connected</text>
+</svg>

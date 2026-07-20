@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beget Hosting MCP — Beget API, DNS and Domain Management</title>
+    <meta name="description" content="Open-source MCP server for the Beget hosting API. Manage domains, DNS, sites, mail, MySQL, FTP, cron, backups and account data from Cursor, Codex and other MCP clients.">
+    <meta name="keywords" content="Beget MCP, Beget API, Beget hosting API, MCP server, Model Context Protocol, DNS automation, domain management, Cursor MCP, Codex MCP">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#102621">
+    <link rel="canonical" href="https://belyaevad.github.io/beget-hosting-mcp/en/">
+    <link rel="alternate" hreflang="ru" href="https://belyaevad.github.io/beget-hosting-mcp/">
+    <link rel="alternate" hreflang="en" href="https://belyaevad.github.io/beget-hosting-mcp/en/">
+    <link rel="alternate" hreflang="x-default" href="https://belyaevad.github.io/beget-hosting-mcp/">
+    <link rel="sitemap" type="application/xml" href="https://belyaevad.github.io/beget-hosting-mcp/sitemap.xml">
+    <link rel="icon" type="image/svg+xml" href="../assets/brand-mark.svg">
+    <link rel="stylesheet" href="../assets/site.css">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:title" content="Beget Hosting MCP">
+    <meta property="og:description" content="Manage domains, DNS and other Beget API capabilities through the standard MCP protocol.">
+    <meta property="og:url" content="https://belyaevad.github.io/beget-hosting-mcp/en/">
+    <meta property="og:site_name" content="Beget Hosting MCP">
+    <meta property="og:image" content="https://belyaevad.github.io/beget-hosting-mcp/assets/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Beget Hosting MCP — Beget API automation server">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Beget Hosting MCP">
+    <meta name="twitter:description" content="Open-source MCP server for Beget hosting API management.">
+    <meta name="twitter:image" content="https://belyaevad.github.io/beget-hosting-mcp/assets/og-card.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Beget Hosting MCP",
+        "description": "Open-source MCP server for the official Beget hosting API.",
+        "codeRepository": "https://github.com/BelyaevAD/beget-hosting-mcp",
+        "url": "https://belyaevad.github.io/beget-hosting-mcp/en/",
+        "license": "https://github.com/BelyaevAD/beget-hosting-mcp/blob/main/LICENSE",
+        "programmingLanguage": "Python",
+        "runtimePlatform": "Python 3.11+",
+        "applicationCategory": "DeveloperApplication",
+        "softwareVersion": "0.1.1",
+        "inLanguage": "en",
+        "keywords": "MCP, Model Context Protocol, Beget API, hosting automation, DNS, domains",
+        "isAccessibleForFree": true
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="../">
+          <img src="../assets/brand-mark.svg" alt="" width="38" height="38">
+          <span>Beget Hosting MCP</span>
+        </a>
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="https://github.com/BelyaevAD/beget-hosting-mcp">GitHub</a>
+            <a href="https://github.com/BelyaevAD/beget-hosting-mcp/blob/main/docs/operator-guide.md">Documentation</a>
+            <a href="https://github.com/BelyaevAD/beget-hosting-mcp/releases">Releases</a>
+          </div>
+          <div class="language-switch" aria-label="Choose language">
+            <a href="../" lang="ru">RU</a>
+            <a href="./" lang="en" aria-current="page">EN</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-band">
+        <div class="hero-inner shell">
+          <div class="hero-copy">
+            <p class="eyebrow">MCP server for Beget API</p>
+            <h1>Beget Hosting MCP</h1>
+            <p class="hero-lead">Connect Beget domain, DNS, website, mail, database and backup management to Cursor, Codex or any other MCP-compatible client.</p>
+            <div class="hero-actions">
+              <a class="button" href="https://github.com/BelyaevAD/beget-hosting-mcp">View on GitHub</a>
+              <a class="button secondary" href="https://github.com/BelyaevAD/beget-hosting-mcp/releases/tag/v0.1.1">Download v0.1.1</a>
+            </div>
+            <div class="hero-meta" aria-label="Technical details">
+              <span>Python 3.11+</span>
+              <span>stdio</span>
+              <span>MIT License</span>
+            </div>
+          </div>
+
+          <div class="flow-scene" aria-label="MCP client to Beget API connection flow">
+            <span class="flow-line one" aria-hidden="true"></span>
+            <span class="flow-line two" aria-hidden="true"></span>
+            <span class="flow-line three" aria-hidden="true"></span>
+            <div class="flow-node client">
+              <strong>Cursor / Codex</strong>
+              <small>tools/list</small>
+            </div>
+            <div class="flow-node server">
+              <strong>Beget Hosting MCP</strong>
+              <small>4 tools</small>
+            </div>
+            <div class="flow-node api">
+              <strong>Beget API</strong>
+              <small>domain.getList</small>
+            </div>
+            <div class="flow-status">connected · read + guarded write</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats-band">
+        <div class="stats shell">
+          <div class="stat"><strong>4</strong><span>universal MCP tools</span></div>
+          <div class="stat"><strong>65</strong><span>Beget API methods indexed</span></div>
+          <div class="stat"><strong>2</strong><span>write-protection levels</span></div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="shell">
+          <div class="section-heading">
+            <h2>One interface for hosting operations</h2>
+            <p>The server follows the standard MCP protocol without hiding the Beget API model: clients can discover, inspect and call methods with explicit parameters.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature">
+              <span class="feature-number">01</span>
+              <h3>Tools are discovered automatically</h3>
+              <p>Cursor, Codex and other MCP clients receive the tool list at startup and can search the built-in catalogue for the right API method.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-number">02</span>
+              <h3>Writes require explicit consent</h3>
+              <p>Mutating requests need both server-level enablement and a separate confirmation flag on every tool call.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-number">03</span>
+              <h3>Documentation stays local</h3>
+              <p>The repository includes a Markdown archive and structured index of the official documentation, removing the need to scan the website again.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="shell">
+          <div class="section-heading">
+            <h2>Beget API coverage</h2>
+            <p>Individual operations depend on the hosting plan, API password permissions and capabilities available to the Beget account.</p>
+          </div>
+          <div class="coverage" aria-label="Supported Beget API areas">
+            <div class="coverage-item"><code>user.*</code><strong>Account and limits</strong></div>
+            <div class="coverage-item"><code>domain.*</code><strong>Domains and subdomains</strong></div>
+            <div class="coverage-item"><code>dns.*</code><strong>DNS records</strong></div>
+            <div class="coverage-item"><code>site.*</code><strong>Sites and bindings</strong></div>
+            <div class="coverage-item"><code>ftp.* / mysql.*</code><strong>FTP and databases</strong></div>
+            <div class="coverage-item"><code>mail.*</code><strong>Mail and mailboxes</strong></div>
+            <div class="coverage-item"><code>cron.*</code><strong>Scheduled tasks</strong></div>
+            <div class="coverage-item"><code>backup.* / statistic.*</code><strong>Backups and statistics</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="quick-start shell">
+          <div class="quick-copy">
+            <p class="eyebrow">Quick start</p>
+            <h2>Install without a separate service</h2>
+            <p>Install the package, create a dedicated Beget API password and add the launch command to your MCP client configuration.</p>
+            <a class="button secondary" href="https://github.com/BelyaevAD/beget-hosting-mcp#installation">Open setup guide</a>
+          </div>
+          <div class="code-window" aria-label="Installation commands">
+            <div class="code-toolbar">
+              <span class="window-dot"></span>
+              <span class="window-dot yellow"></span>
+              <span class="window-dot green"></span>
+              <span>terminal</span>
+            </div>
+            <pre><code>python -m pip install .
+beget-hosting-mcp --list-tools
+
+<span class="code-comment"># Credentials for a dedicated API password</span>
+BEGET_LOGIN=your-login
+BEGET_API_PASSWORD=your-api-password
+
+<span class="code-comment"># Writes are disabled by default</span>
+BEGET_ALLOW_WRITE=false</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="shell">
+          <div class="section-heading">
+            <h2>Predictable operations</h2>
+            <p>The wrapper adds checks around the API, but final results still depend on external infrastructure and may not be visible immediately.</p>
+          </div>
+          <ul class="safety-list">
+            <li>A dedicated API password must be enabled in the Beget control panel.</li>
+            <li>DNS changes propagate with a delay because of TTL and resolver caching.</li>
+            <li>Website, mail and backup operations may complete asynchronously.</li>
+            <li>Result checks do not repeat mutating requests unless explicitly required.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner shell">
+        <p>Beget Hosting MCP · open source under the MIT License</p>
+        <div class="footer-links">
+          <a href="https://github.com/BelyaevAD/beget-hosting-mcp">GitHub</a>
+          <a href="https://github.com/BelyaevAD/beget-hosting-mcp/blob/main/LICENSE">License</a>
+          <a href="../" lang="ru">Русский</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
