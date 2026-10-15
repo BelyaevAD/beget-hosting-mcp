@@ -1,9 +1,9 @@
 ---
 title: "Управление сайтами по API"
 source_url: https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-sajtami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-09T19:18:08+03:00
-modified_at: 2025-09-02T12:07:06+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-sajtami/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-09T19:18:08.000Z
+modified_at: 2026-07-16T19:00:05.000Z
 section: site
 ---
 
@@ -22,7 +22,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami](https://beget
 https://api.beget.com/api/site/getList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -82,7 +82,7 @@ https://api.beget.com/api/site/add?login=userlogin&passwd=password&input_format=
 https://api.beget.com/api/site/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22name%22%3A%22site.ru%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -110,7 +110,7 @@ https://api.beget.com/api/site/delete?login=userlogin&passwd=password&input_form
 https://api.beget.com/api/site/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A10%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -140,7 +140,7 @@ https://api.beget.com/api/site/linkDomain?login=userlogin&passwd=password&input_
 https://api.beget.com/api/site/linkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain_id%22%3A100%2C%22site_id%22%3A10%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -168,7 +168,7 @@ https://api.beget.com/api/site/unlinkDomain?login=userlogin&passwd=password&inpu
 https://api.beget.com/api/site/unlinkDomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain_id%22%3A100%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -198,7 +198,7 @@ https://api.beget.com/api/site/freeze?login=userlogin&passwd=password&input_form
 https://api.beget.com/api/site/freeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A+100%2C+%22excludedPaths%22%3A+%5B%22tmp%22%2C+%22cache%22%5D%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -226,7 +226,7 @@ https://api.beget.com/api/site/unfreeze?login=userlogin&passwd=password&input_fo
 https://api.beget.com/api/site/unfreeze?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7b%22id%22%3a+100%7d
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true

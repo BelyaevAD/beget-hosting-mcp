@@ -7,7 +7,6 @@ import sys
 import unittest
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -43,8 +42,7 @@ class StdioProtocolTests(unittest.TestCase):
             cwd=PROJECT_ROOT,
             env=env,
             input=input_bytes,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            capture_output=True,
             timeout=5,
             check=False,
         )
@@ -81,6 +79,19 @@ class StdioProtocolTests(unittest.TestCase):
         response = json.loads(body)
         self.assertEqual(response["id"], 1)
         self.assertIn("tools", response["result"]["capabilities"])
+
+    def test_latest_legacy_protocol_and_structured_tool_contracts(self) -> None:
+        request = initialize_request()
+        request["params"]["protocolVersion"] = "2025-11-25"
+        tools_list = {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}}
+
+        result = self.run_server(encode_ndjson(request) + encode_ndjson(tools_list))
+
+        self.assertEqual(result.returncode, 0, result.stderr.decode("utf-8", errors="replace"))
+        responses = [json.loads(line) for line in result.stdout.splitlines()]
+        self.assertEqual(responses[0]["result"]["protocolVersion"], "2025-11-25")
+        for tool in responses[1]["result"]["tools"]:
+            self.assertEqual(tool["outputSchema"]["required"], ["result"])
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@ import argparse
 import datetime as dt
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -15,14 +16,15 @@ from typing import Any, BinaryIO
 
 from . import __version__
 
-
 API_BASE = "https://api.beget.com/api"
-PROTOCOL_VERSION = "2025-06-18"
-SUPPORTED_PROTOCOL_VERSIONS = {"2025-06-18", "2024-11-05"}
+PROTOCOL_VERSION = "2025-11-25"
+SUPPORTED_PROTOCOL_VERSIONS = {"2025-11-25", "2025-06-18", "2024-11-05"}
 WRITE_ENV = "BEGET_ALLOW_WRITE"
 STDIO_NDJSON = "ndjson"
 STDIO_CONTENT_LENGTH = "content-length"
 MAX_MCP_MESSAGE_BYTES = 2 * 1024 * 1024
+MAX_API_RESPONSE_BYTES = 10 * 1024 * 1024
+IDENTIFIER_RE = re.compile(r"^[A-Za-z][A-Za-z0-9]*$")
 
 
 class BegetMcpError(Exception):
@@ -47,6 +49,7 @@ class MethodMeta:
     source_page: str
     documentation: str
     notes: list[str]
+    parameters: list[dict[str, Any]]
 
     @property
     def key(self) -> tuple[str, str]:
@@ -69,19 +72,40 @@ def load_methods(path: str | None = None) -> dict[tuple[str, str], MethodMeta]:
     else:
         raw_text = bundled_methods_text()
     raw_methods = json.loads(raw_text)
+    if not isinstance(raw_methods, list):
+        raise TypeError("Beget method metadata must be a JSON array.")
     result: dict[tuple[str, str], MethodMeta] = {}
-    for item in raw_methods:
+    for index, item in enumerate(raw_methods):
+        if not isinstance(item, dict):
+            raise TypeError(f"Beget method metadata item {index} must be an object.")
+        section = item.get("section")
+        method = item.get("method")
+        endpoint_method = item.get("endpoint_method", method)
+        if not isinstance(section, str) or not IDENTIFIER_RE.fullmatch(section):
+            raise ValueError(f"Invalid Beget API section in metadata item {index}.")
+        if not isinstance(method, str) or not IDENTIFIER_RE.fullmatch(method):
+            raise ValueError(f"Invalid Beget API method in metadata item {index}.")
+        if not isinstance(endpoint_method, str) or not IDENTIFIER_RE.fullmatch(endpoint_method):
+            raise ValueError(f"Invalid Beget API endpoint method in metadata item {index}.")
+        if not isinstance(item.get("side_effectful"), bool):
+            raise TypeError(f"side_effectful must be boolean in metadata item {index}.")
+        parameters = item.get("parameters") or []
+        if not isinstance(parameters, list) or not all(isinstance(value, dict) for value in parameters):
+            raise ValueError(f"parameters must be an array of objects in metadata item {index}.")
         meta = MethodMeta(
-            section=item["section"],
-            method=item["method"],
+            section=section,
+            method=method,
             endpoint=item["endpoint"],
-            endpoint_method=item.get("endpoint_method", item["method"]),
-            side_effectful=bool(item.get("side_effectful")),
+            endpoint_method=endpoint_method,
+            side_effectful=item["side_effectful"],
             source_url=item["source_url"],
             source_page=item["source_page"],
             documentation=item.get("documentation", ""),
             notes=list(item.get("notes") or []),
+            parameters=parameters,
         )
+        if meta.key in result:
+            raise ValueError(f"Duplicate Beget API method metadata: {meta.section}.{meta.method}.")
         result[meta.key] = meta
     return result
 
@@ -101,8 +125,8 @@ def trace(event: str, **fields: Any) -> None:
     try:
         with Path(path).open("a", encoding="utf-8") as file:
             file.write(json.dumps(redact(record), ensure_ascii=False, separators=(",", ":")) + "\n")
-    except Exception:
-        pass
+    except (OSError, TypeError, ValueError):
+        return
 
 
 def redact(value: Any) -> Any:
@@ -120,6 +144,10 @@ def redact(value: Any) -> Any:
         return redacted
     if isinstance(value, list):
         return [redact(item) for item in value]
+    if isinstance(value, str):
+        password = os.getenv("BEGET_API_PASSWORD", "")
+        if len(password) >= 4:
+            return value.replace(password, "***REDACTED***")
     return value
 
 
@@ -213,7 +241,10 @@ def call_beget_api(
     return_raw: bool = False,
 ) -> Any:
     meta = method_meta(section, method)
-    params = params or {}
+    if params is None:
+        params = {}
+    if not isinstance(params, dict):
+        raise BegetMcpError("params must be a JSON object.", code="INVALID_PARAMS")
     if meta.side_effectful and not dry_run:
         if not env_bool(WRITE_ENV):
             raise BegetMcpError(
@@ -228,8 +259,11 @@ def call_beget_api(
                 data={"section": section, "method": method},
             )
 
-    login, password = credentials()
     endpoint = f"{API_BASE}/{section}/{meta.endpoint_method}"
+    if dry_run:
+        login, password = "<BEGET_LOGIN>", "<BEGET_API_PASSWORD>"
+    else:
+        login, password = credentials()
     data = build_request_data(login, password, params, input_format)
     if dry_run:
         return {
@@ -257,13 +291,18 @@ def call_beget_api(
     )
     try:
         with urllib.request.urlopen(request, timeout=45) as response:
-            raw = response.read()
+            raw = response.read(MAX_API_RESPONSE_BYTES + 1)
+            if len(raw) > MAX_API_RESPONSE_BYTES:
+                raise BegetApiError(
+                    "Beget API response exceeded the size limit.",
+                    code="RESPONSE_TOO_LARGE",
+                )
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="replace")[:500]
         raise BegetApiError(
             f"Beget API HTTP error {exc.code}.",
             code="HTTP_ERROR",
-            data={"status": exc.code, "body_preview": detail},
+            data={"status": exc.code, "body_preview": redact(detail)},
         ) from exc
     except urllib.error.URLError as exc:
         raise BegetApiError(str(exc.reason), code="NETWORK_ERROR") from exc
@@ -285,6 +324,7 @@ def list_methods(section: str | None = None, include_docs: bool = False) -> list
             "side_effectful": item.side_effectful,
             "source_url": item.source_url,
             "notes": item.notes,
+            "parameters": item.parameters,
         }
         if include_docs:
             record["documentation"] = item.documentation
@@ -303,8 +343,17 @@ def get_method_docs(section: str, method: str) -> dict[str, Any]:
         "source_url": item.source_url,
         "source_page": item.source_page,
         "notes": item.notes,
+        "parameters": item.parameters,
         "documentation": item.documentation,
     }
+
+
+TOOL_OUTPUT_SCHEMA = {
+    "type": "object",
+    "properties": {"result": {}},
+    "required": ["result"],
+    "additionalProperties": False,
+}
 
 
 TOOLS: list[dict[str, Any]] = [
@@ -321,6 +370,7 @@ TOOLS: list[dict[str, Any]] = [
             },
             "additionalProperties": False,
         },
+        "outputSchema": TOOL_OUTPUT_SCHEMA,
     },
     {
         "name": "beget_get_method_docs",
@@ -333,6 +383,7 @@ TOOLS: list[dict[str, Any]] = [
             "properties": {"section": {"type": "string"}, "method": {"type": "string"}},
             "additionalProperties": False,
         },
+        "outputSchema": TOOL_OUTPUT_SCHEMA,
     },
     {
         "name": "beget_call",
@@ -353,6 +404,7 @@ TOOLS: list[dict[str, Any]] = [
             },
             "additionalProperties": False,
         },
+        "outputSchema": TOOL_OUTPUT_SCHEMA,
     },
     {
         "name": "beget_get_account_info",
@@ -364,32 +416,120 @@ TOOLS: list[dict[str, Any]] = [
             "properties": {"return_raw": {"type": "boolean", "default": False}},
             "additionalProperties": False,
         },
+        "outputSchema": TOOL_OUTPUT_SCHEMA,
     },
 ]
 
 
+def validate_tool_arguments(
+    args: Any,
+    *,
+    allowed: set[str],
+    required: set[str] | None = None,
+) -> dict[str, Any]:
+    if not isinstance(args, dict):
+        raise BegetMcpError("Tool arguments must be a JSON object.", code="INVALID_PARAMS")
+    unknown = sorted(set(args) - allowed)
+    if unknown:
+        raise BegetMcpError(
+            f"Unknown tool argument(s): {', '.join(unknown)}.",
+            code="INVALID_PARAMS",
+        )
+    missing = sorted((required or set()) - set(args))
+    if missing:
+        raise BegetMcpError(
+            f"Missing required tool argument(s): {', '.join(missing)}.",
+            code="INVALID_PARAMS",
+        )
+    return args
+
+
+def boolean_argument(args: dict[str, Any], name: str, default: bool = False) -> bool:
+    value = args.get(name, default)
+    if not isinstance(value, bool):
+        raise BegetMcpError(f"{name} must be a boolean.", code="INVALID_PARAMS")
+    return value
+
+
+def string_argument(args: dict[str, Any], name: str) -> str:
+    value = args.get(name)
+    if not isinstance(value, str) or not value:
+        raise BegetMcpError(f"{name} must be a non-empty string.", code="INVALID_PARAMS")
+    return value
+
+
 def call_tool(name: str, args: dict[str, Any]) -> Any:
     if name == "beget_list_methods":
-        return list_methods(args.get("section"), bool(args.get("include_docs", False)))
+        args = validate_tool_arguments(args, allowed={"section", "include_docs"})
+        section = args.get("section")
+        if section is not None and not isinstance(section, str):
+            raise BegetMcpError("section must be a string.", code="INVALID_PARAMS")
+        return list_methods(section, boolean_argument(args, "include_docs"))
     if name == "beget_get_method_docs":
-        return get_method_docs(str(args["section"]), str(args["method"]))
+        args = validate_tool_arguments(
+            args,
+            allowed={"section", "method"},
+            required={"section", "method"},
+        )
+        return get_method_docs(string_argument(args, "section"), string_argument(args, "method"))
     if name == "beget_call":
+        args = validate_tool_arguments(
+            args,
+            allowed={
+                "section",
+                "method",
+                "params",
+                "input_format",
+                "dry_run",
+                "confirm_write",
+                "return_raw",
+            },
+            required={"section", "method"},
+        )
+        params = args.get("params", {})
+        if not isinstance(params, dict):
+            raise BegetMcpError("params must be a JSON object.", code="INVALID_PARAMS")
+        input_format = args.get("input_format", "json")
+        if not isinstance(input_format, str):
+            raise BegetMcpError("input_format must be a string.", code="INVALID_PARAMS")
         return call_beget_api(
-            section=str(args["section"]),
-            method=str(args["method"]),
-            params=args.get("params") or {},
-            input_format=str(args.get("input_format") or "json"),
-            dry_run=bool(args.get("dry_run", False)),
-            confirm_write=bool(args.get("confirm_write", False)),
-            return_raw=bool(args.get("return_raw", False)),
+            section=string_argument(args, "section"),
+            method=string_argument(args, "method"),
+            params=params,
+            input_format=input_format,
+            dry_run=boolean_argument(args, "dry_run"),
+            confirm_write=boolean_argument(args, "confirm_write"),
+            return_raw=boolean_argument(args, "return_raw"),
         )
     if name == "beget_get_account_info":
-        return call_beget_api("user", "getAccountInfo", {}, return_raw=bool(args.get("return_raw", False)))
+        args = validate_tool_arguments(args, allowed={"return_raw"})
+        return call_beget_api(
+            "user",
+            "getAccountInfo",
+            {},
+            return_raw=boolean_argument(args, "return_raw"),
+        )
     raise BegetMcpError(f"Unknown tool: {name}", code="UNKNOWN_TOOL")
 
 
 def response_text(value: Any) -> dict[str, Any]:
-    return {"content": [{"type": "text", "text": json.dumps(value, ensure_ascii=False, indent=2)}]}
+    return {
+        "content": [{"type": "text", "text": json.dumps(value, ensure_ascii=False, indent=2)}],
+        "structuredContent": {"result": value},
+    }
+
+
+def tool_error_result(exc: Exception) -> dict[str, Any]:
+    if isinstance(exc, BegetMcpError):
+        payload: dict[str, Any] = {"code": exc.code, "message": str(exc)}
+        if exc.data is not None:
+            payload["data"] = redact(exc.data)
+    else:
+        payload = {"code": "INTERNAL_ERROR", "message": "Internal server error."}
+    return {
+        "content": [{"type": "text", "text": json.dumps(payload, ensure_ascii=False, indent=2)}],
+        "isError": True,
+    }
 
 
 def parse_stdio_json(raw: bytes) -> dict[str, Any]:
@@ -469,16 +609,25 @@ def make_error_response(message_id: Any, exc: Exception) -> dict[str, Any]:
     else:
         data["code"] = "INTERNAL_ERROR"
         public_message = "Internal server error."
-    return {"jsonrpc": "2.0", "id": message_id, "error": {"code": -32000, "message": public_message, "data": data}}
+    rpc_code = {
+        "INVALID_MCP_MESSAGE": -32600,
+        "UNSUPPORTED_MCP_METHOD": -32601,
+        "INVALID_PARAMS": -32602,
+    }.get(data["code"], -32000 if isinstance(exc, BegetMcpError) else -32603)
+    return {"jsonrpc": "2.0", "id": message_id, "error": {"code": rpc_code, "message": public_message, "data": data}}
 
 
 def handle_request(message: dict[str, Any]) -> dict[str, Any] | None:
+    if message.get("jsonrpc") != "2.0" or not isinstance(message.get("method"), str):
+        raise BegetMcpError("Invalid JSON-RPC request.", code="INVALID_MCP_MESSAGE")
     method = message.get("method")
     message_id = message.get("id")
     params = message.get("params") or {}
+    if not isinstance(params, dict):
+        raise BegetMcpError("JSON-RPC params must be an object.", code="INVALID_PARAMS")
 
     trace("request", id=message_id, method=method)
-    if message_id is None and method and method.startswith("notifications/"):
+    if "id" not in message:
         return None
     if method == "initialize":
         requested_protocol = str(params.get("protocolVersion") or "")
@@ -502,8 +651,17 @@ def handle_request(message: dict[str, Any]) -> dict[str, Any] | None:
     if method == "tools/list":
         return {"jsonrpc": "2.0", "id": message_id, "result": {"tools": TOOLS}}
     if method == "tools/call":
-        result = call_tool(str(params.get("name")), params.get("arguments") or {})
-        return {"jsonrpc": "2.0", "id": message_id, "result": response_text(result)}
+        name = params.get("name")
+        if not isinstance(name, str) or not name:
+            raise BegetMcpError("tools/call name must be a non-empty string.", code="INVALID_PARAMS")
+        arguments = params.get("arguments", {})
+        try:
+            result = call_tool(name, arguments)
+            tool_result = response_text(result)
+        except Exception as exc:  # noqa: BLE001 - tool failures must not terminate the MCP server
+            trace("tool_error", id=message_id, tool=name, error_type=type(exc).__name__)
+            tool_result = tool_error_result(exc)
+        return {"jsonrpc": "2.0", "id": message_id, "result": tool_result}
     if method == "resources/list":
         return {"jsonrpc": "2.0", "id": message_id, "result": {"resources": []}}
     if method == "resources/templates/list":
@@ -525,7 +683,7 @@ def serve_stdio() -> int:
         message = incoming.payload
         try:
             response = handle_request(message)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - return sanitized JSON-RPC errors for unexpected failures
             trace(
                 "error",
                 id=message.get("id"),

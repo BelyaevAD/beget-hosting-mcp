@@ -1,9 +1,9 @@
 ---
 title: "Управление DNS по API"
 source_url: https://beget.com/ru/kb/api/funkczii-upravleniya-dns
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-dns/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-09T17:57:15+03:00
-modified_at: 2025-09-02T12:00:34+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-dns/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-09T17:57:15.000Z
+modified_at: 2026-07-16T18:57:51.000Z
 section: dns
 ---
 
@@ -16,7 +16,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-upravleniya-dns](https://beget.com
 
 ### Дополнительные параметры
 
-- **fqdn** - полное имя домена (домены на национальных языках следует передавать в punycode).
+- **fqdn** - полное имя домена.
 
 ### Пример вызова
 
@@ -28,7 +28,7 @@ https://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_form
 https://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22fqdn%22%3A%22beget.ru%22%7D+
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -94,7 +94,7 @@ https://api.beget.com/api/dns/getData?login=userlogin&passwd=password&input_form
 
 ### Дополнительные параметры
 
-- **fqdn** – полное имя домена (домены на национальных языках следует передавать в punycode);
+- **fqdn** – полное имя домена;
 
 - **records** – массив, содержащий DNS записи.
 
@@ -204,7 +204,7 @@ https://api.beget.com/api/dns/changeRecords?login=userlogin&passwd=password&inpu
 https://api.beget.com/api/dns/changeRecords?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22fqdn%22%3A%22beget.ru%22%2C%22records%22%3A%7B%22A%22%3A%5B%7B%22priority%22%3A10%2C%22value%22%3A%22127.0.0.1%22%7D%5D%2C%22MX%22%3A%5B%7B%22priority%22%3A10%2Cvalue%22%3A%22mx1.beget.ru%22%7D%2C%7B%22priority%22%3A20%2C%22value%22%3A%22mx2.beget.ru%22%7D%5D%2C%22TXT%22%3A%5B%7B%22priority%22%3A10%2C%22value%22%3A%22TXT+record%22%7D%5D%7D%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true

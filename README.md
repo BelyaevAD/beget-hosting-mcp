@@ -62,6 +62,8 @@ BEGET_API_PASSWORD=your-api-password
 
 В `BEGET_API_PASSWORD` нужно указать отдельный пароль API Beget, а не основной пароль панели управления. Откройте в панели Beget страницу `https://cp.beget.com/settings/security/api`, задайте пароль API и явно разрешите аутентификацию через API перед использованием сервера.
 
+Если в панели Beget включены ограничения доступа по IP, они распространяются и на API. Адрес машины с MCP-сервером должен быть разрешён на странице `https://cp.beget.com/settings/security/ip`.
+
 Не добавляйте учётные данные в коммиты и не отправляйте их в чаты.
 
 Операции записи отключены, если не задано:
@@ -189,11 +191,12 @@ beget-hosting-mcp --dry-run-account-info
 
 - `docs/source-pages/`: полные Markdown-копии страниц документации Beget API.
 - `docs/beget-hosting-api.md`: нормализованный технический справочник.
+- `docs/contract-audit-2026-10-15.md`: результаты актуальной сверки контрактов и read-only проверки.
 - `docs/method-index.md`: индекс методов.
 - `docs/operator-guide.md`: правила использования и типовые сценарии.
-- `docs/schema/methods.json`: машиночитаемые сведения о методах.
+- `docs/schema/methods.json`: машиночитаемые сведения о методах, параметрах и найденных ошибках примеров.
 - `scripts/build_beget_docs.py`: генератор корпуса документации.
 
-## Неоднозначность в документации Beget
+## Ошибки и неоднозначности в документации Beget
 
-В заголовке страницы статистики указан метод `stat.getSiteListLoad`, но в примере endpoint используется `getSitesListLoad`. Сервер сохраняет эту особенность в виде `method=getSiteListLoad` и `endpoint_method=getSitesListLoad`.
+Исходные страницы сохраняются без исправлений. Генератор проверяет endpoint, HTTPS, percent-encoding и JSON в примерах, а найденные расхождения записывает в поле `notes` соответствующего метода. Среди подтверждённых проблем: `stat.getSiteListLoad` фактически вызывает endpoint `getSitesListLoad`, один пример `cron.edit` ошибочно ведёт на `cron.add`, а несколько примеров DNS и почты содержат повреждённый JSON.

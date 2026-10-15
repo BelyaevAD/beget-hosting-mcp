@@ -3,14 +3,13 @@ from __future__ import annotations
 import html
 import json
 import re
-import sys
+import urllib.parse
 import urllib.request
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-
 
 BASE_URL = "https://beget.com"
 API_BASE_URL = f"{BASE_URL}/ru/kb/api"
@@ -18,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT / "docs"
 SOURCE_DIR = DOCS_DIR / "source-pages"
 SCHEMA_DIR = DOCS_DIR / "schema"
+PACKAGE_METHODS_PATH = ROOT / "src" / "beget_mcp" / "data" / "methods.json"
 
 PAGES = [
     ("beget-api", "overview"),
@@ -74,6 +74,8 @@ METHOD_HEADING_RE = re.compile(
     r"^(?:get|add|change|check|clear|create|delete|download|drop|edit|forward|freeze|is|link|remove|restore|set|toggle|unfreeze|unlink)[A-Za-z0-9]*$"
 )
 
+PARAMETER_RE = re.compile(r"^-\s+\*\*([^*]+)\*\*\s*(?:[-–—]\s*)?(.*)$")
+
 
 def fetch_text(url: str) -> str:
     request = urllib.request.Request(
@@ -92,6 +94,18 @@ def find_payload_url(page_html: str) -> str:
     if not match:
         raise ValueError("Nuxt payload URL was not found")
     return html.unescape(match.group(1))
+
+
+def discover_api_slugs(page_html: str) -> set[str]:
+    slugs: set[str] = set()
+    for href in re.findall(r'href=["\']([^"\']+)["\']', page_html):
+        path = urllib.parse.urlsplit(html.unescape(href)).path.rstrip("/")
+        prefix = "/ru/kb/api/"
+        if path.startswith(prefix):
+            slug = path.removeprefix(prefix)
+            if slug and "/" not in slug:
+                slugs.add(slug)
+    return slugs
 
 
 class DevalueDecoder:
@@ -334,6 +348,95 @@ def extract_urls(text: str) -> list[str]:
     return ordered
 
 
+def extract_parameters(markdown: str) -> list[dict[str, Any]]:
+    match = re.search(r"### Дополнительные параметры\n(.*?)(?=\n### |\Z)", markdown, re.DOTALL)
+    if not match:
+        return []
+
+    parameters: list[dict[str, Any]] = []
+    for line in match.group(1).splitlines():
+        parameter_match = PARAMETER_RE.match(line.strip())
+        if not parameter_match:
+            continue
+        name = parameter_match.group(1).strip()
+        description = parameter_match.group(2).strip().rstrip(";")
+        normalized = description.lower()
+        optional = any(
+            marker in normalized
+            for marker in ("необязатель", "если не задан", "если не указан", "если не передан", "по умолчанию")
+        )
+        type_hint: str | None = None
+        if "массив" in normalized or "список" in normalized:
+            type_hint = "array"
+        elif "тип int" in normalized:
+            type_hint = "integer"
+        elif "boolean" in normalized:
+            type_hint = "boolean"
+        parameters.append(
+            {
+                "name": name,
+                "description": description,
+                "required": False if optional else None,
+                "type_hint": type_hint,
+                "sensitive": any(marker in name.lower() for marker in ("password", "passwd", "token", "secret")),
+            }
+        )
+    return parameters
+
+
+def inspect_example_urls(
+    section: str,
+    method: str,
+    documented_endpoint_method: str,
+    urls: list[str],
+) -> list[str]:
+    warnings: list[str] = []
+
+    def warn(message: str) -> None:
+        if message not in warnings:
+            warnings.append(message)
+
+    for url in urls:
+        parsed = urllib.parse.urlsplit(url)
+        parts = parsed.path.rstrip("/").split("/")
+        example_section = parts[-2] if len(parts) >= 2 else ""
+        example_method = parts[-1] if parts else ""
+        if parsed.scheme != "https":
+            warn(f"Documentation contains a non-HTTPS example URL for `{method}`; use HTTPS.")
+        if example_section != section:
+            warn(
+                f"Documentation example targets section `{example_section}` instead of `{section}`."
+            )
+        if example_method != documented_endpoint_method:
+            warn(
+                "Documentation contains an inconsistent example endpoint: "
+                f"`{example_section}.{example_method}` instead of "
+                f"`{section}.{documented_endpoint_method}`."
+            )
+
+        query = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
+        if (
+            parsed.query
+            and not {"login", "passwd"}.issubset(query)
+            and ("%3d" in parsed.query.lower() or "%26" in parsed.query.lower())
+        ):
+            warn(
+                "Documentation contains an example with the entire query string percent-encoded; "
+                "encode parameter values, not query separators."
+            )
+        for input_data in query.get("input_data", []):
+            if len(input_data) <= 1 or not input_data.lstrip().startswith(("{", "[")):
+                continue
+            try:
+                json.loads(input_data)
+            except json.JSONDecodeError:
+                warn(
+                    "Documentation contains an example whose decoded `input_data` is invalid JSON; "
+                    "construct JSON from structured parameters instead of copying the example verbatim."
+                )
+    return warnings
+
+
 def is_side_effectful(method: str) -> bool:
     return any(method.startswith(word) for word in SIDE_EFFECT_WORDS)
 
@@ -342,9 +445,9 @@ def infer_endpoint(section: str, method: str, markdown: str) -> str:
     urls = extract_urls(markdown)
     for url in urls:
         if re.search(rf"/{re.escape(method)}(?:\?|$)", url):
-            return url.split("?")[0]
+            return f"https://api.beget.com{urllib.parse.urlsplit(url).path}"
     if urls:
-        return urls[0].split("?")[0]
+        return f"https://api.beget.com{urllib.parse.urlsplit(urls[0]).path}"
     api_section = METHOD_SECTION_PREFIX.get(section, section)
     return f"https://api.beget.com/api/{api_section}/{method}"
 
@@ -427,6 +530,10 @@ def build_method_records(pages: list[PageData]) -> list[dict[str, Any]]:
                     "Documentation heading and example endpoint use different method names: "
                     f"heading `{method}`, endpoint `{documented_endpoint_method}`."
                 )
+            urls = extract_urls(block_md)
+            notes.extend(
+                inspect_example_urls(page.section, method, documented_endpoint_method, urls)
+            )
             records.append(
                 {
                     "section": page.section,
@@ -437,8 +544,9 @@ def build_method_records(pages: list[PageData]) -> list[dict[str, Any]]:
                     "source_page": f"../source-pages/{page.slug}.md",
                     "anchor": slugify_anchor(method),
                     "side_effectful": is_side_effectful(method),
+                    "parameters": extract_parameters(block_md),
                     "examples": examples,
-                    "api_urls_found": extract_urls(block_md),
+                    "api_urls_found": urls,
                     "notes": notes,
                     "documentation": block_md,
                 }
@@ -552,6 +660,12 @@ def build_api_spec(pages: list[PageData], records: list[dict[str, Any]], generat
         if section_records:
             methods = ", ".join(f"`{record['method']}`" for record in section_records)
             section_lines.append(f"- `{section}`: {methods}")
+    warning_lines = []
+    for record in records:
+        for note in record["notes"]:
+            warning_lines.append(f"- `{record['section']}.{record['method']}`: {note}")
+    if not warning_lines:
+        warning_lines.append("- No documentation inconsistencies detected.")
     return f"""# Beget Hosting API Technical Reference
 
 Generated: `{generated_at}`
@@ -566,7 +680,7 @@ This corpus covers the Beget hosting API documented under `{API_BASE_URL}`. It d
 
 - Protocol: HTTPS.
 - Base endpoint pattern: `https://api.beget.com/api/{{section}}/{{method}}`.
-- Requests use query parameters.
+- Requests may use GET, POST, or a combination. Beget recommends POST to avoid URL length limits.
 - The wrapper should keep a generic call primitive because all documented methods follow the same transport and response envelope.
 
 ## Authentication
@@ -574,9 +688,13 @@ This corpus covers the Beget hosting API documented under `{API_BASE_URL}`. It d
 Every API request must include:
 
 - `login`: hosting account login.
-- `passwd`: password/API password, URL-encoded before transmission.
+- `passwd`: dedicated API password, URL-encoded before transmission.
 
 Never log `passwd`, full request URLs containing credentials, or generated URLs with sensitive query parameters.
+
+API authentication is disabled by default in Beget accounts. Operators must open `https://cp.beget.com/settings/security/api`, set a separate API password, and explicitly allow API authentication. The regular control-panel password should not be used as `BEGET_API_PASSWORD`.
+
+If control-panel IP access restrictions are configured at `https://cp.beget.com/settings/security/ip`, they also apply to API requests. The MCP server machine must be allowed there.
 
 ## Request Formats
 
@@ -620,9 +738,22 @@ The official documentation states a limit of no more than 60 API requests per mi
 
 Methods whose names start with `add`, `change`, `clear`, `create`, `delete`, `download`, `drop`, `edit`, `freeze`, `link`, `remove`, `restore`, `set`, `toggle`, `unlink`, or `unfreeze` are marked as side-effectful in `docs/schema/methods.json`. Wrapper code should make these explicit and avoid hidden retries.
 
-## Documentation Ambiguities
+## Eventual Consistency
 
-- The statistics page uses heading `getSiteListLoad`, while the documented example URL uses `getSitesListLoad`. This mismatch is preserved in `docs/schema/methods.json` via `method`, `endpoint_method`, and `notes`; wrapper implementation should decide whether to expose an alias after live API verification.
+Several operations are accepted by the API before every dependent system has applied the result. Wrapper and agent logic should separate "API accepted the request" from "the real-world effect is observable".
+
+- DNS updates can be visible in Beget before recursive resolvers, browsers, mail providers, and external checkers see them. Verify authoritative nameservers first, then public resolvers after TTL/cache delay.
+- Domain registration, renewal, deletion, and delegation fields can lag behind an accepted operation because registrar state is external.
+- Site creation, deletion, and domain link/unlink operations can require web server routing reload time before HTTP checks are reliable.
+- PHP version and directive changes can require runtime/web server reload time after API state changes.
+- Backup restore/download methods create jobs. Use `backup.getLog` and wait for a final status before validating files, databases, or download availability.
+- MySQL, mail, and Cron changes should be verified through their read methods first; application connections, message delivery, or scheduled execution can lag behind configuration state.
+
+## Documentation Defects and Ambiguities
+
+The source pages are preserved verbatim. Detected inconsistencies are recorded in each method's `notes` field so agents do not copy broken examples into live requests.
+
+{chr(10).join(warning_lines)}
 
 ## Source Pages
 
@@ -641,9 +772,11 @@ This repository contains a local Markdown and JSON corpus for the official Beget
 
 - `source-pages/`: full Markdown copies of the official KB pages.
 - `beget-hosting-api.md`: normalized technical reference for wrapper design.
+- `contract-audit-2026-10-15.md`: dated contract comparison and live read-only verification notes.
 - `method-index.md`: method list grouped by API section.
 - `schema/pages.json`: page metadata and source URLs.
 - `schema/methods.json`: method metadata, examples, source snippets, side-effect flags.
+- `schema/methods.json` also includes extracted parameter descriptions and warnings for inconsistent examples.
 - `schema/errors.json`: common response envelope and error-handling notes.
 
 ## Regeneration
@@ -665,10 +798,24 @@ def write_json(path: Path, value: Any) -> None:
 def main() -> int:
     SOURCE_DIR.mkdir(parents=True, exist_ok=True)
     SCHEMA_DIR.mkdir(parents=True, exist_ok=True)
-    generated_at = datetime.now(timezone.utc).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
+
+    overview_html = fetch_text(f"{API_BASE_URL}/beget-api")
+    discovered_slugs = discover_api_slugs(overview_html)
+    expected_slugs = {slug for slug, _ in PAGES}
+    if discovered_slugs != expected_slugs:
+        added = sorted(discovered_slugs - expected_slugs)
+        removed = sorted(expected_slugs - discovered_slugs)
+        raise RuntimeError(
+            "Beget API page inventory changed. "
+            f"Add mappings for new pages or review removed pages. added={added}, removed={removed}"
+        )
 
     pages = [load_page(slug, section) for slug, section in PAGES]
     records = build_method_records(pages)
+    keys = [(record["section"], record["method"]) for record in records]
+    if len(keys) != len(set(keys)):
+        raise RuntimeError("Duplicate Beget API method keys were generated.")
 
     for page in pages:
         (SOURCE_DIR / f"{page.slug}.md").write_text(page_markdown(page), encoding="utf-8")
@@ -680,6 +827,7 @@ def main() -> int:
     (DOCS_DIR / "README.md").write_text(build_readme(generated_at), encoding="utf-8")
     write_json(SCHEMA_DIR / "pages.json", build_pages_schema(pages, generated_at))
     write_json(SCHEMA_DIR / "methods.json", records)
+    write_json(PACKAGE_METHODS_PATH, records)
     write_json(SCHEMA_DIR / "errors.json", build_errors_schema())
 
     print(f"Generated {len(pages)} pages and {len(records)} methods.")

@@ -1,9 +1,9 @@
 ---
 title: "Управление MySQL по API"
 source_url: https://beget.com/ru/kb/api/funkczii-upravleniya-mysql
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-mysql/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-09T18:57:32+03:00
-modified_at: 2025-09-02T12:04:11+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-mysql/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-09T18:57:32.000Z
+modified_at: 2026-07-16T18:59:18.000Z
 section: mysql
 ---
 
@@ -22,7 +22,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-upravleniya-mysql](https://beget.c
 https://api.beget.com/api/mysql/getList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -72,7 +72,7 @@ https://api.beget.com/api/mysql/addDb?login=userlogin&passwd=password&input_form
 https://api.beget.com/api/mysql/addDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22password%22%3A%22password%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -104,7 +104,7 @@ https://api.beget.com/api/mysql/addAccess?login=userlogin&passwd=password&input_
 https://api.beget.com/api/mysql/addAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22192.168.100.100%22%2C%22password%22%3A%22newpassword%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -132,7 +132,7 @@ https://api.beget.com/api/mysql/dropDb?login=userlogin&passwd=password&input_for
 https://api.beget.com/api/mysql/dropDb?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -162,7 +162,7 @@ https://api.beget.com/api/mysql/dropAccess?login=userlogin&passwd=password&input
 https://api.beget.com/api/mysql/dropAccess?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22localhost%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -194,7 +194,7 @@ https://api.beget.com/api/mysql/changeAccessPassword?login=userlogin&passwd=pass
 https://api.beget.com/api/mysql/changeAccessPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22newdb%22%2C%22access%22%3A%22localhost%22%2C%22password%22%3A%22newpassword%22%7D%0A
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true

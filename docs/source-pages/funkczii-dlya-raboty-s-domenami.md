@@ -1,9 +1,9 @@
 ---
 title: "Управление доменами по API"
 source_url: https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-10T13:31:09+03:00
-modified_at: 2025-09-02T12:10:47+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-10T13:31:09.000Z
+modified_at: 2026-07-16T19:02:29.000Z
 section: domain
 ---
 
@@ -22,7 +22,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami](https://be
 https://api.beget.com/api/domain/getList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -89,7 +89,7 @@ https://api.beget.com/api/domain/getList?login=userlogin&passwd=password&output_
 https://api.beget.com/api/domain/getZoneList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 {
@@ -130,7 +130,7 @@ https://api.beget.com/api/domain/addVirtual?login=userlogin&passwd=password&inpu
 https://api.beget.com/api/domain/addVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22hostname%22%3A%22domain%22%2C%22zone_id%22%3A+1%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 12510
@@ -158,7 +158,7 @@ https://api.beget.com/api/domain/delete?login=userlogin&passwd=password&input_fo
 https://api.beget.com/api/domain/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A12510%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -178,7 +178,7 @@ true
 https://api.beget.com/api/domain/getSubdomainList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -217,7 +217,7 @@ https://api.beget.com/api/domain/addSubdomainVirtual?login=userlogin&passwd=pass
 https://api.beget.com/api/domain/addSubdomainVirtual?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22subdomain%22%3A+%22subdomain%22%2C%22domain_id%22%3A+1000%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 12345
@@ -245,7 +245,7 @@ https://api.beget.com/api/domain/deleteSubdomain?login=userlogin&passwd=password
 https://api.beget.com/api/domain/deleteSubdomain?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22id%22%3A+1000%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -277,7 +277,7 @@ https://api.beget.com/api/domain/checkDomainToRegister?login=userlogin&passwd=pa
 https://api.beget.com/api/domain/checkDomainToRegister?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22hostname%22%3A+%22domain%22%2C+%22zone_id%22%3A+3%2C+%22period%22%3A1%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 {

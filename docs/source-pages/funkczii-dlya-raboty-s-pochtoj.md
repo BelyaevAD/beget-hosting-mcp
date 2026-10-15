@@ -1,9 +1,9 @@
 ---
 title: "Управление почтой по API"
 source_url: https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-10T14:12:17+03:00
-modified_at: 2025-09-02T12:14:14+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-10T14:12:17.000Z
+modified_at: 2026-07-16T19:03:23.000Z
 section: mail
 ---
 
@@ -30,7 +30,7 @@ https://api.beget.com/api/mail/getMailboxList?login=userlogin&passwd=password&in
 https://api.beget.com/api/mail/getMailboxList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -79,7 +79,7 @@ https://api.beget.com/api/mail/changeMailboxPassword?login=userlogin&passwd=pass
 https://api.beget.com/api/mail/changeMailboxPassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22mailbox_password%22%3A%22password%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -111,7 +111,7 @@ https://api.beget.com/api/mail/createMailbox?login=userlogin&passwd=password&inp
 https://api.beget.com/api/mail/createMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22mailbox_password%22%3A%22password%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -141,7 +141,7 @@ https://api.beget.com/api/mail/dropMailbox?login=userlogin&passwd=password&input
 https://api.beget.com/api/mail/dropMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -183,7 +183,7 @@ https://api.beget.com/api/mail/changeMailboxSettings?login=userlogin&passwd=pass
 https://api.beget.com/api/mail/changeMailboxSettings?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22spam_filter_status%22%3A1%2C%22spam_filter%22%3A50%2C%0A%22forward_mail_status%22%3A%22no_forward%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -215,7 +215,7 @@ https://api.beget.com/api/mail/forwardListAddMailbox?login=userlogin&passwd=pass
 https://api.beget.com/api/mail/forwardListAddMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22forward_mailbox%22%3A%22%22mail%40yandex.ru%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -247,7 +247,7 @@ https://api.beget.com/api/mail/forwardListDeleteMailbox?login=userlogin&passwd=p
 https://api.beget.com/api/mail/forwardListDeleteMailbox?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%2C%22forward_mailbox%22%3A%22%22mail%40yandex.ru%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -277,7 +277,7 @@ https://api.beget.com/api/mail/forwardListShow?login=userlogin&passwd=password&i
 https://api.beget.com/api/mail/forwardListShow?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22mailbox%22%3A%22info%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -312,7 +312,7 @@ https://api.beget.com/api/mail/setDomainMail?login=userlogin&passwd=password&inp
 https://api.beget.com/api/mail/setDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%2C%22domain_mailbox%22%3A%22mail%40site.ru%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -340,7 +340,7 @@ https://api.beget.com/api/mail/clearDomainMail?login=userlogin&passwd=password&i
 https://api.beget.com/api/mail/clearDomainMail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22domain%22%3A%22site.ru%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true

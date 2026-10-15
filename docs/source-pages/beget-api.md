@@ -1,9 +1,9 @@
 ---
 title: "Beget.API Хостинга"
 source_url: https://beget.com/ru/kb/api/beget-api
-payload_url: https://assets-site.beget.com/ru/kb/api/beget-api/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-06-24T12:41:40+03:00
-modified_at: 2025-09-02T10:54:12+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/beget-api/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-06-24T12:41:40.000Z
+modified_at: 2025-09-02T10:54:12.000Z
 section: overview
 ---
 

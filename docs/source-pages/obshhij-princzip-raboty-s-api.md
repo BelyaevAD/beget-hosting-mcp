@@ -1,9 +1,9 @@
 ---
 title: "Принципы работы с API"
 source_url: https://beget.com/ru/kb/api/obshhij-princzip-raboty-s-api
-payload_url: https://assets-site.beget.com/ru/kb/api/obshhij-princzip-raboty-s-api/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-01T14:31:55+03:00
-modified_at: 2026-03-30T10:09:36+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/obshhij-princzip-raboty-s-api/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-01T14:31:55.000Z
+modified_at: 2026-09-21T03:46:01.000Z
 section: principles
 ---
 
@@ -46,6 +46,7 @@ https://api.beget.com/api/user/getAccountInfo?login=user&passwd=mypassword
 
 Обратите внимание!По умолчанию доступ к API не предоставляется.
 Для работы с API требуется [установить отдельный пароль для доступа к API](https://cp.beget.com/settings/security/api) и разрешить аутентификацию по API в панели управления.
+Если в Панели управления настроено [ограничение доступа по IP](https://cp.beget.com/settings/security/ip), оно распространяется и на API: запросы будут приниматься только с адресов из белого списка и отклоняться с адресов из чёрного.
 
 ## Дополнительные параметры запроса
 

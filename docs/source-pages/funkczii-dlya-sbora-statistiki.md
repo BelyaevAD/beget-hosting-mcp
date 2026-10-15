@@ -1,9 +1,9 @@
 ---
 title: "Сбор статистики по API"
 source_url: https://beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-10T16:11:54+03:00
-modified_at: 2026-05-03T19:05:58+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-10T16:11:54.000Z
+modified_at: 2026-07-16T19:04:26.000Z
 section: stat
 ---
 
@@ -23,7 +23,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki](https://beg
 https://api.beget.com/api/stat/getSitesListLoad?login=user&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -61,7 +61,7 @@ ID сайта уникален в рамках одного пользовате
 https://api.beget.com/api/stat/getDbListLoad?login=user&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -103,7 +103,7 @@ https://api.beget.com/api/stat/getSiteLoad?login=user&passwd=password&output_for
 https://api.beget.com/api/stat/getSiteLoad?login=user&passwd=password&output_format=json&input_format=json&input_data={%22site_id%22:296164}
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 {
@@ -171,7 +171,7 @@ https://api.beget.com/api/stat/getDbLoad?login=user&passwd=password&output_forma
 https://api.beget.com/api/stat/getDbLoad?login=user&passwd=password&output_format=json&input_format=json&input_data=%7B%22db_name%22%3A%22login_dbname%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 {

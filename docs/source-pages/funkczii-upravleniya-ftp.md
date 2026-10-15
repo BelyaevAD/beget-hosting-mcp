@@ -1,9 +1,9 @@
 ---
 title: "Управление FTP по API"
 source_url: https://beget.com/ru/kb/api/funkczii-upravleniya-ftp
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-ftp/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-09T18:12:56+03:00
-modified_at: 2025-09-02T12:01:55+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-ftp/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-09T18:12:56.000Z
+modified_at: 2026-07-16T18:58:29.000Z
 section: ftp
 ---
 
@@ -20,7 +20,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-upravleniya-ftp](https://beget.com
 https://api.beget.com/api/ftp/getList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -57,7 +57,7 @@ https://api.beget.com/api/ftp/add?login=userlogin&passwd=password&input_format=j
 https://api.beget.com/api/ftp/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%2C%22homedir%22%3A%22%2Fsite.ru%2Fpublic_html%22%2C%22password%22%3A%22password%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -85,7 +85,7 @@ https://api.beget.com/api/ftp/changePassword?login=userlogin&passwd=password&inp
 https://api.beget.com/api/ftp/changePassword?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%2C%22password%22%3A%22newpassword%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -111,7 +111,7 @@ https://api.beget.com/api/ftp/delete?login=userlogin&passwd=password&input_forma
 https://api.beget.com/api/ftp/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22suffix%22%3A%22ftp1%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true

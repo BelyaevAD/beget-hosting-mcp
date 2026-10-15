@@ -71,7 +71,7 @@ This index is generated from the preserved Beget KB pages.
 - `addSubdomainVirtual` -> `https://api.beget.com/api/domain/addSubdomainVirtual` side-effectful; source: [funkczii-dlya-raboty-s-domenami.md](source-pages/funkczii-dlya-raboty-s-domenami.md)
 - `deleteSubdomain` -> `https://api.beget.com/api/domain/deleteSubdomain` side-effectful; source: [funkczii-dlya-raboty-s-domenami.md](source-pages/funkczii-dlya-raboty-s-domenami.md)
 - `checkDomainToRegister` -> `https://api.beget.com/api/domain/checkDomainToRegister`; source: [funkczii-dlya-raboty-s-domenami.md](source-pages/funkczii-dlya-raboty-s-domenami.md)
-- `getPhpVersion` -> `http://api.beget.com/api/domain/getPhpVersion`; source: [funkczii-dlya-raboty-s-domenami.md](source-pages/funkczii-dlya-raboty-s-domenami.md)
+- `getPhpVersion` -> `https://api.beget.com/api/domain/getPhpVersion`; source: [funkczii-dlya-raboty-s-domenami.md](source-pages/funkczii-dlya-raboty-s-domenami.md)
 - `changePhpVersion` -> `https://api.beget.com/api/domain/changePhpVersion` side-effectful; source: [funkczii-dlya-raboty-s-domenami.md](source-pages/funkczii-dlya-raboty-s-domenami.md)
 - `getDirectives` -> `https://api.beget.com/api/domain/getDirectives`; source: [funkczii-dlya-raboty-s-domenami.md](source-pages/funkczii-dlya-raboty-s-domenami.md)
 - `addDirectives` -> `https://api.beget.com/api/domain/addDirectives` side-effectful; source: [funkczii-dlya-raboty-s-domenami.md](source-pages/funkczii-dlya-raboty-s-domenami.md)

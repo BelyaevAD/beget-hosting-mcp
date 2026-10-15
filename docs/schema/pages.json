@@ -4,11 +4,11 @@
     "section": "overview",
     "title": "Beget.API Хостинга",
     "source_url": "https://beget.com/ru/kb/api/beget-api",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/beget-api/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/beget-api/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/beget-api.md",
-    "published_at": "2020-06-24T12:41:40+03:00",
-    "modified_at": "2025-09-02T10:54:12+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-06-24T12:41:40.000Z",
+    "modified_at": "2025-09-02T10:54:12.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -25,11 +25,11 @@
     "section": "principles",
     "title": "Принципы работы с API",
     "source_url": "https://beget.com/ru/kb/api/obshhij-princzip-raboty-s-api",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/obshhij-princzip-raboty-s-api/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/obshhij-princzip-raboty-s-api/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/obshhij-princzip-raboty-s-api.md",
-    "published_at": "2020-07-01T14:31:55+03:00",
-    "modified_at": "2026-03-30T10:09:36+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-01T14:31:55.000Z",
+    "modified_at": "2026-09-21T03:46:01.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -78,11 +78,11 @@
     "section": "user",
     "title": "Управление аккаунтом по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-akkauntom",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-akkauntom/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-akkauntom/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-upravleniya-akkauntom.md",
-    "published_at": "2020-07-09T12:59:15+03:00",
-    "modified_at": "2025-09-02T11:05:44+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-09T12:59:15.000Z",
+    "modified_at": "2026-07-16T18:43:08.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -98,7 +98,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -127,11 +127,11 @@
     "section": "backup",
     "title": "Управление бэкапами по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-bekapami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-bekapami/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-upravleniya-bekapami.md",
-    "published_at": "2020-07-09T15:57:51+03:00",
-    "modified_at": "2025-09-02T11:31:55+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-09T15:57:51.000Z",
+    "modified_at": "2026-07-16T18:44:41.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -143,7 +143,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -155,7 +155,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -171,7 +171,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -187,7 +187,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -203,7 +203,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -219,7 +219,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -235,7 +235,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -251,7 +251,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -263,7 +263,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       }
     ]
   },
@@ -272,11 +272,11 @@
     "section": "cron",
     "title": "Управление Cron по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-cron",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-cron/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-cron/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-upravleniya-cron.md",
-    "published_at": "2020-07-09T17:39:02+03:00",
-    "modified_at": "2025-09-02T11:42:42+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-09T17:39:02.000Z",
+    "modified_at": "2026-07-16T18:50:22.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -292,7 +292,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -340,7 +340,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -360,7 +360,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -380,7 +380,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -396,7 +396,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -416,7 +416,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       }
     ]
   },
@@ -425,11 +425,11 @@
     "section": "dns",
     "title": "Управление DNS по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-dns",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-dns/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-dns/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-upravleniya-dns.md",
-    "published_at": "2020-07-09T17:57:15+03:00",
-    "modified_at": "2025-09-02T12:00:34+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-09T17:57:15.000Z",
+    "modified_at": "2026-07-16T18:57:51.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -445,7 +445,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -477,7 +477,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       }
     ]
   },
@@ -486,11 +486,11 @@
     "section": "ftp",
     "title": "Управление FTP по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-ftp",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-ftp/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-ftp/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-upravleniya-ftp.md",
-    "published_at": "2020-07-09T18:12:56+03:00",
-    "modified_at": "2025-09-02T12:01:55+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-09T18:12:56.000Z",
+    "modified_at": "2026-07-16T18:58:29.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -502,7 +502,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -518,7 +518,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -534,7 +534,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -550,7 +550,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       }
     ]
   },
@@ -559,11 +559,11 @@
     "section": "mysql",
     "title": "Управление MySQL по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-mysql",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-mysql/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-mysql/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-upravleniya-mysql.md",
-    "published_at": "2020-07-09T18:57:32+03:00",
-    "modified_at": "2025-09-02T12:04:11+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-09T18:57:32.000Z",
+    "modified_at": "2026-07-16T18:59:18.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -579,7 +579,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -599,7 +599,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -619,7 +619,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -639,7 +639,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -659,7 +659,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -679,7 +679,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       }
     ]
   },
@@ -688,11 +688,11 @@
     "section": "site",
     "title": "Управление сайтами по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-upravleniya-sajtami",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-sajtami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-sajtami/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-upravleniya-sajtami.md",
-    "published_at": "2020-07-09T19:18:08+03:00",
-    "modified_at": "2025-09-02T12:07:06+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-09T19:18:08.000Z",
+    "modified_at": "2026-07-16T19:00:05.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -708,7 +708,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -728,7 +728,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -748,7 +748,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -768,7 +768,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -788,7 +788,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -808,7 +808,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -828,7 +828,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -857,11 +857,11 @@
     "section": "domain",
     "title": "Управление доменами по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-domenami/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-dlya-raboty-s-domenami.md",
-    "published_at": "2020-07-10T13:31:09+03:00",
-    "modified_at": "2025-09-02T12:10:47+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-10T13:31:09.000Z",
+    "modified_at": "2026-07-16T19:02:29.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -877,7 +877,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -893,7 +893,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -913,7 +913,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -933,7 +933,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -949,7 +949,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -969,7 +969,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -989,7 +989,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1009,7 +1009,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 3,
@@ -1122,11 +1122,11 @@
     "section": "mail",
     "title": "Управление почтой по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-raboty-s-pochtoj/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-dlya-raboty-s-pochtoj.md",
-    "published_at": "2020-07-10T14:12:17+03:00",
-    "modified_at": "2025-09-02T12:14:14+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-10T14:12:17.000Z",
+    "modified_at": "2026-07-16T19:03:23.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -1146,7 +1146,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1166,7 +1166,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1186,7 +1186,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1206,7 +1206,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1226,7 +1226,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1246,7 +1246,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1266,7 +1266,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1286,7 +1286,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1306,7 +1306,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1326,7 +1326,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       }
     ]
   },
@@ -1335,11 +1335,11 @@
     "section": "stat",
     "title": "Сбор статистики по API",
     "source_url": "https://beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki",
-    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937",
+    "payload_url": "https://assets-site.beget.com/ru/kb/api/funkczii-dlya-sbora-statistiki/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e",
     "local_file": "docs/source-pages/funkczii-dlya-sbora-statistiki.md",
-    "published_at": "2020-07-10T16:11:54+03:00",
-    "modified_at": "2026-05-03T19:05:58+03:00",
-    "generated_at": "2026-05-31T05:56:45.763631+00:00",
+    "published_at": "2020-07-10T16:11:54.000Z",
+    "modified_at": "2026-07-16T19:04:26.000Z",
+    "generated_at": "2026-10-15T15:29:42.791628+00:00",
     "headings": [
       {
         "level": 2,
@@ -1355,7 +1355,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1371,7 +1371,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1391,7 +1391,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       },
       {
         "level": 2,
@@ -1411,7 +1411,7 @@
       },
       {
         "level": 3,
-        "text": "Пример ответа"
+        "text": "Пример поля result в ответе"
       }
     ]
   }

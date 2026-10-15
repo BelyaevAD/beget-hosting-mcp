@@ -1,9 +1,9 @@
 ---
 title: "Управление бэкапами по API"
 source_url: https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-bekapami/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-09T15:57:51+03:00
-modified_at: 2025-09-02T11:31:55+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-bekapami/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-09T15:57:51.000Z
+modified_at: 2026-07-16T18:44:41.000Z
 section: backup
 ---
 
@@ -20,7 +20,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-upravleniya-bekapami](https://bege
 https://api.beget.com/api/backup/getFileBackupList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -61,7 +61,7 @@ https://api.beget.com/api/backup/getFileBackupList?login=userlogin&passwd=passwo
 https://api.beget.com/api/backup/getMysqlBackupList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -116,7 +116,7 @@ https://api.beget.com/api/backup/getFileList?login=userlogin&passwd=password&out
 https://api.beget.com/api/backup/getFileList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22path%22%3A%22%2Fsite.ru%2Fpublic_html%22%2C%22backup_id%22%3A14508595%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -192,7 +192,7 @@ https://api.beget.com/api/backup/getMysqlList?login=userlogin&passwd=password&in
 https://api.beget.com/api/backup/getMysqlList?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14216543%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [
@@ -225,7 +225,7 @@ https://api.beget.com/api/backup/restoreFile?login=userlogin&passwd=password&inp
 https://api.beget.com/api/backup/restoreFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14508595%2C%22paths%22%3A%5B%22%2Fsite.ru%2Fpublic_html%2F%22%2C%22%2Fsite2.ru%2Fpublic_html%2F%22%5D%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -253,7 +253,7 @@ https://api.beget.com/api/backup/restoreMysql?login=userlogin&passwd=password&in
 https://api.beget.com/api/backup/restoreMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A%2214132466%22%2C%22bases%22%3A%5B%22db_test%22%2C%22db_test2%22%5D%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -281,7 +281,7 @@ https://api.beget.com/api/backup/downloadFile?login=userlogin&passwd=password&in
 https://api.beget.com/api/backup/downloadFile?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14508595%2C%22paths%22%3A%5B%22%2Fsite.ru%2Fpublic_html%2F%22%2C%22%2Fsite2.ru%2Fpublic_html%2F%22%5D%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -309,7 +309,7 @@ https://api.beget.com/api/backup/downloadMysql?login=userlogin&passwd=password&i
 https://api.beget.com/api/backup/downloadMysql?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22backup_id%22%3A14216543%2C%22bases%22%3A%5B%22db_test%22%2C+%22db_test2%22%5D%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -327,7 +327,7 @@ true
 https://api.beget.com/api/backup/getLog?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 [

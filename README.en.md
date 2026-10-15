@@ -62,6 +62,8 @@ BEGET_API_PASSWORD=your-api-password
 
 `BEGET_API_PASSWORD` must be a dedicated Beget API password, not the main control panel password. In the Beget control panel, open `https://cp.beget.com/settings/security/api`, set an API password, and explicitly allow API authentication before using this server.
 
+If Beget control-panel IP access restrictions are enabled, they also apply to API requests. Allow the MCP server machine at `https://cp.beget.com/settings/security/ip`.
+
 Do not commit credentials or paste them into chat clients.
 
 Write operations are disabled unless:
@@ -189,11 +191,12 @@ beget-hosting-mcp --dry-run-account-info
 
 - `docs/source-pages/`: full Markdown copies of Beget KB API pages.
 - `docs/beget-hosting-api.md`: normalized technical reference.
+- `docs/contract-audit-2026-10-15.md`: current contract comparison and read-only verification report.
 - `docs/method-index.md`: method index.
 - `docs/operator-guide.md`: usage rules and common workflows.
-- `docs/schema/methods.json`: machine-readable methods.
+- `docs/schema/methods.json`: machine-readable methods, parameters, and detected example defects.
 - `scripts/build_beget_docs.py`: documentation corpus builder.
 
-## Known Beget Documentation Ambiguity
+## Known Beget Documentation Defects
 
-The statistics page heading says `stat.getSiteListLoad`, but the example endpoint uses `getSitesListLoad`. The server preserves this as `method=getSiteListLoad` and `endpoint_method=getSitesListLoad`.
+Source pages are preserved without corrections. The generator checks endpoints, HTTPS, percent-encoding, and JSON examples, then records discrepancies in each method's `notes` field. Confirmed issues include the `stat.getSiteListLoad` heading mapping to the real `getSitesListLoad` endpoint, a `cron.edit` example that incorrectly targets `cron.add`, and malformed JSON in several DNS and mail examples.

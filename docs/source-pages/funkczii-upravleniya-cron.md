@@ -1,9 +1,9 @@
 ---
 title: "Управление Cron по API"
 source_url: https://beget.com/ru/kb/api/funkczii-upravleniya-cron
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-cron/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-09T17:39:02+03:00
-modified_at: 2025-09-02T11:42:42+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-cron/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-09T17:39:02.000Z
+modified_at: 2026-07-16T18:50:22.000Z
 section: cron
 ---
 
@@ -22,7 +22,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-upravleniya-cron](https://beget.co
 https://api.beget.com/api/cron/getList?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
  [
@@ -135,7 +135,7 @@ https://api.beget.com/api/cron/edit?login=userlogin&passwd=password&input_format
 https://api.beget.com/api/cron/add?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22minutes%22%3A%22*%22%2C%22hours%22%3A%22*%22%2C%22days%22%3A%22*%22%2C%22months%22%3A%22*%22%2C%22weekdays%22%3A%22*%22%2C%22command%22%3A%22wget%20-O%20%5C%2Fdev%5C%2Fnull%20http%3A%5C%2F%5C%2Fwget%20vk.com%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 "row_number": 123456
@@ -163,7 +163,7 @@ https://api.beget.com/api/cron/delete?login=userlogin&passwd=password&input_form
 https://api.beget.com/api/cron/delete?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22row_number%22%3A1000%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true
@@ -193,7 +193,7 @@ https://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password
 https://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22row_number%22%3A1000%2C%22is_hidden%22%3A0%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
  "row_number": 4
@@ -213,7 +213,7 @@ https://api.beget.com/api/cron/changeHiddenState?login=userlogin&passwd=password
 https://api.beget.com/api/cron/getEmail?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
  admin@domain.ru
@@ -241,7 +241,7 @@ https://api.beget.com/api/cron/setEmail?login=userlogin&passwd=password&input_fo
 https://api.beget.com/api/cron/setEmail?login=userlogin&passwd=password&input_format=json&output_format=json&input_data=%7B%22email%22%3A%22admin%40domain.ru%22%7D
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
 true

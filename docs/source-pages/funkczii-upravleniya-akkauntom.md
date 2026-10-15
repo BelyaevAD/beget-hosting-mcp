@@ -1,9 +1,9 @@
 ---
 title: "Управление аккаунтом по API"
 source_url: https://beget.com/ru/kb/api/funkczii-upravleniya-akkauntom
-payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-akkauntom/_payload.json?1d2409a7-6569-40d6-898b-d89ff365e937
-published_at: 2020-07-09T12:59:15+03:00
-modified_at: 2025-09-02T11:05:44+03:00
+payload_url: https://assets-site.beget.com/ru/kb/api/funkczii-upravleniya-akkauntom/_payload.json?1a0e95a4-6277-4210-885e-37997ff7e91e
+published_at: 2020-07-09T12:59:15.000Z
+modified_at: 2026-07-16T18:43:08.000Z
 section: user
 ---
 
@@ -22,7 +22,7 @@ Source: [https://beget.com/ru/kb/api/funkczii-upravleniya-akkauntom](https://beg
 https://api.beget.com/api/user/getAccountInfo?login=userlogin&passwd=password&output_format=json
 ```
 
-### Пример ответа
+### Пример поля result в ответе
 
 ```text
  "plan_name": "Great", // Имя тарифа

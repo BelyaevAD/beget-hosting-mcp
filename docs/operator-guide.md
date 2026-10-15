@@ -7,17 +7,18 @@ Use the `beget-hosting` MCP server to manage Beget hosting through the official 
 1. Do not request or store Beget credentials in chat.
 2. Configure credentials in the MCP server environment as `BEGET_LOGIN` and `BEGET_API_PASSWORD`.
 3. Use a separate Beget API password for `BEGET_API_PASSWORD`. Enable API authentication in the control panel at `https://cp.beget.com/settings/security/api`.
-4. Use `beget_list_methods` to discover available methods.
-5. Use `beget_get_method_docs` before using any method for the first time.
-6. Prefer read-only inspection before changing anything.
-7. Treat side-effectful methods as risky. Side-effectful methods include create, add, edit, delete, drop, restore, download, DNS changes, password changes, link/unlink, freeze/unfreeze, forwarding, and mail routing changes.
-8. Before a side-effectful method, call `beget_call` with `dry_run=true` and explain the planned operation.
-9. Execute a side-effectful method only after explicit approval and only with `confirm_write=true`.
-10. Never display raw passwords, tokens, secrets, or unsanitized URLs.
-11. If a Beget response has top-level `status=error`, report `error_code` and `error_text`.
-12. If `answer.status=error`, report the method-level `errors` list.
-13. Do not retry side-effectful methods automatically.
-14. After changes that depend on DNS, background jobs, scheduler timing, web server reloads, mail routing, or registrar state, wait before deciding that the operation failed.
+4. If Beget IP access restrictions are enabled, allow the MCP server machine at `https://cp.beget.com/settings/security/ip`; the same allow/deny rules apply to API requests.
+5. Use `beget_list_methods` to discover available methods.
+6. Use `beget_get_method_docs` before using any method for the first time and inspect its `parameters` and `notes` fields.
+7. Prefer read-only inspection before changing anything.
+8. Treat side-effectful methods as risky. Side-effectful methods include create, add, edit, delete, drop, restore, download, DNS changes, password changes, link/unlink, freeze/unfreeze, forwarding, and mail routing changes.
+9. Before a side-effectful method, call `beget_call` with `dry_run=true` and explain the planned operation.
+10. Execute a side-effectful method only after explicit approval and only with the JSON boolean `confirm_write=true`; a string value is invalid.
+11. Never display raw passwords, tokens, secrets, or unsanitized URLs.
+12. If a Beget response has top-level `status=error`, report `error_code` and `error_text`.
+13. If `answer.status=error`, report the method-level `errors` list.
+14. Do not retry side-effectful methods automatically.
+15. After changes that depend on DNS, background jobs, scheduler timing, web server reloads, mail routing, or registrar state, wait before deciding that the operation failed.
 
 ## Common Workflows
 
@@ -126,6 +127,6 @@ If Cursor connects but does not show the tool list, first verify the server outs
 
 A healthy trace contains an `initialize` request and response, followed by `tools/list`. Repeated `serve_stdio_start` and `serve_stdio_eof` events with no request between them indicate a transport or stale-installation problem before Beget authentication. On Windows, prefer a direct absolute `python.exe` command with `args: ["-u", "-m", "beget_mcp.server"]` over a shell wrapper, and make sure that interpreter contains the current package. The initialize response advertises tool capability with `listChanged=false`.
 
-## Known Documentation Ambiguity
+## Known Documentation Defects
 
-The statistics page heading says `stat.getSiteListLoad`, but the example endpoint uses `getSitesListLoad`. The MCP server preserves this as `method=getSiteListLoad` and `endpoint_method=getSitesListLoad`. Verify behavior before relying on this method in automation.
+The MCP catalog preserves official source text and records detected defects in each method's `notes` field. Do not copy a source example when a note reports a wrong endpoint, non-HTTPS URL, malformed percent-encoding, or invalid JSON. In particular, `stat.getSiteListLoad` maps to the live `getSitesListLoad` endpoint.
