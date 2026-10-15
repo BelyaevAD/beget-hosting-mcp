@@ -92,22 +92,28 @@
           </div>
 
           <div class="flow-scene" aria-label="Схема подключения MCP-клиента к Beget API">
-            <span class="flow-line one" aria-hidden="true"></span>
-            <span class="flow-line two" aria-hidden="true"></span>
-            <span class="flow-line three" aria-hidden="true"></span>
-            <div class="flow-node client">
-              <strong>Cursor / Codex</strong>
-              <small>tools/list</small>
+            <div class="flow-header">
+              <span class="flow-live">Рабочее соединение</span>
+              <span class="flow-version">v0.1.2</span>
             </div>
-            <div class="flow-node server">
-              <strong>Beget Hosting MCP</strong>
-              <small>4 инструмента</small>
+            <div class="flow-stack">
+              <div class="flow-node client">
+                <span class="flow-index" aria-hidden="true">01</span>
+                <span class="flow-node-copy"><small>MCP-клиент</small><strong>Cursor / Codex</strong></span>
+                <code>tools/list</code>
+              </div>
+              <div class="flow-node server">
+                <img class="flow-node-icon" src="assets/brand-mark.svg" alt="" width="32" height="32">
+                <span class="flow-node-copy"><small>Сервер</small><strong>Beget Hosting MCP</strong></span>
+                <code>4 инструмента</code>
+              </div>
+              <div class="flow-node api">
+                <span class="flow-index" aria-hidden="true">03</span>
+                <span class="flow-node-copy"><small>Официальный API</small><strong>Beget API</strong></span>
+                <code>domain.getList</code>
+              </div>
             </div>
-            <div class="flow-node api">
-              <strong>Beget API</strong>
-              <small>domain.getList</small>
-            </div>
-            <div class="flow-status">connected · read + guarded write</div>
+            <div class="flow-status"><span>Подключено</span><span>чтение · запись с подтверждением</span></div>
           </div>
         </div>
       </section>

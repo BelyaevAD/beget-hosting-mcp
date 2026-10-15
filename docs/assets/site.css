@@ -138,7 +138,10 @@ img {
 }
 
 .hero-inner {
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 48px;
+  align-items: center;
   min-height: 500px;
   padding: 74px 0 76px;
 }
@@ -238,104 +241,159 @@ h1 {
 }
 
 .flow-scene {
-  position: absolute;
-  z-index: 1;
-  top: 67px;
-  right: 0;
-  width: 390px;
-  height: 350px;
+  width: 420px;
+  min-height: 376px;
+  padding: 19px;
+  border: 1px solid #315047;
+  border-radius: 8px;
   color: #ffffff;
+  background: #0d2c25;
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.22);
 }
 
-.flow-line {
-  position: absolute;
-  height: 1px;
-  background: #56776d;
-  transform-origin: left center;
+.flow-header,
+.flow-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.flow-line.one {
-  top: 92px;
-  left: 83px;
-  width: 133px;
-}
-
-.flow-line.two {
-  top: 222px;
-  left: 206px;
-  width: 118px;
-  transform: rotate(-38deg);
-}
-
-.flow-line.three {
-  top: 116px;
-  left: 205px;
-  width: 106px;
-  transform: rotate(63deg);
-}
-
-.flow-node {
-  position: absolute;
-  width: 150px;
-  min-height: 74px;
-  padding: 13px 14px;
-  border: 1px solid var(--hero-line);
-  border-radius: 7px;
-  background: #17352d;
-  box-shadow: 0 15px 38px rgba(0, 0, 0, 0.22);
-}
-
-.flow-node strong,
-.flow-node small {
-  display: block;
-}
-
-.flow-node strong {
-  margin-bottom: 3px;
-  font-size: 0.86rem;
-}
-
-.flow-node small {
+.flow-header {
+  min-height: 28px;
+  margin-bottom: 15px;
   color: #8eaaa1;
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.flow-node.client {
-  top: 54px;
-  left: 0;
+.flow-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.flow-node.server {
-  top: 54px;
-  right: 24px;
-  border-color: #4b8f7e;
-}
-
-.flow-node.api {
-  top: 216px;
-  left: 112px;
-}
-
-.flow-status {
-  position: absolute;
-  right: 0;
-  bottom: 8px;
-  padding-left: 16px;
-  color: #8ee5cf;
-  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
-  font-size: 0.72rem;
-}
-
-.flow-status::before {
-  position: absolute;
-  top: 4px;
-  left: 0;
+.flow-live::before {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #50d890;
+  box-shadow: 0 0 0 4px rgba(80, 216, 144, 0.1);
   content: "";
+}
+
+.flow-version {
+  padding: 3px 7px;
+  border: 1px solid #315047;
+  border-radius: 4px;
+  color: #b5c9c2;
+  background: #12362d;
+}
+
+.flow-stack {
+  position: relative;
+  display: grid;
+  gap: 9px;
+}
+
+.flow-stack::before {
+  position: absolute;
+  z-index: 0;
+  top: 34px;
+  bottom: 34px;
+  left: 25px;
+  width: 1px;
+  background: #4b7468;
+  content: "";
+}
+
+.flow-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  gap: 10px;
+  min-height: 72px;
+  align-items: center;
+  padding: 10px 12px 10px 7px;
+  border: 1px solid var(--hero-line);
+  border-radius: 6px;
+  background: #13382f;
+}
+
+.flow-index,
+.flow-node-icon {
+  position: relative;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  margin-left: 3px;
+}
+
+.flow-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #456c61;
+  border-radius: 50%;
+  color: #9bb8af;
+  background: var(--hero);
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.61rem;
+  font-weight: 750;
+}
+
+.flow-node-icon {
+  border-radius: 6px;
+}
+
+.flow-node-copy,
+.flow-node-copy strong,
+.flow-node-copy small {
+  display: block;
+}
+
+.flow-node-copy small {
+  margin-bottom: 1px;
+  color: #84a198;
+  font-size: 0.61rem;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.flow-node-copy strong {
+  font-size: 0.83rem;
+  line-height: 1.2;
+}
+
+.flow-node code {
+  color: #9cebd8;
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.64rem;
+  text-align: right;
+}
+
+.flow-node.server {
+  border-color: #4b8f7e;
+  background: #18483c;
+  box-shadow: inset 3px 0 0 #8ee5cf;
+}
+
+.flow-status {
+  min-height: 31px;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid #315047;
+  color: #8ee5cf;
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.63rem;
+}
+
+.flow-status span:last-child {
+  color: #8eaaa1;
+  text-align: right;
 }
 
 .stats-band {
@@ -687,12 +745,17 @@ pre {
     font-size: 3.5rem;
   }
 
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) 370px;
+    gap: 32px;
+  }
+
   .hero-copy {
     max-width: 600px;
   }
 
   .flow-scene {
-    right: -120px;
+    width: 370px;
   }
 
   .coverage {
@@ -719,6 +782,7 @@ pre {
   }
 
   .hero-inner {
+    display: block;
     padding: 58px 0 64px;
   }
 
@@ -732,9 +796,7 @@ pre {
   }
 
   .flow-scene {
-    top: 180px;
-    right: -190px;
-    opacity: 0.3;
+    display: none;
   }
 
   .section,
